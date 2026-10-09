@@ -112,6 +112,17 @@
   details[open] summary::after{content:"\2212"}
   details p{margin:10px 0 0;color:var(--body);font-size:15px}
 
+  /* lotpulse band */
+  .also{padding:64px 0}
+  .also-card{border:1px solid var(--line);border-radius:14px;padding:34px 36px;display:flex;gap:36px;align-items:center;justify-content:space-between}
+  .also-card h2{text-align:left;font-size:clamp(22px,2.6vw,26px);margin-bottom:10px}
+  .also-card p{margin:0;color:var(--body);font-size:15.5px;max-width:620px}
+  .also-card .also-fine{font-size:13.5px;margin-top:10px}
+  .also-eyebrow{display:block;font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--blue);margin-bottom:10px}
+  .btn-outline{border-color:var(--navy);color:var(--navy);white-space:nowrap;flex:none}
+  .btn-outline:hover{background:var(--mist)}
+  @media (max-width:760px){.also-card{flex-direction:column;align-items:flex-start;padding:26px 22px;gap:22px}}
+
   /* demo */
   .demo{background:linear-gradient(170deg,#16388c,var(--navy) 60%,#0e2663);color:#fff;text-align:center}
   .demo .lead{color:#c3d0f5}
@@ -260,6 +271,20 @@
       <details><summary>Does VinPop text my shoppers?</summary><p>No. It doesn't ask for text consent and nothing is texted from it. Your team follows up the way they normally would.</p></details>
       <details><summary>Does the voucher guarantee the offer?</summary><p>No. The voucher is a record of the shopper's request, and its code identifies the lead. Your dealership verifies it against the lead and honors the offer under your own terms.</p></details>
       <details><summary>What does it take to install?</summary><p>One Google Tag Manager tag and your inventory feed.</p></details>
+    </div>
+  </div>
+</section>
+
+<section id="lotpulse" class="also">
+  <div class="wrap">
+    <div class="also-card">
+      <div>
+        <span class="also-eyebrow">Also from our team</span>
+        <h2>Not every shopper is ready for an offer.</h2>
+        <p>Some want to keep an eye on a car first. LotPulse adds a "Watch this car" button to your vehicle pages. A shopper taps it, enters a mobile number, and gets a text when the price drops or the car sells. You see which vehicles are drawing interest, and the lead goes to your CRM.</p>
+        <p class="also-fine">VinPop and LotPulse run from the same inventory feed.</p>
+      </div>
+      <a class="btn btn-outline" href="https://lotpulse.io" target="_blank" rel="noopener">Visit lotpulse.io &rarr;</a>
     </div>
   </div>
 </section>
