@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VinPop | Dealer-branded offers on the exact car a shopper is viewing</title>
+<meta name="description" content="VinPop shows a dollar offer on the exact vehicle a shopper is viewing, in your dealership's name, and sends the lead to your CRM with the car and the offer attached.">
+<link rel="icon" href="vinpop-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#12307a; --navy-deep:#0b1b3d; --ink:#14213d; --blue:#1447ff;
+    --orange:#ff4b1a; --orange-dark:#e23d10; --mist:#eef1f9; --line:#dfe4ef;
+    --body:#55607a; --white:#fff; --radius:10px; --max:1080px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);background:#fff;line-height:1.55;-webkit-font-smoothing:antialiased}
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+  h1,h2,h3{margin:0;line-height:1.15;letter-spacing:-.02em}
+  h2{font-size:clamp(26px,3.4vw,34px);font-weight:700;text-align:center}
+  .lead{max-width:640px;margin:14px auto 0;text-align:center;color:var(--body);font-size:17px}
+  section{padding:88px 0}
+
+  /* buttons */
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:6px;font-weight:700;font-size:15px;text-decoration:none;border:1.5px solid transparent;cursor:pointer;font-family:inherit;transition:background .15s,border-color .15s}
+  .btn-primary{background:var(--orange);color:#fff}
+  .btn-primary:hover{background:var(--orange-dark)}
+  .btn-ghost{border-color:rgba(255,255,255,.45);color:#fff}
+  .btn-ghost:hover{border-color:#fff}
+  .btn:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid #ffb199;outline-offset:2px}
+
+  /* nav */
+  header.nav{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line)}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .nav .logo img{height:34px;width:auto}
+  .nav nav{display:flex;gap:30px}
+  .nav nav a{text-decoration:none;font-size:14px;font-weight:600;color:var(--ink)}
+  .nav nav a:hover{color:var(--blue)}
+  .nav .btn{padding:9px 16px;font-size:14px}
+
+  /* hero */
+  .hero{background:linear-gradient(160deg,#16388c 0%,var(--navy) 55%,#0e2663 100%);color:#fff;padding:84px 0 96px}
+  .hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+  .eyebrow{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#ff8d6b;background:rgba(255,75,26,.14);padding:5px 10px;border-radius:4px;margin-bottom:18px}
+  .hero h1{font-size:clamp(34px,5vw,52px);font-weight:800}
+  .hero p.sub{font-size:18px;color:#c3d0f5;max-width:480px;margin:20px 0 30px}
+  .hero .cta{display:flex;gap:12px;flex-wrap:wrap}
+
+  /* popup mock */
+  .mock-stage{position:relative;max-width:340px;margin:0 auto;width:100%}
+  .mock{background:#fff;color:var(--ink);border-radius:14px;overflow:hidden;box-shadow:0 30px 60px rgba(4,12,40,.45)}
+  .mock-head{background:var(--blue);color:#fff;padding:20px 20px 18px;text-align:center}
+  .mock-dealer{font-size:12px;font-weight:600;opacity:.9;letter-spacing:.02em}
+  .mock-amt{font-size:46px;font-weight:800;letter-spacing:-.03em;line-height:1.05;margin-top:6px}
+  .mock-on{font-size:13px;opacity:.9}
+  .mock-car{padding:12px 20px;border-bottom:1px solid var(--line);background:#f7f9fd}
+  .mock-car b{display:block;font-size:14px}
+  .mock-car span{font-size:11.5px;color:var(--body)}
+  .mock-body{padding:16px 20px 18px}
+  .mock-field{height:38px;border:1px solid var(--line);border-radius:6px;background:#f7f9fd;margin-bottom:9px;padding:0 12px;display:flex;align-items:center;font-size:12.5px;color:#8a93a8}
+  .mock-btn{background:var(--orange);color:#fff;text-align:center;font-weight:700;font-size:14px;border-radius:6px;padding:11px;margin-top:4px}
+  .mock-fine{font-size:10.5px;color:#8a93a8;text-align:center;margin-top:10px}
+  .mock-toast{position:absolute;left:-28px;bottom:26px;background:#fff;color:var(--ink);border-radius:8px;padding:9px 13px;font-size:12px;box-shadow:0 10px 26px rgba(4,12,40,.3);display:flex;gap:9px;align-items:center}
+  .mock-toast i{width:18px;height:18px;border-radius:50%;background:#16a34a;display:grid;place-items:center;color:#fff;font-size:11px;font-style:normal;flex:none}
+  .mock-toast b{display:block;font-size:12px}
+  .mock-toast span{color:var(--body);font-size:11px}
+  .mock-tab{position:absolute;right:-30px;top:38%;background:var(--blue);color:#fff;font-weight:800;font-size:11px;letter-spacing:.04em;padding:12px 7px;border-radius:8px 0 0 8px;writing-mode:vertical-rl;box-shadow:0 8px 20px rgba(4,12,40,.35);border:2px solid #fff;border-right:0}
+  .mock-note{text-align:center;color:#9fb1e6;font-size:12px;margin-top:16px}
+
+  /* facts strip */
+  .facts{padding:0;border-bottom:1px solid var(--line)}
+  .facts .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+  .fact{padding:30px 16px;text-align:center}
+  .fact b{display:block;font-size:26px;font-weight:800;color:var(--navy);letter-spacing:-.02em}
+  .fact span{font-size:13px;color:var(--body)}
+
+  /* cards */
+  .tint{background:var(--mist)}
+  .grid{display:grid;gap:18px;margin-top:44px}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  .g2{grid-template-columns:repeat(2,1fr)}
+  .card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px}
+  .num{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-size:13px;font-weight:800;color:#fff;background:var(--navy);margin-bottom:16px}
+  .card:nth-child(even) .num{background:var(--orange)}
+  .feat .num{border-radius:6px;width:28px;height:28px;font-size:11px}
+  .card h3{font-size:17px;font-weight:700;margin-bottom:8px;letter-spacing:-.01em}
+  .card p{margin:0;font-size:14.5px;color:var(--body)}
+
+  /* faq */
+  .faq{max-width:760px;margin:40px auto 0}
+  details{border-bottom:1px solid var(--line);padding:18px 0}
+  summary{cursor:pointer;font-weight:700;font-size:16.5px;list-style:none;display:flex;justify-content:space-between;gap:16px}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";color:var(--blue);font-size:22px;line-height:1;flex:none}
+  details[open] summary::after{content:"\2212"}
+  details p{margin:10px 0 0;color:var(--body);font-size:15px}
+
+  /* demo */
+  .demo{background:linear-gradient(170deg,#16388c,var(--navy) 60%,#0e2663);color:#fff;text-align:center}
+  .demo .lead{color:#c3d0f5}
+  form{max-width:560px;margin:34px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  form label{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  form input{width:100%;height:46px;border-radius:6px;border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.1);color:#fff;padding:0 14px;font:inherit;font-size:15px}
+  form input::placeholder{color:#b6c4ec}
+  form .btn{grid-column:1/-1;justify-content:center;height:50px;font-size:16px}
+  .hp{position:absolute;left:-9999px}
+  #form-msg{grid-column:1/-1;font-size:14px;min-height:20px;color:#c3d0f5;margin:0}
+
+  /* footer */
+  footer{background:var(--navy-deep);color:#93a3cf;padding:48px 0 30px;font-size:13.5px}
+  .foot-top{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;padding-bottom:28px;border-bottom:1px solid rgba(255,255,255,.1)}
+  .wordmark{font-size:24px;font-weight:800;letter-spacing:-.02em;color:#fff}
+  .wordmark em{font-style:normal;color:#6f8dff}
+  .foot-top p{margin:8px 0 0;max-width:280px}
+  .foot-links{display:flex;gap:26px;flex-wrap:wrap;align-items:flex-start}
+  .foot-links a,.foot-bot a{text-decoration:none}
+  .foot-links a:hover,.foot-bot a:hover{color:#fff}
+  .foot-bot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:22px;font-size:12.5px}
+  .foot-bot span a{margin-left:20px}
+
+  @media (max-width:900px){
+    .hero .wrap{grid-template-columns:1fr;gap:48px}
+    .g3{grid-template-columns:1fr}
+    .facts .wrap{grid-template-columns:repeat(2,1fr)}
+    .mock-toast{left:-8px}
+    .mock-tab{right:-12px}
+  }
+  @media (max-width:640px){
+    section{padding:64px 0}
+    .hero{padding:56px 0 72px}
+    .nav nav{display:none}
+    .g2{grid-template-columns:1fr}
+    form{grid-template-columns:1fr}
+    .wrap{padding:0 16px}
+    .mock-stage{max-width:300px}
+  }
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="VinPop home"><img src="vinpop-logo.png" alt="VinPop"></a>
+    <nav aria-label="Main">
+      <a href="#how">How It Works</a>
+      <a href="#features">Features</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn btn-primary" href="#demo">Get a Demo</a>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Automotive lead generation</span>
+      <h1>Turn browsers into buyers with a real dollar offer.</h1>
+      <p class="sub">VinPop shows a specific dollar offer on the exact car your shopper is viewing, in your dealership's name. They raise their hand. You get the lead.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="#demo">Request a Demo &rarr;</a>
+        <a class="btn btn-ghost" href="#how">See How It Works</a>
+      </div>
+    </div>
+
+    <div>
+      <div class="mock-stage" role="img" aria-label="Example VinPop offer: 500 dollars off a 2026 RAM 1500 Laramie, with name, email and phone fields and a Claim my offer button">
+        <div class="mock" aria-hidden="true">
+          <div class="mock-head">
+            <div class="mock-dealer">YOUR DEALERSHIP</div>
+            <div class="mock-amt">$500 OFF</div>
+            <div class="mock-on">on this vehicle</div>
+          </div>
+          <div class="mock-car">
+            <b>2026 RAM 1500 Laramie</b>
+            <span>Stock #R1042 &middot; VIN 1C6SRFJT&bull;&bull;&bull;&bull;&bull;4821</span>
+          </div>
+          <div class="mock-body">
+            <div class="mock-field">Full name</div>
+            <div class="mock-field">Email address</div>
+            <div class="mock-field">Phone number</div>
+            <div class="mock-btn">Claim my offer</div>
+            <div class="mock-fine">Your dealership's own fine print goes here.</div>
+          </div>
+        </div>
+        <div class="mock-toast" aria-hidden="true"><i>&#10003;</i><div><b>Lead sent to CRM</b><span>2026 RAM 1500 Laramie &middot; $500 offer</span></div></div>
+        <div class="mock-tab" aria-hidden="true">$500 OFF</div>
+      </div>
+      <p class="mock-note">Illustration. Your name, colors, offer and fine print.</p>
+    </div>
+  </div>
+</section>
+
+<section class="facts" aria-label="Quick facts">
+  <div class="wrap">
+    <div class="fact"><b>1 tag</b><span>Installs through Google Tag Manager</span></div>
+    <div class="fact"><b>Exact VIN</b><span>Every offer names the car on screen</span></div>
+    <div class="fact"><b>Once</b><span>Per car, per visit. Then it backs off</span></div>
+    <div class="fact"><b>0 texts</b><span>No text consent asked, none sent</span></div>
+  </div>
+</section>
+
+<section id="how" class="tint">
+  <div class="wrap">
+    <h2>How VinPop Works</h2>
+    <div class="grid g3">
+      <div class="card"><div class="num">01</div><h3>Shopper views a vehicle</h3><p>A shopper lands on one of your vehicle pages and spends time with a specific car. VinPop stays off search and listing pages.</p></div>
+      <div class="card"><div class="num">02</div><h3>VinPop pops a real offer</h3><p>After a delay you choose, a dollar offer appears on that exact car, in your dealership's name and colors. On desktop it can also appear as the shopper moves to leave.</p></div>
+      <div class="card"><div class="num">03</div><h3>The lead goes to your CRM</h3><p>Name, email, phone, the vehicle and the offer they claimed are sent to your CRM as soon as they submit. No manual entry.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="features">
+  <div class="wrap">
+    <h2>Everything Your Sales Team Needs</h2>
+    <p class="lead">Built for the shopper who is ready to act if the deal is right.</p>
+    <div class="grid g2 feat">
+      <div class="card"><div class="num">01</div><h3>Real offers on real cars</h3><p>Not a generic site-wide banner. A dollar amount with the year, make, model, trim, stock number and VIN of the car they're looking at.</p></div>
+      <div class="card"><div class="num">02</div><h3>Your brand, your offer</h3><p>The popup carries your dealership's name and brand color. Use the built-in design or upload your own offer artwork.</p></div>
+      <div class="card"><div class="num">03</div><h3>Different offers for different cars</h3><p>Run several at once. Target each by new, used or certified, price range, make and model. If a car qualifies for more than one, the offer ranked highest shows.</p></div>
+      <div class="card"><div class="num">04</div><h3>On your schedule</h3><p>Give each offer a start and end date. Pause every offer on a rooftop with one button the moment something changes.</p></div>
+      <div class="card"><div class="num">05</div><h3>The full picture, every lead</h3><p>Each lead arrives with the vehicle, stock number, offer amount and offer name, labeled so your CRM can route it. Failed sends retry automatically.</p></div>
+      <div class="card"><div class="num">06</div><h3>A voucher staff can match</h3><p>After submitting, the shopper can print or save a one-page voucher. Its confirmation code also appears on the CRM lead, so your team can match the two before honoring it.</p></div>
+      <div class="card"><div class="num">07</div><h3>Polite by design</h3><p>Once per car per visit, then held back for a week by default. If a shopper closes it, a small tab lets them come back. After they submit, it stops on every car.</p></div>
+      <div class="card"><div class="num">08</div><h3>See what's working</h3><p>Views, leads and conversion rate for every offer over 7 and 30 days, plus events in your own Google Analytics data layer.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" class="tint">
+  <div class="wrap">
+    <h2>Questions Dealers Ask</h2>
+    <div class="faq">
+      <details><summary>Is VinPop a lead form?</summary><p>Yes. It asks for a name, email and phone number. The difference is what the shopper gets first: a specific dollar offer on the car they're looking at.</p></details>
+      <details><summary>Will it annoy my shoppers?</summary><p>It's limited on purpose. It appears at most once per vehicle per visit, never on search pages, and not again on that car for a week by default. If someone closes it, a small tab stays at the edge of the page in case they change their mind, and they can close that too. Once a shopper submits, it stops showing.</p></details>
+      <details><summary>Can I run different offers on different vehicles?</summary><p>Yes. Several offers can run at once, each limited by new or used, price range, make and model, with its own dates. If a car qualifies for more than one, the offer ranked highest is the one that shows.</p></details>
+      <details><summary>Who sets up the offers?</summary><p>Your agency sets up and changes offers for you. You see the leads, in your CRM and in a lead list with the offer each shopper claimed.</p></details>
+      <details><summary>How do leads get into my CRM?</summary><p>They're sent in ADF/XML format to your CRM's lead email address, the standard way dealer CRMs take in third-party leads. If a send fails, it's retried automatically and can be resent by hand.</p></details>
+      <details><summary>Does VinPop text my shoppers?</summary><p>No. It doesn't ask for text consent and nothing is texted from it. Your team follows up the way they normally would.</p></details>
+      <details><summary>Does the voucher guarantee the offer?</summary><p>No. The voucher is a record of the shopper's request, and its code identifies the lead. Your dealership verifies it against the lead and honors the offer under your own terms.</p></details>
+      <details><summary>What does it take to install?</summary><p>One Google Tag Manager tag and your inventory feed.</p></details>
+    </div>
+  </div>
+</section>
+
+<section id="demo" class="demo">
+  <div class="wrap">
+    <h2>Ready to Pop More Offers?</h2>
+    <p class="lead">See VinPop on a vehicle page and in the dashboard.</p>
+    <form id="demo-form" novalidate>
+      <div><label for="f-name">Your name</label><input id="f-name" name="name" placeholder="Your name" autocomplete="name" required></div>
+      <div><label for="f-email">Email address</label><input id="f-email" name="email" type="email" placeholder="Email address" autocomplete="email" required></div>
+      <div><label for="f-dealer">Dealership name</label><input id="f-dealer" name="dealership" placeholder="Dealership name" autocomplete="organization" required></div>
+      <div><label for="f-phone">Phone number</label><input id="f-phone" name="phone" type="tel" placeholder="Phone number" autocomplete="tel"></div>
+      <input class="hp" name="company_website" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <button class="btn btn-primary" type="submit">Request My Demo</button>
+      <p id="form-msg" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <div class="wordmark">Vin<em>Pop</em></div>
+        <p>For the shopper who'll act on the right deal.</p>
+      </div>
+      <div class="foot-links">
+        <a href="#how">How It Works</a>
+        <a href="#features">Features</a>
+        <a href="#faq">FAQ</a>
+        <a href="mailto:scott@lotpulse.io">Contact</a>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>&copy; 2026 AI Business Solutions LLC. VinPop is a product of AI Business Solutions LLC.</span>
+      <span><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  // Same backend as the lotpulse.io form: POST /v1/contact on the LotPulse API,
+  // which emails the request to the address configured on the server.
+  var API = "https://lotpulse-q249.onrender.com";
+  var FALLBACK_EMAIL = "scott@lotpulse.io";
+
+  var form = document.getElementById("demo-form");
+  var msg = document.getElementById("form-msg");
+  var btn = form.querySelector("button");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var payload = {
+      company_website: form.company_website.value,   // honeypot
+      name: form.name.value.trim(),
+      dealership: form.dealership.value.trim(),
+      email: form.email.value.trim(),
+      phone: form.phone.value.trim(),
+      rooftops: "",
+      notes: "VinPop demo request (from vinpop.io)"
+    };
+    if (!payload.name || !payload.dealership || !payload.email) {
+      msg.textContent = "Name, dealership and email are required."; return;
+    }
+    if (!/^[^@\s]+@[^@\s.]+\.[^@\s]+$/.test(payload.email)) {
+      msg.textContent = "That email address doesn't look right."; return;
+    }
+    btn.disabled = true; btn.textContent = "Sending\u2026"; msg.textContent = "";
+    fetch(API + "/v1/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    }).then(function (r) { return r.json(); }).then(function (res) {
+      btn.disabled = false; btn.textContent = "Request My Demo";
+      if (res && res.ok) { form.reset(); msg.textContent = "Got it. We'll be in touch shortly."; }
+      else { msg.textContent = (res && res.error) || "Something went wrong. Please try again."; }
+    }).catch(function () {
+      btn.disabled = false; btn.textContent = "Request My Demo";
+      msg.textContent = "Couldn't reach us just now. Please email " + FALLBACK_EMAIL + ".";
+    });
+  });
+})();
+</script>
+</body>
+</html>
