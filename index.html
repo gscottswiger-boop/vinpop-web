@@ -12,9 +12,9 @@
 </script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>VinPop | Dealer-branded offers on the exact car a shopper is viewing</title>
+<title>VinPop &amp; VinWatch | Dealer offers and price-drop alerts on the exact car a shopper is viewing</title>
 <link rel="canonical" href="https://vinpop.io/">
-<meta name="description" content="VinPop shows a dollar offer on the exact vehicle a shopper is viewing, in your dealership's name, and sends the lead to your CRM with the car and the offer attached.">
+<meta name="description" content="VinPop shows a dollar offer on the exact vehicle a shopper is viewing. VinWatch lets shoppers watch a car and get a text when the price drops. Both send the lead to your CRM.">
 <link rel="icon" type="image/png" href="favicon.png?v=2">
 <link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,7 +35,7 @@
   h1,h2,h3{margin:0;line-height:1.15;letter-spacing:-.02em}
   h2{font-size:clamp(26px,3.4vw,34px);font-weight:700;text-align:center}
   .lead{max-width:640px;margin:14px auto 0;text-align:center;color:var(--body);font-size:17px}
-  section{padding:88px 0}
+  section{padding:88px 0;scroll-margin-top:64px}
 
   /* buttons */
   .btn{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:6px;font-weight:700;font-size:15px;text-decoration:none;border:1.5px solid transparent;cursor:pointer;font-family:inherit;transition:background .15s,border-color .15s}
@@ -112,16 +112,66 @@
   details[open] summary::after{content:"\2212"}
   details p{margin:10px 0 0;color:var(--body);font-size:15px}
 
-  /* lotpulse band */
-  .also{padding:64px 0}
-  .also-card{border:1px solid var(--line);border-radius:14px;padding:34px 36px;display:flex;gap:36px;align-items:center;justify-content:space-between}
-  .also-card h2{text-align:left;font-size:clamp(22px,2.6vw,26px);margin-bottom:10px}
-  .also-card p{margin:0;color:var(--body);font-size:15.5px;max-width:620px}
-  .also-card .also-fine{font-size:13.5px;margin-top:10px}
-  .also-eyebrow{display:block;font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--blue);margin-bottom:10px}
-  .btn-outline{border-color:var(--navy);color:var(--navy);white-space:nowrap;flex:none}
-  .btn-outline:hover{background:var(--mist)}
-  @media (max-width:760px){.also-card{flex-direction:column;align-items:flex-start;padding:26px 22px;gap:22px}}
+  /* two tools bridge */
+  .two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:40px}
+  .tool{background:#fff;border:1px solid var(--line);border-radius:14px;padding:28px}
+  .tool-name{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px;letter-spacing:-.01em;margin-bottom:6px}
+  .tool-dot{width:12px;height:12px;border-radius:50%;flex:none}
+  .tool-for{color:var(--body);font-size:15px;margin:0 0 18px}
+  .tool dl{margin:0;display:grid;grid-template-columns:96px 1fr;gap:10px 14px;font-size:14.5px}
+  .tool dt{font-weight:700;color:var(--ink)}
+  .tool dd{margin:0;color:var(--body)}
+  .two-note{text-align:center;color:var(--body);font-size:14.5px;margin:22px 0 0}
+
+  /* vinwatch */
+  :root{--teal:#0d9488;--teal-dark:#0b7a70;--teal-mist:#e8f6f4}
+  .vw-intro{background:linear-gradient(160deg,#0f2a4a 0%,#0b1b3d 60%,#0a2f3a 100%);color:#fff;padding:88px 0}
+  .vw-intro .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+  .vw-logo{height:40px;width:auto;margin-bottom:22px}
+  .vw-intro h2{text-align:left;color:#fff;font-size:clamp(28px,4vw,42px);font-weight:800}
+  .vw-intro p.sub{font-size:17.5px;color:#c9d6ee;max-width:520px;margin:18px 0 22px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 28px;padding:0;list-style:none}
+  .chips li{font-size:13px;font-weight:600;padding:6px 12px;border-radius:999px;background:rgba(94,234,212,.12);color:#99f6e4}
+  .btn-teal{background:var(--teal);color:#fff}
+  .btn-teal:hover{background:var(--teal-dark)}
+  .w-mock{background:#fff;color:var(--ink);border-radius:14px;max-width:340px;margin:0 auto;box-shadow:0 30px 60px rgba(4,12,40,.45);overflow:hidden}
+  .w-photo{height:120px;background:linear-gradient(135deg,#cfd8e6,#9fb0c8);position:relative}
+  .w-pill{position:absolute;left:14px;top:14px;background:var(--teal);color:#fff;font-size:12px;font-weight:700;padding:5px 10px;border-radius:999px}
+  .w-watchers{position:absolute;right:14px;top:14px;background:rgba(11,27,61,.82);color:#fff;font-size:12px;font-weight:600;padding:5px 10px;border-radius:999px}
+  .w-body{padding:16px 18px 18px}
+  .w-body b{display:block;font-size:16px}
+  .w-row{display:flex;gap:18px;margin:10px 0 14px;font-size:12.5px;color:var(--body)}
+  .w-row strong{display:block;font-size:20px;color:var(--ink)}
+  .w-btn{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--teal);color:#fff;font-weight:700;border-radius:8px;padding:12px;font-size:15px}
+  .w-fine{font-size:12px;color:var(--body);text-align:center;margin-top:9px}
+  .vw .num{background:var(--teal)}
+  .vw .card:nth-child(even) .num{background:var(--navy)}
+  .vw-eyebrow{display:block;text-align:center;font-size:12px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--teal);margin-bottom:10px}
+  .md{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+  .md h2{text-align:left}
+  .md p{color:var(--body);font-size:16px}
+  .md .chips li{background:var(--teal-mist);color:var(--teal-dark)}
+  .md-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;max-width:360px;margin:0 auto;box-shadow:0 18px 40px rgba(20,33,61,.08)}
+  .md-card h4{margin:0 0 4px;font-size:16px}
+  .md-card .md-sub{font-size:12.5px;color:var(--body);margin-bottom:12px}
+  .md-item{border-top:1px solid var(--line);padding:12px 0 2px}
+  .md-item b{display:block;font-size:14.5px}
+  .md-item span{font-size:13.5px;color:var(--body)}
+  .md-item .drop{color:var(--teal-dark);font-weight:700}
+  .md-foot{font-size:12px;color:var(--body);margin-top:12px}
+
+  /* faq groups */
+  .faq h3{font-size:13px;letter-spacing:.09em;text-transform:uppercase;margin:34px 0 4px;color:var(--blue)}
+  .faq h3.vw-h{color:var(--teal)}
+  .faq h3:first-child{margin-top:0}
+
+  /* demo selects */
+  form select{width:100%;height:46px;border-radius:6px;border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.1);color:#fff;padding:0 12px;font:inherit;font-size:15px;color-scheme:dark}
+  form select option{color:#14213d;background:#fff}
+  .demo-fine{font-size:13.5px;color:#c3d0f5;margin:16px 0 0}
+
+  @media (max-width:900px){.vw-intro .wrap,.md{grid-template-columns:1fr;gap:40px}}
+  @media (max-width:760px){.two{grid-template-columns:1fr}.tool dl{grid-template-columns:84px 1fr}}
 
   /* demo */
   .demo{background:linear-gradient(170deg,#16388c,var(--navy) 60%,#0e2663);color:#fff;text-align:center}
@@ -171,8 +221,8 @@
   <div class="wrap">
     <a class="logo" href="#top" aria-label="VinPop home"><img src="vinpop-logo.png?v=2" alt="VinPop"></a>
     <nav aria-label="Main">
-      <a href="#how">How It Works</a>
-      <a href="#features">Features</a>
+      <a href="#how">VinPop</a>
+      <a href="#vinwatch">VinWatch</a>
       <a href="#faq">FAQ</a>
     </nav>
     <a class="btn btn-primary" href="#demo">Get a Demo</a>
@@ -259,49 +309,158 @@
   </div>
 </section>
 
-<section id="faq" class="tint">
+<section id="tools" class="tint">
   <div class="wrap">
-    <h2>Questions Dealers Ask</h2>
-    <div class="faq">
-      <details><summary>Is VinPop a lead form?</summary><p>Yes. It asks for a name, email and phone number. The difference is what the shopper gets first: a specific dollar offer on the car they're looking at.</p></details>
-      <details><summary>Will it annoy my shoppers?</summary><p>It's limited on purpose. It appears at most once per vehicle per visit, never on search pages, and not again on that car for a week by default. If someone closes it, a small tab stays at the edge of the page in case they change their mind, and they can close that too. Once a shopper submits, it stops showing.</p></details>
-      <details><summary>Can I run different offers on different vehicles?</summary><p>Yes. Several offers can run at once, each limited by new or used, price range, make and model, with its own dates. If a car qualifies for more than one, the offer ranked highest is the one that shows.</p></details>
-      <details><summary>Who sets up the offers?</summary><p>Your agency sets up and changes offers for you. You see the leads, in your CRM and in a lead list with the offer each shopper claimed.</p></details>
-      <details><summary>How do leads get into my CRM?</summary><p>They're sent in ADF/XML format to your CRM's lead email address, the standard way dealer CRMs take in third-party leads. If a send fails, it's retried automatically and can be resent by hand.</p></details>
-      <details><summary>Does VinPop text my shoppers?</summary><p>No. It doesn't ask for text consent and nothing is texted from it. Your team follows up the way they normally would.</p></details>
-      <details><summary>Does the voucher guarantee the offer?</summary><p>No. The voucher is a record of the shopper's request, and its code identifies the lead. Your dealership verifies it against the lead and honors the offer under your own terms.</p></details>
-      <details><summary>What does it take to install?</summary><p>One Google Tag Manager tag and your inventory feed.</p></details>
+    <h2>Two tools for two kinds of shopper</h2>
+    <p class="lead">Some shoppers will act today if the deal is right. Others want to keep an eye on a car first. Most sites give both of them the same "request a quote" button.</p>
+    <div class="two">
+      <div class="tool">
+        <div class="tool-name"><span class="tool-dot" style="background:var(--blue)"></span>VinPop</div>
+        <p class="tool-for">For the shopper who'll act on the right deal.</p>
+        <dl>
+          <dt>They give</dt><dd>Name, email and phone.</dd>
+          <dt>They get</dt><dd>A specific dollar offer on the car they're viewing.</dd>
+          <dt>You get</dt><dd>A lead in your CRM with the car and the offer attached.</dd>
+        </dl>
+      </div>
+      <div class="tool">
+        <div class="tool-name"><span class="tool-dot" style="background:var(--teal)"></span>VinWatch</div>
+        <p class="tool-for">For the shopper who isn't ready to talk yet.</p>
+        <dl>
+          <dt>They give</dt><dd>One tap and a phone number.</dd>
+          <dt>They get</dt><dd>A text when the price drops on the car they're watching.</dd>
+          <dt>You get</dt><dd>Live demand on every car, and a scored lead in your CRM.</dd>
+        </dl>
+      </div>
+    </div>
+    <p class="two-note">Both run from one inventory feed. Use either one, or both.</p>
+  </div>
+</section>
+
+<section id="vinwatch" class="vw-intro">
+  <div class="wrap">
+    <div>
+      <img class="vw-logo" src="vinwatch-logo-dark.png?v=1" alt="VinWatch">
+      <h2>See which cars real buyers want.</h2>
+      <p class="sub">VinWatch puts a "Watch this car" button on every vehicle. Shoppers get a text when the price drops, or when one just like it lands on your lot. You see exactly which cars real buyers want, and capture the highest-intent leads in the building.</p>
+      <ul class="chips"><li>Installs in minutes</li><li>Works on your current site</li><li>Feeds your CRM</li></ul>
+      <div class="cta">
+        <a class="btn btn-teal" href="#demo">Book a Demo &rarr;</a>
+        <a class="btn btn-ghost" href="#vinwatch-how">See How It Works</a>
+      </div>
+    </div>
+    <div>
+      <div class="w-mock" role="img" aria-label="Example VinWatch card: a 2026 RAM 1500 Laramie with 9 people watching, price dropped 500 dollars, and a Watch this car button">
+        <div class="w-photo" aria-hidden="true"><span class="w-pill">Price dropped $500</span><span class="w-watchers">9 watching</span></div>
+        <div class="w-body" aria-hidden="true">
+          <b>2026 RAM 1500 Laramie</b>
+          <div class="w-row"><div><strong>9</strong>Watching now</div><div><strong>4</strong>Days listed</div></div>
+          <div class="w-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>Watch this car</div>
+          <div class="w-fine">Get a text the moment the price drops.</div>
+        </div>
+      </div>
+      <p class="mock-note">Illustration. Placement is tuned to your website platform.</p>
     </div>
   </div>
 </section>
 
-<section id="lotpulse" class="also">
+<section id="vinwatch-how" class="tint vw">
   <div class="wrap">
-    <div class="also-card">
-      <div>
-        <span class="also-eyebrow">Also from our team</span>
-        <h2>Not every shopper is ready for an offer.</h2>
-        <p>Some want to keep an eye on a car first. LotPulse adds a "Watch this car" button to your vehicle pages. A shopper taps it, enters a mobile number, and gets a text when the price drops or the car sells. You see which vehicles are drawing interest, and the lead goes to your CRM.</p>
-        <p class="also-fine">VinPop and LotPulse run from the same inventory feed.</p>
+    <span class="vw-eyebrow">How VinWatch works</span>
+    <h2>One button. A whole demand engine.</h2>
+    <p class="lead">It installs on your current website in minutes. No new platform, no rebuild.</p>
+    <div class="grid g3">
+      <div class="card"><div class="num">01</div><h3>Shoppers tap Watch</h3><p>On any vehicle, a shopper taps "Watch this car" and drops their number. It feels like watching an item online.</p></div>
+      <div class="card"><div class="num">02</div><h3>You see real demand</h3><p>Your dashboard ranks every car by how many real buyers are watching it. Aging units with zero interest surface instantly as the ones to move.</p></div>
+      <div class="card"><div class="num">03</div><h3>Every move brings them back</h3><p>Drop a price and every watcher gets a text the same minute. When a similar unit lands, the shoppers who wanted that car hear about it first. Leads flow to your CRM, scored.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="vinwatch-features" class="vw">
+  <div class="wrap">
+    <span class="vw-eyebrow">What you get with VinWatch</span>
+    <h2>Demand you can finally see, and act on.</h2>
+    <p class="lead">Built for the way dealers actually work, by people who run dealer ad accounts.</p>
+    <div class="grid g2 feat">
+      <div class="card"><div class="num">01</div><h3>Demand board, per VIN</h3><p>See exactly which vehicles real buyers are watching, ranked live. Know your hot units and your problem units at a glance.</p></div>
+      <div class="card"><div class="num">02</div><h3>The highest-intent leads</h3><p>A watcher is a buyer who raised their hand on a specific car. They flow to your CRM scored hot, warm or cool, so your BDC calls the right ten, not all two hundred.</p></div>
+      <div class="card"><div class="num">03</div><h3>Pricing signals, not guesswork</h3><p>We cross real watcher demand with days on lot and your price history. Eight people watching and no price move in three weeks? Hold firm. Forty-five days and nobody watching? That's your reprice. Drop it and every watcher hears the same minute.</p></div>
+      <div class="card"><div class="num">04</div><h3>A Monday morning report</h3><p>New watchers, hot shoppers, texts sent, and which sold cars had someone watching, emailed to you every week. Manage a group? One rollup covers every rooftop.</p></div>
+      <div class="card"><div class="num">05</div><h3>Prove it against your sold list</h3><p>Upload your sold and prospect lists and we match them to watchers by phone, so you can see which buyers had been following the car before they bought. Your lists are matched and discarded, never stored.</p></div>
+      <div class="card"><div class="num">06</div><h3>First-party intent you own</h3><p>A watch is a named, consented, VIN-level intent signal, captured on your site, in your data, at exactly the moment third-party cookies stopped being able to see it.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="mydrive" class="tint vw">
+  <div class="wrap md">
+    <div>
+      <span class="vw-eyebrow" style="text-align:left">For your shoppers</span>
+      <h2>The Carvana experience, on your website.</h2>
+      <p>Today's buyers expect to shop on their own terms. VinWatch gives them a modern, low-friction way to stay close to the car they want, without back-and-forth just to track a price.</p>
+      <p>Every shopper who watches a car gets My Drive: a private page with everything they're following, what the price has done since, and what just landed that's like it. It keeps them coming back to your inventory instead of drifting to a third-party marketplace.</p>
+      <ul class="chips"><li>One tap to watch</li><li>Price-drop alerts</li><li>New-arrival alerts</li><li>Cancel anytime</li></ul>
+    </div>
+    <div class="md-card" role="img" aria-label="Example My Drive page listing two watched cars, one with a price drop of 1,050 dollars">
+      <div aria-hidden="true">
+        <h4>My Drive</h4>
+        <div class="md-sub">Every car they're watching, in one place</div>
+        <div class="md-item"><b>2024 Silverado 1500 LT</b><span>$42,995 <span class="drop">&darr; $1,050 since you watched</span></span></div>
+        <div class="md-item"><b>2023 Tahoe Z71</b><span>$54,200</span></div>
+        <div class="md-foot">Private to them. Nothing to download, no password.</div>
       </div>
-      <a class="btn btn-outline" href="https://lotpulse.io" target="_blank" rel="noopener">Visit lotpulse.io &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <h2>The things dealers actually ask</h2>
+    <p class="lead">Straight answers, including where we're still building.</p>
+    <div class="faq">
+      <h3>VinPop</h3>
+      <details><summary>Is VinPop a lead form?</summary><p>Yes. It asks for a name, email and phone number, and we'd rather say so plainly. The difference is what the shopper gets first: a specific dollar offer on the car they're looking at.</p></details>
+      <details><summary>Will VinPop annoy my shoppers?</summary><p>It's limited on purpose. It appears after a set time on a vehicle page (35 seconds by default) or, on desktop, when the shopper moves to leave. It shows at most once per vehicle per visit, never on search pages, and not again on that car for a week by default. If someone closes it, a small tab stays at the edge of the page in case they change their mind, and they can close that too. Once a shopper submits, it stops showing. It also stays out of the way of a car they're already watching with VinWatch.</p></details>
+      <details><summary>Can I run different offers on different vehicles?</summary><p>Yes. A rooftop can run several offers at once, each limited by new, used or certified, price range, make and model, with its own dates and fine print. If a car qualifies for more than one, the offer ranked highest on the list is the one that shows.</p></details>
+      <details><summary>Who sets up the offers?</summary><p>Your agency sets up and changes the offers for you; there isn't a self-serve offer builder for dealers yet. You see the leads, in your CRM and in a lead list with the offer each shopper claimed.</p></details>
+      <details><summary>Does VinPop text my shoppers?</summary><p>No. It doesn't ask for text consent and nothing is texted from it. The lead goes to your CRM and your team follows up the way they normally would.</p></details>
+      <details><summary>Does the voucher guarantee the offer?</summary><p>No. The voucher is a record of the shopper's request, and its code identifies the lead. Your dealership verifies it against the lead and honors the offer under your own terms.</p></details>
+
+      <h3 class="vw-h">VinWatch</h3>
+      <details><summary>How does VinWatch know when a price drops?</summary><p>We read your inventory feed, the same feed that powers your website, and record every price change we see. When a watched vehicle's price falls, everyone watching that VIN gets a text. To be precise about timing: alerts follow your feed's sync cadence, not the instant someone changes a number in another system. In practice that's fast, but it isn't a live DMS connection, and we'd rather tell you that up front than let you discover it.</p></details>
+      <details><summary>How do you handle TCPA and text-message consent?</summary><p>Consent is a separate, optional checkbox that is unchecked by default, and watching a car is never conditional on agreeing to texts. We store the exact consent wording shown, the timestamp, the phone number and the vehicle, in an append-only record. STOP, START and HELP all work. Opted-out numbers are permanently suppressed. Texts only send between 8am and 9pm in your local time zone. Our messaging is registered with the carriers under our own A2P 10DLC brand and campaigns.</p></details>
+      <details><summary>Will VinWatch spam my shoppers?</summary><p>No, and the limits are built in rather than left to judgment. A shopper only hears about the specific vehicle they chose to watch. Alerts are deduplicated, so a feed hiccup can't re-send the same message. Demand nudges are capped at one per shopper per vehicle, ever. When a car sells, alerts for it stop. And every message carries a working opt-out.</p></details>
+      <details><summary>What do I actually see on my end?</summary><p>A live board ranking every vehicle by how many real shoppers are watching it, a scored shopper list with tap-to-call numbers, pricing signals that cross demand against days on lot, and a report emailed to you every Monday. Run a group? One rollup covers every rooftop.</p></details>
+      <details><summary>Am I locked into a contract?</summary><p>No. VinWatch starts with 30 days free on your real inventory, with no setup fee. After that it's month-to-month: cancel with 30 days' notice. There's no annual term, no early-termination fee, and no auto-renewing multi-year deal. You will sign a straightforward service agreement before going live, which is what lets us text on your dealership's behalf. Ask us about VinPop pricing on your demo.</p></details>
+
+      <h3>Both</h3>
+      <details><summary>Which website platforms do they work on?</summary><p>The VinWatch button is live and proven today on Dealer Inspire and Dealer.com (DDC), with placement tuned to each. Other platforms (DealerOn, Sincro, custom builds) aren't supported out of the box. The button anchors to specific parts of your vehicle pages, so a new platform needs a short compatibility pass first. Ask us and we'll tell you honestly whether yours is ready. VinPop is newer: it's built and tested, and we'll tell you exactly where it has run when you ask.</p></details>
+      <details><summary>What does installation actually involve?</summary><p>One tag in Google Tag Manager and a link to your inventory feed. No site redesign, no code changes for your web vendor, no IT ticket. Most rooftops are live the same day the feed is connected. VinPop is a second tag of its own and uses the same feed.</p></details>
+      <details><summary>How do the leads reach my CRM?</summary><p>As ADF/XML, the automotive lead standard, delivered to whatever email address your CRM ingests leads from. That works with essentially every CRM in the industry. VinPop and VinWatch leads are labeled separately so you can route them. What it isn't: a named native connector to VinSolutions, Elead or DealerSocket with two-way sync and automated task creation. If you need that depth, tell us and we'll be straight about where we are.</p></details>
+      <details><summary>What happens to a shopper's information?</summary><p>VinWatch collects a phone number, used to send the alerts the shopper asked for and to deliver the lead to you. VinPop collects a name, email and phone number, used to deliver that lead to you; nothing is texted from it. That's it. We don't sell any of it, we don't share it with other dealers, and we don't enrich it against third-party data brokers. If you upload lists for matchback reporting, they're matched in memory and discarded, never stored.</p></details>
+      <details><summary>Does this replace my existing lead forms or chat?</summary><p>No. Both run alongside whatever you already have. VinWatch captures the shoppers who won't ask about a price and leave without telling you they were interested. VinPop gives the ready ones a specific offer to act on.</p></details>
+      <details><summary>Will I see this in my own Google Analytics?</summary><p>Yes, once it's set up. Both tools push events to your website's own data layer: widget views, watch started, abandoned and completed for VinWatch, and view, submit, dismiss and reopen for VinPop. Getting them into your GA4 reports takes a few triggers in Google Tag Manager for each rooftop, so they don't appear on their own the day the tag goes in.</p></details>
     </div>
   </div>
 </section>
 
 <section id="demo" class="demo">
   <div class="wrap">
-    <h2>Ready to Pop More Offers?</h2>
-    <p class="lead">See VinPop on a vehicle page and in the dashboard.</p>
+    <h2>See it on your own inventory.</h2>
+    <p class="lead">Book a 15-minute demo of VinPop, VinWatch or both, on cars you recognize.</p>
     <form id="demo-form" novalidate>
       <div><label for="f-name">Your name</label><input id="f-name" name="name" placeholder="Your name" autocomplete="name" required></div>
       <div><label for="f-email">Email address</label><input id="f-email" name="email" type="email" placeholder="Email address" autocomplete="email" required></div>
       <div><label for="f-dealer">Dealership name</label><input id="f-dealer" name="dealership" placeholder="Dealership name" autocomplete="organization" required></div>
       <div><label for="f-phone">Phone number</label><input id="f-phone" name="phone" type="tel" placeholder="Phone number" autocomplete="tel"></div>
+      <div><label for="f-interest">Interested in</label><select id="f-interest" name="interest"><option value="Both">Interested in: Both</option><option value="VinPop">Interested in: VinPop</option><option value="VinWatch">Interested in: VinWatch</option></select></div>
+      <div><label for="f-rooftops">How many rooftops?</label><select id="f-rooftops" name="rooftops"><option value="">How many rooftops?</option><option value="1">1 rooftop</option><option value="2-5">2&ndash;5 rooftops</option><option value="6-20">6&ndash;20 rooftops</option><option value="20+">20+ rooftops</option><option value="agency">I'm an agency</option></select></div>
       <input class="hp" name="company_website" tabindex="-1" autocomplete="off" aria-hidden="true">
       <button class="btn btn-primary" type="submit">Request My Demo</button>
       <p id="form-msg" role="status" aria-live="polite"></p>
     </form>
+    <p class="demo-fine">VinWatch starts with 30 days free on your real inventory. No setup fee.</p>
   </div>
 </section>
 
@@ -311,19 +470,19 @@
   <div class="wrap">
     <div class="foot-top">
       <div>
-        <div class="wordmark">Vin<em>Pop</em></div>
-        <p>For the shopper who'll act on the right deal.</p>
+        <div class="wordmark">Vin<em>Pop</em><sup style="font-size:10px;font-weight:700;opacity:.7;margin-left:2px">TM</sup></div>
+        <p>Offers and price-drop alerts on the exact car a shopper is viewing. Home of VinPop&trade; and VinWatch&trade;.</p>
       </div>
       <div class="foot-links">
-        <a href="#how">How It Works</a>
-        <a href="#features">Features</a>
+        <a href="#how">VinPop</a>
+        <a href="#vinwatch">VinWatch</a>
         <a href="#faq">FAQ</a>
         <a href="mailto:scott@lotpulse.io">Contact</a>
       </div>
     </div>
     <div class="foot-bot">
-      <span>&copy; 2026 AI Business Solutions LLC. VinPop is a product of AI Business Solutions LLC.</span>
-      <span><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a></span>
+      <span>&copy; 2026 AI Business Solutions LLC. VinPop and VinWatch are products of AI Business Solutions LLC.</span>
+      <span><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a><a href="https://lotpulse.io/privacy.html">VinWatch SMS Privacy</a><a href="https://lotpulse.io/terms.html">VinWatch SMS Terms</a></span>
     </div>
   </div>
 </footer>
@@ -347,8 +506,8 @@
       dealership: form.dealership.value.trim(),
       email: form.email.value.trim(),
       phone: form.phone.value.trim(),
-      rooftops: "",
-      notes: "VinPop demo request (from vinpop.io)"
+      rooftops: form.rooftops.value,
+      notes: "Demo request from vinpop.io. Interested in: " + form.interest.value
     };
     if (!payload.name || !payload.dealership || !payload.email) {
       msg.textContent = "Name, dealership and email are required."; return;
