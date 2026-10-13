@@ -141,14 +141,6 @@
   .md h2{text-align:left}
   .md p{color:var(--body);font-size:16px}
   .md .chips li{background:var(--teal-mist);color:var(--teal-dark)}
-  .md-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;max-width:360px;margin:0 auto;box-shadow:0 18px 40px rgba(20,33,61,.08)}
-  .md-card h4{margin:0 0 4px;font-size:16px}
-  .md-card .md-sub{font-size:12.5px;color:var(--body);margin-bottom:12px}
-  .md-item{border-top:1px solid var(--line);padding:12px 0 2px}
-  .md-item b{display:block;font-size:14.5px}
-  .md-item span{font-size:13.5px;color:var(--body)}
-  .md-item .drop{color:var(--teal-dark);font-weight:700}
-  .md-foot{font-size:12px;color:var(--body);margin-top:12px}
 
   /* vinwatch card (matches the lotpulse.io widget mock) */
   .vwc-stage{position:relative;max-width:380px;margin:0 auto;width:100%}
@@ -179,6 +171,22 @@
   @keyframes vwbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
   @media (max-width:640px){.vwc-float{display:none}}
   @media (prefers-reduced-motion:reduce){.vwc-float{animation:none}}
+
+  .mchips{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 0;padding:0;list-style:none}
+  .mchips li{display:inline-flex;align-items:center;gap:7px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-size:13.5px;font-weight:600;color:var(--ink)}
+  .mchips svg{color:#16a34a}
+  .mdcard{background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 1px 2px rgba(14,19,32,.04),0 14px 40px rgba(13,148,136,.12);overflow:hidden;max-width:380px;width:100%;margin:0 auto}
+  .mdcard-hd{display:flex;align-items:center;gap:10px;padding:14px 16px;background:linear-gradient(180deg,var(--teal-mist),#fff);border-bottom:1px solid #eef1f7}
+  .mdcard-hd .mk{width:28px;height:28px;border-radius:8px;background:var(--teal);display:flex;align-items:center;justify-content:center;flex:none}
+  .mdcard-hd b{font-size:14.5px;display:block}
+  .mdcard-hd span{font-size:11.5px;color:var(--body)}
+  .mdrow{display:flex;gap:12px;align-items:center;padding:13px 16px}
+  .mdrow+.mdrow{border-top:1px solid #eef1f7}
+  .mdthumb{width:62px;height:46px;border-radius:9px;flex:none;background:linear-gradient(135deg,#dde3ec,#eef1f7)}
+  .mdname{font-size:14px;font-weight:600}
+  .mdprice{font-weight:800;font-size:17px;margin-top:3px}
+  .mdprice em{font-style:normal;font-size:11.5px;font-weight:700;color:#15803d;background:#e7f5ec;border-radius:5px;padding:2px 7px;margin-left:4px;white-space:nowrap;display:inline-block}
+  .mdfoot{border-top:1px solid #eef1f7;padding:11px 16px;font-size:11.5px;color:var(--body);text-align:center}
 
   /* faq groups */
   .faq h3{font-size:13px;letter-spacing:.09em;text-transform:uppercase;margin:34px 0 4px;color:var(--blue)}
@@ -423,15 +431,14 @@
       <h2>The Carvana experience, on your website.</h2>
       <p>Today's buyers expect to shop on their own terms. VinWatch gives them a modern, low-friction way to stay close to the car they want, without back-and-forth just to track a price.</p>
       <p>Every shopper who watches a car gets My Drive: a private page with everything they're following, what the price has done since, and what just landed that's like it. It keeps them coming back to your inventory instead of drifting to a third-party marketplace.</p>
-      <ul class="chips"><li>One tap to watch</li><li>Price-drop alerts</li><li>New-arrival alerts</li><li>Cancel anytime</li></ul>
+      <ul class="mchips"><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>One tap to watch</li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Price-drop alerts</li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>New-arrival alerts</li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Cancel anytime</li></ul>
     </div>
-    <div class="md-card" role="img" aria-label="Example My Drive page listing two watched cars, one with a price drop of 1,050 dollars">
+    <div class="mdcard" role="img" aria-label="Example My Drive page listing two watched cars, one with a price drop of 1,050 dollars">
       <div aria-hidden="true">
-        <h4>My Drive</h4>
-        <div class="md-sub">Every car they're watching, in one place</div>
-        <div class="md-item"><b>2024 Silverado 1500 LT</b><span>$42,995 <span class="drop">&darr; $1,050 since you watched</span></span></div>
-        <div class="md-item"><b>2023 Tahoe Z71</b><span>$54,200</span></div>
-        <div class="md-foot">Private to them. Nothing to download, no password.</div>
+        <div class="mdcard-hd"><span class="mk"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></span><div><b>My Drive</b><span>Every car they're watching, in one place</span></div></div>
+        <div class="mdrow"><div class="mdthumb"></div><div><div class="mdname">2024 Silverado 1500 LT</div><div class="mdprice">$42,995 <em>&darr; $1,050 since you watched</em></div></div></div>
+        <div class="mdrow"><div class="mdthumb"></div><div><div class="mdname">2023 Tahoe Z71</div><div class="mdprice">$54,200</div></div></div>
+        <div class="mdfoot">Private to them. Nothing to download, no password.</div>
       </div>
     </div>
   </div>
