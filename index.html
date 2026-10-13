@@ -188,6 +188,81 @@
   .mdprice em{font-style:normal;font-size:11.5px;font-weight:700;color:#15803d;background:#e7f5ec;border-radius:5px;padding:2px 7px;margin-left:4px;white-space:nowrap;display:inline-block}
   .mdfoot{border-top:1px solid #eef1f7;padding:11px 16px;font-size:11.5px;color:var(--body);text-align:center}
 
+  /* dashboard examples */
+  .db-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin-top:44px}
+  .db-panel{margin:0;display:flex;flex-direction:column;gap:12px}
+  .db-wide{grid-column:1/-1}
+  .db-panel figcaption{font-size:14.5px;color:var(--body)}
+  .db-panel figcaption b{color:var(--ink)}
+  .db-body{background:#f6f7f9;border:1px solid var(--line);border-radius:14px;padding:16px;flex:1;box-shadow:0 10px 30px rgba(20,33,61,.06)}
+  .db-wide .db-body{border-radius:0 0 14px 14px;border-top:0}
+  .db-chrome{display:flex;align-items:center;justify-content:space-between;gap:12px;background:#fff;border:1px solid var(--line);border-radius:14px 14px 0 0;padding:12px 16px}
+  .db-lp{display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:17px;letter-spacing:-.01em}
+  .db-lp i{width:24px;height:24px;border-radius:6px;background:#111827 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='2 13 6 13 9 5 14 19 17 13 22 13'/%3E%3C/svg%3E") center/14px no-repeat}
+  .db-lp sup{font-size:8px;opacity:.6}
+  .db-store{font-size:11px;font-weight:700;letter-spacing:.08em;border:1px solid var(--line);border-radius:8px;padding:5px 10px}
+  .db-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));background:#fff;border:1px solid var(--line);border-radius:12px;margin-bottom:14px}
+  .db-stats>div{padding:12px 8px;text-align:center}
+  .db-stats>div+div{border-left:1px solid #eef1f5}
+  .db-stats b{display:block;font-size:24px;font-weight:800;letter-spacing:-.02em}
+  .db-stats span{display:block;font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--body);margin-top:2px}
+  .db-stats em{display:block;font-style:normal;font-size:12px;font-weight:700;margin-top:5px}
+  .c-blue{color:#1d4ed8}.c-red{color:#dc2626}.c-green{color:#0f766e}
+  .db-board{background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  .db-bh{display:flex;align-items:center;gap:10px;padding:10px 14px;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;border-bottom:1px solid #eef1f5}
+  .db-tag{font-size:11px;font-weight:700;letter-spacing:0;text-transform:none;padding:3px 9px;border-radius:6px}
+  .t-teal{background:var(--teal-mist);color:var(--teal-dark)}
+  .db-row{display:grid;grid-template-columns:44px minmax(0,1fr) auto 120px 24px;gap:12px;align-items:center;padding:10px 14px;font-size:13.5px}
+  .db-row+.db-row{border-top:1px solid #eef1f5}
+  .db-thumb{width:44px;height:32px;border-radius:6px;background:linear-gradient(135deg,#cfd8e6,#9fb0c8)}
+  .db-veh{font-weight:600;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .db-veh small{font-size:10px;font-weight:700;letter-spacing:.05em;background:#eef1f5;color:var(--body);border-radius:4px;padding:2px 6px;margin-left:6px}
+  .db-veh small.warn{background:#fef3c7;color:#92400e}
+  .db-price{font-weight:800}
+  .db-bar{display:flex;gap:2px}.db-bar i{flex:1;height:14px;border-radius:2px;background:#e5e7eb}.db-bar i.on{background:#e9a23b}
+  .db-n{font-weight:800;font-size:18px;color:#c2810c;text-align:right}.db-n.z{color:#9ca3af}
+  .db-h{display:flex;align-items:center;gap:7px;font-size:12px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;margin-bottom:10px}
+  .db-h .dot{width:9px;height:9px;border-radius:50%;background:#16a34a}
+  .db-tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-bottom:10px}
+  .db-tiles.four{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .db-tiles>div{background:#fff;border:1px solid #eceef2;border-radius:10px;padding:9px 4px;text-align:center}
+  .db-tiles b{display:block;font-size:19px;font-weight:800}
+  .db-tiles span{display:block;font-size:9.5px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--body);margin-top:2px}
+  .db-lead{background:#fff;border:1px solid #eceef2;border-radius:10px;padding:11px 12px}
+  .db-lt{display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+  .db-lt b{font-size:15px}.db-lt span{font-size:11.5px;color:var(--body)}
+  .db-pills{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+  .pl{font-size:10.5px;font-weight:700;letter-spacing:.04em;border-radius:5px;padding:3px 7px;background:#eef1f5;color:#4b5563}
+  .pl.g{background:#e7f5ec;color:#15803d}.pl.t{background:var(--teal-mist);color:var(--teal-dark);margin-left:6px}
+  .db-small{font-size:12px;color:var(--body)}
+  .db-small code{font-size:12px;color:var(--ink);font-weight:700}
+  .db-links{font-size:12.5px;color:#1d4ed8;font-weight:600;margin-top:5px}
+  .db-chip{display:inline-block;background:#fef3c7;color:#713f12;font-size:12px;font-weight:700;border-radius:999px;padding:5px 11px;margin-bottom:10px}
+  .db-vis{background:#fff;border:1px solid #eceef2;border-radius:10px;padding:9px 12px;margin-top:7px}
+  .db-vis b{font-size:13.5px}.db-vis b.m{color:#6b7280}
+  .db-meter{height:6px;border-radius:999px;background:#eceef2;margin:7px 0 5px;max-width:160px}.db-meter i{display:block;height:100%;border-radius:999px}
+  .db-seg{display:inline-flex;background:#eceef2;border-radius:9px;padding:3px;margin-bottom:10px;font-size:12.5px;font-weight:600}
+  .db-seg span{padding:6px 11px;border-radius:7px;color:var(--body)}.db-seg span.on{background:#fff;color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.1)}
+  .db-rule{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #eceef2;border-radius:9px;padding:8px 11px;margin-bottom:6px;font-size:13px;font-weight:600}
+  .db-rule span{flex:1}.db-rule .m{color:#9ca3af}
+  .db-rule b{font-size:12.5px;border:1px solid #e5e7eb;border-radius:6px;padding:2px 8px}
+  .tg{width:30px;height:17px;border-radius:999px;background:#d1d5db;position:relative;flex:none}
+  .tg::after{content:"";position:absolute;top:2px;left:2px;width:13px;height:13px;border-radius:50%;background:#fff}
+  .tg.on{background:#0f766e}.tg.on::after{left:15px}
+  .db-sum{background:#e3f4ef;color:#0f5f54;font-size:12.5px;font-weight:700;border-radius:9px;padding:9px 11px;margin-top:8px}
+  .db-rep{font-size:13px;font-weight:800;border-radius:8px;padding:7px 10px;margin:4px 0 8px}
+  .db-rep.t{background:var(--teal-mist);color:var(--teal-dark)}.db-rep.g{background:#e7f5ec;color:#15803d}
+  .db-note{text-align:center;font-size:13px;color:var(--body);margin:26px 0 0}
+  @media (max-width:860px){.db-grid{grid-template-columns:1fr}}
+  @media (max-width:640px){
+    .db-stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .db-stats>div:nth-child(3){border-left:0}
+    .db-stats>div:nth-child(n+3){border-top:1px solid #eef1f5}
+    .db-row{grid-template-columns:40px minmax(0,1fr) auto 22px}
+    .db-bar{display:none}
+    .db-tiles.four{grid-template-columns:repeat(2,minmax(0,1fr))}
+  }
+
   /* faq groups */
   .faq h3{font-size:13px;letter-spacing:.09em;text-transform:uppercase;margin:34px 0 4px;color:var(--blue)}
   .faq h3.vw-h{color:var(--teal)}
@@ -251,6 +326,7 @@
     <nav aria-label="Main">
       <a href="#how">VinPop</a>
       <a href="#vinwatch">VinWatch</a>
+      <a href="#dashboard">Dashboard</a>
       <a href="#faq">FAQ</a>
     </nav>
     <a class="btn btn-primary" href="#demo">Get a Demo</a>
@@ -333,6 +409,8 @@
       <div class="card"><div class="num">06</div><h3>A voucher staff can match</h3><p>After submitting, the shopper can print or save a one-page voucher. Its confirmation code also appears on the CRM lead, so your team can match the two before honoring it.</p></div>
       <div class="card"><div class="num">07</div><h3>Polite by design</h3><p>Once per car per visit, then held back for a week by default. If a shopper closes it, a small tab lets them come back. After they submit, it stops on every car.</p></div>
       <div class="card"><div class="num">08</div><h3>See what's working</h3><p>Views, leads and conversion rate for every offer over 7 and 30 days, plus events in your own Google Analytics data layer.</p></div>
+      <div class="card"><div class="num">09</div><h3>Only for engaged shoppers, if you want</h3><p>Show the offer to everyone, or only once a shopper has viewed a few vehicles, spent a couple of minutes on your site, or come back on another day. Your agency sets the rules for each rooftop.</p></div>
+      <div class="card"><div class="num">10</div><h3>See who's shopping right now</h3><p>A live view of the visitors on your site, the car each one is looking at, and how engaged they are. Visitors stay anonymous unless they claim an offer or watch a car.</p></div>
     </div>
   </div>
 </section>
@@ -444,6 +522,99 @@
   </div>
 </section>
 
+<section id="dashboard">
+  <div class="wrap">
+    <span class="vw-eyebrow" style="color:var(--navy)">One dashboard for both</span>
+    <h2>Everything lands in your LotPulse dashboard.</h2>
+    <p class="lead">VinPop and VinWatch run on LotPulse, our dealer platform. One login shows your demand, your offer leads and who's on your site right now, and a report arrives every Monday.</p>
+
+    <div class="db-grid">
+      <figure class="db-panel db-wide">
+        <div class="db-chrome" aria-hidden="true"><span class="db-lp"><i></i>LotPulse<sup>TM</sup></span><span class="db-store">YOUR DEALERSHIP</span></div>
+        <div class="db-body" role="img" aria-label="Sample demand board: 38 active watchers, 27 unique shoppers with 9 hot, 41 texts sent in 7 days, 64 sold in 30 days with 17 that had watchers, and three vehicles ranked by watchers">
+          <div class="db-stats" aria-hidden="true">
+            <div><b>38</b><span>Active watchers</span><em class="c-blue">6 new this week</em></div>
+            <div><b class="c-red">27</b><span>Unique shoppers</span><em class="c-red">9 hot</em></div>
+            <div><b>41</b><span>Texts sent · 7 days</span></div>
+            <div><b class="c-green">64</b><span>Sold · 30 days</span><em class="c-green">17 w/ watchers</em></div>
+          </div>
+          <div class="db-board" aria-hidden="true">
+            <div class="db-bh"><span>Demand board</span><span class="db-tag t-teal">VinWatch</span></div>
+            <div class="db-row"><span class="db-thumb"></span><span class="db-veh">2025 Toyota Tacoma SR5<small>USED</small></span><span class="db-price">$36,480</span><span class="db-bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="db-n">5</span></div>
+            <div class="db-row"><span class="db-thumb"></span><span class="db-veh">2026 RAM 1500 Laramie<small>NEW</small></span><span class="db-price">$58,915</span><span class="db-bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="db-n">3</span></div>
+            <div class="db-row"><span class="db-thumb"></span><span class="db-veh">2024 Honda CR-V EX-L<small>USED</small> <small class="warn">PROBLEM</small></span><span class="db-price">$31,250</span><span class="db-bar"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="db-n z">0</span></div>
+          </div>
+        </div>
+        <figcaption><b>Demand board.</b> Every car ranked by how many real shoppers are watching it, with hot shoppers, texts sent and which sold cars had watchers.</figcaption>
+      </figure>
+
+      <figure class="db-panel">
+        <div class="db-body" role="img" aria-label="Sample VinPop lead: Jordan Miller claimed a 500 dollar Fall Event offer on a 2026 RAM 1500, sent to CRM, voucher code LP-8K2Q7M">
+          <div aria-hidden="true">
+            <div class="db-h">VinPop leads · last 90 days</div>
+            <div class="db-tiles"><div><b>3</b><span>This week</span></div><div><b>11</b><span>Timed popup</span></div><div><b>4</b><span>Exit intent</span></div></div>
+            <div class="db-lead">
+              <div class="db-lt"><b>Jordan Miller</b><span>Tue at 6:42 PM</span></div>
+              <div class="db-pills"><span class="pl g">$500 · FALL EVENT</span><span class="pl">TIMED</span><span class="pl g">SENT TO CRM</span></div>
+              <div class="db-small">2026 RAM 1500 Laramie · Voucher code <code>LP-8K2Q7M</code></div>
+              <div class="db-links">(555) 010-4821 &nbsp; jordan@example.com</div>
+            </div>
+            <div class="db-lead" style="margin-top:8px">
+              <div class="db-lt"><b>Casey Brooks</b><span>Mon at 11:05 AM</span></div>
+              <div class="db-pills"><span class="pl g">$1,000 · TACOMA EVENT</span><span class="pl">EXIT INTENT</span><span class="pl g">SENT TO CRM</span></div>
+              <div class="db-small">2025 Toyota Tacoma SR5 · Voucher code <code>LP-8J4T2C</code></div>
+              <div class="db-links">(555) 010-7390 &nbsp; casey@example.com</div>
+            </div>
+          </div>
+        </div>
+        <figcaption><b>VinPop leads.</b> Each claim with the offer, the car, the voucher code and whether it reached your CRM.</figcaption>
+      </figure>
+
+      <figure class="db-panel">
+        <div class="db-body" role="img" aria-label="Sample Live now view: 6 on site, 2 engaged, 1 known by name, one car being viewed, and two visitor rows">
+          <div aria-hidden="true">
+            <div class="db-h"><span class="dot"></span>Live now · <span style="font-weight:600;color:var(--body)">updated 6s ago</span></div>
+            <div class="db-tiles four"><div><b>6</b><span>On site now</span></div><div><b class="c-red">2</b><span>Engaged</span></div><div><b class="c-blue">1</b><span>Known by name</span></div><div><b class="c-green">4</b><span>Qualified</span></div></div>
+            <div class="db-chip">2026 RAM 1500 Laramie · 2</div>
+            <div class="db-vis"><b>Taylor R.</b><span class="pl t">Watcher</span><div class="db-meter"><i style="width:72%;background:#dc2626"></i></div><span class="db-small">Engaged · 4 vehicles · 6 min · returning</span></div>
+            <div class="db-vis"><b class="m">Visitor #2817</b><div class="db-meter"><i style="width:34%;background:#e9a23b"></i></div><span class="db-small">Warming · 2 vehicles · 3 min</span></div>
+          </div>
+        </div>
+        <figcaption><b>Live now.</b> Who's on your site, the car they're viewing and how engaged they are. Anonymous unless they've watched a car or claimed an offer with you.</figcaption>
+      </figure>
+
+      <figure class="db-panel">
+        <div class="db-body" role="img" aria-label="Sample Who sees VinPop settings: engaged shoppers only, showing after 2 vehicles, 2 minutes on site or a return visit">
+          <div aria-hidden="true">
+            <div class="db-h">Who sees VinPop</div>
+            <div class="db-seg"><span>Everyone</span><span class="on">Engaged shoppers only</span></div>
+            <div class="db-rule"><i class="tg on"></i><span>Vehicles viewed</span><b>2</b></div>
+            <div class="db-rule"><i class="tg on"></i><span>Active time on site</span><b>2 min</b></div>
+            <div class="db-rule"><i class="tg on"></i><span>Returning visitor</span></div>
+            <div class="db-rule"><i class="tg"></i><span class="m">Scrolled the vehicle page</span><b class="m">60%</b></div>
+            <div class="db-sum">Shows after 2+ vehicles or 2+ min on site or a return visit.</div>
+          </div>
+        </div>
+        <figcaption><b>Who sees VinPop.</b> Show offers to everyone, or only to shoppers who've shown real interest. Your agency sets it per rooftop.</figcaption>
+      </figure>
+
+      <figure class="db-panel">
+        <div class="db-body" role="img" aria-label="Sample Monday report: VinWatch this week with 6 new watchers, and VinPop offers this week with 24 popup views, 3 offer leads and 12.5 percent conversion">
+          <div aria-hidden="true">
+            <div class="db-h">Your Monday report</div>
+            <div class="db-rep t">VinWatch this week</div>
+            <div class="db-tiles"><div><b>6</b><span>New watchers</span></div><div><b>9</b><span>Hot shoppers</span></div><div><b>3</b><span>Sold w/ watchers</span></div></div>
+            <div class="db-rep g">VinPop offers this week</div>
+            <div class="db-tiles"><div><b>24</b><span>Popup views</span></div><div><b>3</b><span>Offer leads</span></div><div><b>12.5%</b><span>Conversion</span></div></div>
+          </div>
+        </div>
+        <figcaption><b>Monday report.</b> Emailed every week, with separate VinWatch and VinPop sections. Manage a group? One rollup covers every rooftop.</figcaption>
+      </figure>
+    </div>
+    <p class="db-note">Illustrations with sample data. Names, numbers and vehicles are made up.</p>
+  </div>
+</section>
+
 <section id="faq">
   <div class="wrap">
     <h2>The things dealers actually ask</h2>
@@ -452,6 +623,7 @@
       <h3>VinPop</h3>
       <details><summary>Is VinPop a lead form?</summary><p>Yes. It asks for a name, email and phone number, and we'd rather say so plainly. The difference is what the shopper gets first: a specific dollar offer on the car they're looking at.</p></details>
       <details><summary>Will VinPop annoy my shoppers?</summary><p>It's limited on purpose. It appears after a set time on a vehicle page (35 seconds by default) or, on desktop, when the shopper moves to leave. It shows at most once per vehicle per visit, never on search pages, and not again on that car for a week by default. If someone closes it, a small tab stays at the edge of the page in case they change their mind, and they can close that too. Once a shopper submits, it stops showing. It also stays out of the way of a car they're already watching with VinWatch.</p></details>
+      <details><summary>Can VinPop show only to serious shoppers?</summary><p>Yes. Each rooftop can show offers to everyone, or only once a shopper has viewed a set number of vehicles, spent a set number of active minutes on your site, come back on a different day, or scrolled well into a vehicle page. Any one of the rules you switch on is enough. Every rooftop starts on Everyone.</p></details>
       <details><summary>Can I run different offers on different vehicles?</summary><p>Yes. A rooftop can run several offers at once, each limited by new, used or certified, price range, make and model, with its own dates and fine print. If a car qualifies for more than one, the offer ranked highest on the list is the one that shows.</p></details>
       <details><summary>Who sets up the offers?</summary><p>Your agency sets up and changes the offers for you; there isn't a self-serve offer builder for dealers yet. You see the leads, in your CRM and in a lead list with the offer each shopper claimed.</p></details>
       <details><summary>Does VinPop text my shoppers?</summary><p>No. It doesn't ask for text consent and nothing is texted from it. The lead goes to your CRM and your team follows up the way they normally would.</p></details>
@@ -465,9 +637,11 @@
       <details><summary>Am I locked into a contract?</summary><p>No. VinWatch starts with 30 days free on your real inventory, with no setup fee. After that it's month-to-month: cancel with 30 days' notice. There's no annual term, no early-termination fee, and no auto-renewing multi-year deal. You will sign a straightforward service agreement before going live, which is what lets us text on your dealership's behalf. Ask us about VinPop pricing on your demo.</p></details>
 
       <h3>Both</h3>
+      <details><summary>What is LotPulse?</summary><p>LotPulse is the platform VinPop and VinWatch run on, built by AI Business Solutions LLC. Your dashboard lives at login.lotpulse.io, and VinWatch texts are sent as "LotPulse for" your dealership, because that's the name our text messaging is registered under with the carriers.</p></details>
+      <details><summary>Can I see who's on my site?</summary><p>Yes, once the VinPop tag runs on every page of your site. Live now shows each visitor's current page, the car they're viewing and how engaged they are. Visitors stay anonymous ("Visitor #2817") unless they've watched a car or claimed an offer on your site. Activity is kept for 24 hours, then deleted, and no IP addresses are stored. Check that your own website's privacy policy covers on-site analytics.</p></details>
       <details><summary>Which website platforms do they work on?</summary><p>The VinWatch button is live and proven today on Dealer Inspire and Dealer.com (DDC), with placement tuned to each. Other platforms (DealerOn, Sincro, custom builds) aren't supported out of the box. The button anchors to specific parts of your vehicle pages, so a new platform needs a short compatibility pass first. Ask us and we'll tell you honestly whether yours is ready. VinPop is newer: it's built and tested, and we'll tell you exactly where it has run when you ask.</p></details>
       <details><summary>What does installation actually involve?</summary><p>One tag in Google Tag Manager and a link to your inventory feed. No site redesign, no code changes for your web vendor, no IT ticket. Most rooftops are live the same day the feed is connected. VinPop is a second tag of its own and uses the same feed.</p></details>
-      <details><summary>How do the leads reach my CRM?</summary><p>As ADF/XML, the automotive lead standard, delivered to whatever email address your CRM ingests leads from. That works with essentially every CRM in the industry. VinPop and VinWatch leads are labeled separately so you can route them. What it isn't: a named native connector to VinSolutions, Elead or DealerSocket with two-way sync and automated task creation. If you need that depth, tell us and we'll be straight about where we are.</p></details>
+      <details><summary>How do the leads reach my CRM?</summary><p>As ADF/XML, the automotive lead standard, delivered to whatever email address your CRM ingests leads from. That works with essentially every CRM in the industry. VinPop leads arrive as "VinPop Lead" and VinWatch leads as "VinWatch Lead", so your CRM can route them separately. What it isn't: a named native connector to VinSolutions, Elead or DealerSocket with two-way sync and automated task creation. If you need that depth, tell us and we'll be straight about where we are.</p></details>
       <details><summary>What happens to a shopper's information?</summary><p>VinWatch collects a phone number, used to send the alerts the shopper asked for and to deliver the lead to you. VinPop collects a name, email and phone number, used to deliver that lead to you; nothing is texted from it. That's it. We don't sell any of it, we don't share it with other dealers, and we don't enrich it against third-party data brokers. If you upload lists for matchback reporting, they're matched in memory and discarded, never stored.</p></details>
       <details><summary>Does this replace my existing lead forms or chat?</summary><p>No. Both run alongside whatever you already have. VinWatch captures the shoppers who won't ask about a price and leave without telling you they were interested. VinPop gives the ready ones a specific offer to act on.</p></details>
       <details><summary>Will I see this in my own Google Analytics?</summary><p>Yes, once it's set up. Both tools push events to your website's own data layer: widget views, watch started, abandoned and completed for VinWatch, and view, submit, dismiss and reopen for VinPop. Getting them into your GA4 reports takes a few triggers in Google Tag Manager for each rooftop, so they don't appear on their own the day the tag goes in.</p></details>
@@ -501,7 +675,7 @@
     <div class="foot-top">
       <div>
         <div class="wordmark">Vin<em>Pop</em><sup style="font-size:10px;font-weight:700;opacity:.7;margin-left:2px">TM</sup></div>
-        <p>Offers and price-drop alerts on the exact car a shopper is viewing. Home of VinPop&trade; and VinWatch&trade;.</p>
+        <p>Offers and price-drop alerts on the exact car a shopper is viewing. Home of VinPop&trade; and VinWatch&trade;, both running on LotPulse&trade;.</p>
       </div>
       <div class="foot-links">
         <a href="#how">VinPop</a>
@@ -511,7 +685,7 @@
       </div>
     </div>
     <div class="foot-bot">
-      <span>&copy; 2026 AI Business Solutions LLC. VinPop and VinWatch are products of AI Business Solutions LLC.</span>
+      <span>&copy; 2026 AI Business Solutions LLC. VinPop, VinWatch and LotPulse are products of AI Business Solutions LLC.</span>
       <span><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a><a href="https://lotpulse.io/privacy.html">VinWatch SMS Privacy</a><a href="https://lotpulse.io/terms.html">VinWatch SMS Terms</a></span>
     </div>
   </div>
