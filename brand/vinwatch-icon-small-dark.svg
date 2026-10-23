@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="24.50 11.50 71.00 92.00" width="71" height="92" role="img" aria-label="VinWatch icon">
+<title>VinWatch icon</title>
+<g transform="translate(8.00 6.00) scale(1.00000) translate(-8 -6)">
+<path fill-rule="evenodd" fill="#14B8A6" d="M94 40L94 90A12 12 0 0 1 82 102L38 102A12 12 0 0 1 26 90L26 40L53 13A10 10 0 0 1 67 13Z M53.5 34A6.5 6.5 0 1 0 66.5 34A6.5 6.5 0 1 0 53.5 34Z"/>
+<path fill="#FFFFFF" d="M34 74Q60 52 86 74Q60 96 34 74Z"/>
+<circle cx="60" cy="74" r="10" fill="#14213D"/>
+</g>
+</svg>
