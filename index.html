@@ -64,15 +64,20 @@
 
   /* popup mock */
   .mock-stage{position:relative;max-width:340px;margin:0 auto;width:100%}
-  .mock{background:#fff;color:var(--ink);border-radius:14px;overflow:hidden;box-shadow:0 30px 60px rgba(4,12,40,.45)}
-  .mock-head{background:var(--blue);color:#fff;padding:20px 20px 18px;text-align:center}
+  .mock{color:var(--ink);filter:drop-shadow(0 26px 30px rgba(4,12,40,.45))}
+  /* hang-tag top + punched hole, same shape as the live popup */
+  .mock-roof{position:relative;height:66px;margin-bottom:-1px;background:var(--blue);
+    clip-path:polygon(0 100%,0 calc(100% - 3px),calc(50% - 14px) 7px,calc(50% - 8px) 2.5px,calc(50% - 3px) .5px,50% 0,calc(50% + 3px) .5px,calc(50% + 8px) 2.5px,calc(50% + 14px) 7px,100% calc(100% - 3px),100% 100%);
+    -webkit-mask:radial-gradient(circle at 50% 35px,transparent 8px,#000 8.5px);mask:radial-gradient(circle at 50% 35px,transparent 8px,#000 8.5px)}
+  .mock-roof i{position:absolute;left:50%;top:35px;width:26px;height:26px;margin:-13px 0 0 -13px;border-radius:50%;border:2.5px solid rgba(255,255,255,.5)}
+  .mock-head{background:var(--blue);color:#fff;padding:6px 20px 18px;text-align:center}
   .mock-dealer{font-size:12px;font-weight:600;opacity:.9;letter-spacing:.02em}
   .mock-amt{font-size:46px;font-weight:800;letter-spacing:-.03em;line-height:1.05;margin-top:6px}
   .mock-on{font-size:13px;opacity:.9}
   .mock-car{padding:12px 20px;border-bottom:1px solid var(--line);background:#f7f9fd}
   .mock-car b{display:block;font-size:14px}
   .mock-car span{font-size:11.5px;color:var(--body)}
-  .mock-body{padding:16px 20px 18px}
+  .mock-body{padding:16px 20px 18px;background:#fff;border-radius:0 0 14px 14px}
   .mock-field{height:38px;border:1px solid var(--line);border-radius:6px;background:#f7f9fd;margin-bottom:9px;padding:0 12px;display:flex;align-items:center;font-size:12.5px;color:#8a93a8}
   .mock-btn{background:var(--orange);color:#fff;text-align:center;font-weight:700;font-size:14px;border-radius:6px;padding:11px;margin-top:4px}
   .mock-fine{font-size:10.5px;color:#8a93a8;text-align:center;margin-top:10px}
@@ -80,7 +85,11 @@
   .mock-toast i{width:18px;height:18px;border-radius:50%;background:#16a34a;display:grid;place-items:center;color:#fff;font-size:11px;font-style:normal;flex:none}
   .mock-toast b{display:block;font-size:12px}
   .mock-toast span{color:var(--body);font-size:11px}
-  .mock-tab{position:absolute;right:-30px;top:38%;background:var(--blue);color:#fff;font-weight:800;font-size:11px;letter-spacing:.04em;padding:12px 7px;border-radius:8px 0 0 8px;writing-mode:vertical-rl;box-shadow:0 8px 20px rgba(4,12,40,.35);border:2px solid #fff;border-right:0}
+  /* compact reopen tag, same shape as the live tab; white edge so it reads on the navy hero */
+  .mock-tab{position:absolute;right:-58px;top:38%;filter:drop-shadow(1.5px 0 0 #fff) drop-shadow(-1.5px 0 0 #fff) drop-shadow(0 1.5px 0 #fff) drop-shadow(0 -1.5px 0 #fff) drop-shadow(0 8px 12px rgba(4,12,40,.35))}
+  .mock-tab span{display:flex;align-items:center;height:40px;padding:0 12px 0 27px;background:var(--blue);color:#fff;font-weight:800;font-size:17px;letter-spacing:-.01em;
+    clip-path:polygon(1px calc(50% - 2px),15px 1.5px,18px 0,100% 0,100% 100%,18px 100%,15px calc(100% - 1.5px),1px calc(50% + 2px));
+    -webkit-mask:radial-gradient(circle at 13.5px 50%,transparent 3.5px,#000 4px);mask:radial-gradient(circle at 13.5px 50%,transparent 3.5px,#000 4px)}
   .mock-note{text-align:center;color:#9fb1e6;font-size:12px;margin-top:16px}
 
   /* facts strip */
@@ -304,7 +313,7 @@
     .g3{grid-template-columns:1fr}
     .facts .wrap{grid-template-columns:repeat(2,1fr)}
     .mock-toast{left:-8px}
-    .mock-tab{right:-12px}
+    .mock-tab{right:-10px;top:56%}
   }
   @media (max-width:640px){
     section{padding:64px 0}
@@ -350,6 +359,7 @@
     <div>
       <div class="mock-stage" role="img" aria-label="Example VinPop offer: 500 dollars off a 2026 RAM 1500 Laramie, with name, email and phone fields and a Claim my offer button">
         <div class="mock" aria-hidden="true">
+          <div class="mock-roof"><i></i></div>
           <div class="mock-head">
             <div class="mock-dealer">YOUR DEALERSHIP</div>
             <div class="mock-amt">$500 OFF</div>
@@ -368,7 +378,7 @@
           </div>
         </div>
         <div class="mock-toast" aria-hidden="true"><i>&#10003;</i><div><b>Lead sent to CRM</b><span>2026 RAM 1500 Laramie &middot; $500 offer</span></div></div>
-        <div class="mock-tab" aria-hidden="true">$500 OFF</div>
+        <div class="mock-tab" aria-hidden="true"><span>$500</span></div>
       </div>
       <p class="mock-note">Illustration. Your name, colors, offer and fine print.</p>
     </div>
