@@ -330,7 +330,7 @@
      Everything is prefixed sp- and scoped to #try so it can't touch the rest of the page.
      The popup inside the stage copies the live VinPop phone card. */
   #try [hidden]{display:none!important}
-  #try{--sp-accent:#1F2A44;background:linear-gradient(160deg,#16388c 0%,var(--navy) 55%,#0e2663 100%);color:#fff}
+  #try{--sp-accent:#A61E25;background:linear-gradient(160deg,#16388c 0%,var(--navy) 55%,#0e2663 100%);color:#fff}
   #try .sp-wrap{display:grid;grid-template-columns:minmax(0,1fr) 400px;gap:56px;align-items:center}
   #try h2{text-align:left;font-size:clamp(30px,4vw,42px);font-weight:800}
   #try .sp-lead{color:#c3d0f5;font-size:17px;margin:16px 0 26px;max-width:480px}
@@ -939,7 +939,7 @@
   ];
   var COLORS = [{ name: "Navy", hex: "#1F2A44" }, { name: "Red", hex: "#A61E25" }, { name: "Blue", hex: "#1447FF" }];
   var OFFER = { cents: 50000, line: "any pre-owned vehicle", dealer: "Your Dealership" };
-  var theme = THEMES[2], accent = COLORS[0].hex, revealed = false, card = null;
+  var theme = THEMES[2], accent = COLORS[1].hex, revealed = false, card = null;   // starts on Red
 
   function amount() { return "$" + (OFFER.cents / 100).toLocaleString("en-US"); }
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
