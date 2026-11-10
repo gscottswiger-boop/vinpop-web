@@ -325,6 +325,107 @@
     .mock-stage{max-width:300px}
   }
   @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+  /* ── Scratch it yourself (#try): live VinPop scratch-off demo with seasonal themes ──
+     Everything is prefixed sp- and scoped to #try so it can't touch the rest of the page.
+     The popup inside the stage copies the live VinPop phone card. */
+  #try [hidden]{display:none!important}
+  #try{--sp-accent:#1F2A44;background:linear-gradient(160deg,#16388c 0%,var(--navy) 55%,#0e2663 100%);color:#fff}
+  #try .sp-wrap{display:grid;grid-template-columns:minmax(0,1fr) 400px;gap:56px;align-items:center}
+  #try h2{text-align:left;font-size:clamp(30px,4vw,42px);font-weight:800}
+  #try .sp-lead{color:#c3d0f5;font-size:17px;margin:16px 0 26px;max-width:480px}
+  #try .sp-label{font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#9fb1e6;margin:18px 0 9px}
+  #try .sp-themes{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;max-width:520px}
+  #try .sp-th{display:flex;align-items:center;gap:10px;padding:9px 10px;border:1.5px solid rgba(255,255,255,.22);border-radius:10px;background:rgba(255,255,255,.07);cursor:pointer;text-align:left;font:600 14px Inter,system-ui,sans-serif;color:#fff}
+  #try .sp-th:hover{border-color:rgba(255,255,255,.5)}
+  #try .sp-th[aria-pressed="true"]{border-color:#fff;background:rgba(255,255,255,.16)}
+  #try .sp-th i{width:34px;height:24px;border-radius:6px;flex:none;box-shadow:inset 0 0 0 1px rgba(255,255,255,.25)}
+  #try .sp-colors{display:flex;gap:8px;flex-wrap:wrap}
+  #try .sp-co{display:flex;align-items:center;gap:8px;padding:7px 13px 7px 8px;border:1.5px solid rgba(255,255,255,.22);border-radius:999px;background:rgba(255,255,255,.07);cursor:pointer;font:600 13px Inter,system-ui,sans-serif;color:#fff}
+  #try .sp-co i{width:18px;height:18px;border-radius:50%;display:block;box-shadow:0 0 0 1.5px rgba(255,255,255,.6)}
+  #try .sp-co[aria-pressed="true"]{border-color:#fff;background:rgba(255,255,255,.16)}
+  #try .sp-note{font-size:13px;color:#9fb1e6;margin:14px 0 0;max-width:480px}
+  #try .sp-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+  #try .sp-again{border-color:rgba(255,255,255,.45);color:#fff;background:none}
+  #try .sp-again:hover{border-color:#fff}
+  #try button:focus-visible{outline:3px solid #ffb199;outline-offset:2px}
+  #try .sp-cap{text-align:center;color:#9fb1e6;font-size:12px;margin:22px 0 0}
+
+  #try .sp-stage{position:relative;width:100%;max-width:400px;margin:0 auto;height:760px;border-radius:30px;overflow:hidden;background:#F3F4F6;
+    box-shadow:0 0 0 10px #0a1430,0 30px 60px rgba(4,12,40,.5);color:#14171F}
+  #try .sp-bar{height:52px;background:#0B1F3A;color:#fff;display:flex;align-items:center;padding:0 18px;font:700 15px Arial,sans-serif;letter-spacing:.02em}
+  #try .sp-hero{margin:14px;height:190px;border-radius:12px;background:linear-gradient(135deg,#3A4560,#5D6884);color:#fff;display:flex;align-items:flex-end;padding:18px;font:700 22px Arial,sans-serif}
+  #try .sp-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 14px}
+  #try .sp-grid div{height:150px;border-radius:10px;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+  #try .sp-scrim{position:absolute;inset:0;background:rgba(10,12,16,.55);transition:opacity .2s}
+  #try .sp-scrim.off{opacity:0;pointer-events:none}
+  #try #sp-fx{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:5}
+
+  #try .sp-card{position:absolute;left:16px;right:16px;top:50%;transform:translateY(-50%);max-height:calc(100% - 40px);overflow:auto;z-index:3;
+    filter:drop-shadow(0 22px 30px rgba(0,0,0,.30));scrollbar-width:none;-webkit-overflow-scrolling:touch;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#14171F;line-height:1.4;text-align:left}
+  #try .sp-card::-webkit-scrollbar{display:none}
+  #try .sp-card:focus{outline:none}
+  #try .sp-card.tall{top:auto;bottom:0;transform:none;max-height:calc(100% - 24px)}
+  #try .sp-card.tall .sp-body{border-radius:0}
+  #try .sp-card.pop{animation:sp-pop .4s cubic-bezier(.2,1.25,.4,1)}
+  #try .sp-card.tall.pop{animation:none}
+  @keyframes sp-pop{from{opacity:0;transform:translateY(calc(-50% + 18px))}}
+  #try .sp-roof{height:68px;margin-bottom:-1px;background:var(--sp-accent);position:relative;
+    clip-path:polygon(0 100%,0 calc(100% - 4px),calc(50% - 17px) 8px,calc(50% - 10px) 3px,calc(50% - 4px) .5px,50% 0,calc(50% + 4px) .5px,calc(50% + 10px) 3px,calc(50% + 17px) 8px,100% calc(100% - 4px),100% 100%);
+    -webkit-mask:radial-gradient(circle at 50% 37px,transparent 9px,#000 9.6px);mask:radial-gradient(circle at 50% 37px,transparent 9px,#000 9.6px)}
+  #try .sp-roof i{position:absolute;left:50%;top:37px;width:26px;height:26px;margin:-13px 0 0 -13px;border-radius:50%;border:3px solid rgba(255,255,255,.5)}
+  #try .sp-x{position:absolute;top:60px;right:10px;width:40px;height:40px;border-radius:50%;border:0;background:rgba(255,255,255,.18);color:#fff;font-size:24px;line-height:1;cursor:pointer;z-index:2;padding:0}
+  #try .sp-band{background:var(--sp-accent);color:#fff;padding:12px 18px 16px}
+  #try .sp-dealer{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.85}
+  #try .sp-band h3{font:800 22px/1.15 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;letter-spacing:-.01em;margin:6px 46px 0 0;text-wrap:balance;color:#fff}
+  #try .sp-strip{height:30px;display:flex;align-items:center;justify-content:center;gap:8px;font:800 11.5px -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase}
+  #try .sp-strip svg{width:12px;height:12px;flex:none}
+  #try .sp-demo{background:#FFD24A;color:#14171F;text-align:center;font:800 11px -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;padding:6px 10px}
+  #try .sp-body{background:#fff;border-radius:0 0 16px 16px;padding:16px 18px 18px}
+  #try .sp-tkwrap{position:relative;margin-top:4px}
+  #try .sp-ticket{position:relative;height:150px;border-radius:12px;overflow:hidden;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;border:3px solid transparent}
+  #try .sp-ticket.dashed{border:2px dashed var(--sp-accent)}
+  #try .sp-prize{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:10px 14px}
+  #try .sp-pa{display:flex;align-items:baseline;gap:8px;font-weight:800;line-height:1}
+  #try .sp-pa .n{font-size:48px;letter-spacing:-.02em}
+  #try .sp-pa .off{font-size:24px}
+  #try .sp-pl{font-size:16px;font-weight:600;margin-top:8px;line-height:1.3}
+  #try #sp-foil{position:absolute;inset:0;width:100%;height:100%;touch-action:none;cursor:grab;transition:opacity .45s ease}
+  #try #sp-foil.gone{opacity:0;pointer-events:none}
+  #try .sp-bow{position:absolute;left:50%;top:-17px;width:64px;height:40px;margin-left:-32px;pointer-events:none;z-index:2;filter:drop-shadow(0 2px 2px rgba(0,0,0,.25))}
+  #try .sp-hint{display:flex;align-items:center;gap:10px;font-size:13px;color:#5A6272;margin:10px 0 6px}
+  #try .sp-meter{flex:1;height:5px;border-radius:5px;background:#E3E7EE;overflow:hidden;min-width:40px}
+  #try .sp-meter b{display:block;height:100%;width:0;background:var(--sp-accent);transition:width .15s}
+  #try .sp-rv{background:none;border:0;padding:6px 0;font-size:13px;font-weight:700;cursor:pointer;color:var(--sp-accent);text-decoration:underline;text-underline-offset:2px;white-space:nowrap}
+  #try .sp-no{display:block;margin:6px auto 0;background:none;border:0;color:#5A6272;font-size:14px;text-decoration:underline;text-underline-offset:2px;cursor:pointer;padding:8px}
+  #try .sp-sub{font-size:15px;color:#3A4150;line-height:1.45;margin:14px 0 12px}
+  #try .sp-f{display:grid;gap:4px;margin-bottom:12px}
+  #try .sp-f label{font-size:14px;font-weight:600;color:#14171F}
+  #try .sp-f input{width:100%;height:auto;font:500 16px -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;padding:13px 14px;border:1.5px solid #D5DAE3;border-radius:10px;color:#14171F;background:#fff}
+  #try .sp-f input::placeholder{color:#9AA2B1}
+  #try .sp-f input:focus{outline:none;border-color:var(--sp-accent)}
+  #try .sp-err{color:#B4232A;font-size:13px;margin:0 0 10px}
+  #try .sp-go{width:100%;font:700 17px -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:var(--sp-accent);color:#fff;border:0;border-radius:10px;padding:15px;cursor:pointer}
+  #try .sp-fine{font-size:12px;line-height:1.5;color:#6A7282;margin:12px 0 0}
+  #try .sp-in{animation:sp-fade .3s ease}
+  @keyframes sp-fade{from{opacity:0;transform:translateY(6px)}}
+  #try .sp-done{text-align:center;padding:8px 0 4px}
+  #try .sp-done .chk{width:48px;height:48px;border-radius:50%;background:var(--sp-accent);color:#fff;display:grid;place-items:center;margin:0 auto 10px;font-size:24px}
+  #try .sp-done h4{font-size:20px;margin:0 0 8px;color:#14171F}
+  #try .sp-done p{font-size:15px;color:#3A4150;line-height:1.45;margin:0 0 10px}
+  #try .sp-code{display:inline-block;font:700 18px ui-monospace,Menlo,monospace;letter-spacing:.06em;border:2px dashed #C9CFDA;border-radius:8px;padding:8px 14px;margin:4px 0 12px;color:#14171F}
+  #try .sp-done a{display:block;margin-top:6px;background:var(--orange);color:#fff;text-decoration:none;font-weight:700;font-size:15px;border-radius:8px;padding:13px}
+  #try .sp-reopen{position:absolute;right:0;bottom:120px;z-index:4;border:0;background:var(--sp-accent);color:#fff;font:800 15px -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;padding:12px 12px 12px 16px;border-radius:12px 0 0 12px;cursor:pointer;box-shadow:0 6px 16px rgba(0,0,0,.25)}
+  @media (max-width:900px){
+    #try .sp-wrap{grid-template-columns:1fr;gap:36px}
+    #try .sp-themes,#try .sp-lead,#try .sp-note{max-width:none}
+  }
+  @media (max-width:640px){
+    #try .sp-stage{height:min(720px,calc(100svh - 90px));min-height:600px;box-shadow:0 0 0 6px #0a1430,0 18px 36px rgba(4,12,40,.45)}
+    #try .sp-themes{grid-template-columns:repeat(2,minmax(0,1fr))}
+  }
+  @media (prefers-reduced-motion:reduce){#try *{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
@@ -334,6 +435,7 @@
     <a class="logo" href="#top" aria-label="VinPop home"><img src="vinpop-logo.png?v=3" alt="VinPop"></a>
     <nav aria-label="Main">
       <a href="#how">VinPop</a>
+      <a href="#try">Try It</a>
       <a href="#vinwatch">VinWatch</a>
       <a href="#dashboard">Dashboard</a>
       <a href="#faq">FAQ</a>
@@ -402,6 +504,38 @@
       <div class="card"><div class="num">01</div><h3>Shopper views a vehicle</h3><p>A shopper lands on one of your vehicle pages and spends time with a specific car. VinPop stays off search and listing pages.</p></div>
       <div class="card"><div class="num">02</div><h3>VinPop pops a real offer</h3><p>After a delay you choose, a dollar offer appears on that exact car, in your dealership's name and colors. On desktop it can also appear as the shopper moves to leave.</p></div>
       <div class="card"><div class="num">03</div><h3>The lead goes to your CRM</h3><p>Name, email, phone, the vehicle and the offer they claimed are sent to your CRM as soon as they submit. No manual entry.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="try" class="sp" aria-labelledby="sp-title">
+  <div class="wrap sp-wrap">
+    <div class="sp-copy">
+      <span class="eyebrow">Scratch to reveal</span>
+      <h2 id="sp-title">Scratch it yourself.</h2>
+      <p class="sp-lead">VinPop can hide your offer under a scratch-off card. Shoppers scratch it with a finger or a mouse, see the dollar amount, then claim it. Pick a season and give it a try.</p>
+      <div class="sp-label" id="sp-tlab">Theme</div>
+      <div class="sp-themes" id="sp-themes" role="group" aria-labelledby="sp-tlab"></div>
+      <div class="sp-label" id="sp-clab">Your brand color</div>
+      <div class="sp-colors" id="sp-colors" role="group" aria-labelledby="sp-clab"></div>
+      <p class="sp-note">The header always keeps your dealership's color. The theme changes the event banner, the scratch card, the wording and the moment it's uncovered.</p>
+      <div class="sp-actions">
+        <button class="btn sp-again" id="sp-restart" type="button">Scratch again</button>
+        <a class="btn btn-primary" href="#demo">Put it on my site &rarr;</a>
+      </div>
+    </div>
+    <div class="sp-right">
+      <div class="sp-stage" id="sp-stage">
+        <div class="sp-site" aria-hidden="true">
+          <div class="sp-bar">Your Dealership</div>
+          <div class="sp-hero">Find your next vehicle</div>
+          <div class="sp-grid"><div></div><div></div><div></div><div></div></div>
+        </div>
+        <div class="sp-scrim" id="sp-scrim"></div>
+        <div id="sp-mount"></div>
+        <canvas id="sp-fx" aria-hidden="true"></canvas>
+      </div>
+      <p class="sp-cap">Live demo. Nothing you enter is saved or sent.</p>
     </div>
   </div>
 </section>
@@ -689,6 +823,7 @@
       </div>
       <div class="foot-links">
         <a href="#how">VinPop</a>
+        <a href="#try">Try It</a>
         <a href="#vinwatch">VinWatch</a>
         <a href="#faq">FAQ</a>
         <a href="mailto:scott@lotpulse.io">Contact</a>
@@ -743,6 +878,413 @@
       msg.textContent = "Couldn't reach us just now. Please email " + FALLBACK_EMAIL + ".";
     });
   });
+})();
+</script>
+<script>
+// "Scratch it yourself" (#try): a self-contained copy of the VinPop scratch-off
+// card with seasonal themes, for prospects to play with. Nothing is sent
+// anywhere; GA4 gets scratch_demo events (theme picked / revealed / claimed).
+(function () {
+  "use strict";
+  var stage = document.getElementById("sp-stage");
+  if (!stage) return;
+  var REVEAL_AT = 0.5, BRUSH = 20;
+  var RM = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var section = document.getElementById("try");
+  var mount = document.getElementById("sp-mount"), scrim = document.getElementById("sp-scrim");
+  var fx = document.getElementById("sp-fx"), fctx = fx.getContext("2d");
+  function ga(action, extra) {
+    try { if (window.gtag) gtag("event", "scratch_demo", Object.assign({ demo_action: action, theme: theme.id }, extra || {})); } catch (e) {}
+  }
+
+  var GOLD = "linear-gradient(135deg,#B38A2E,#F5DE8C 35%,#C9A24A 60%,#F2D27A 85%,#A67C24)";
+  var THEMES = [
+    { id: "classic", name: "Classic", tag: "Any time",
+      sw: "linear-gradient(135deg,#B8BFCA,#EEF1F5 45%,#ADB4C0)",
+      cover: "Scratch to reveal your offer", revealed: function (a) { return "You uncovered " + a + " off"; },
+      strip: null,
+      foil: ["#B8BFCA", "#EEF1F5", "#C2C8D2", "#E5E8EE", "#ADB4C0"], foilTitle: "SCRATCH HERE", foilSub: "to see your offer",
+      titleColor: "#4A5266", subColor: "#5E6678", pattern: "dollar",
+      ticketBg: "#F7F8FB", frame: "dashed", amount: null, line: "#2A303C", effect: "confetti", fx: null },
+    { id: "blackfriday", name: "Black Friday", tag: "Late November",
+      sw: "linear-gradient(135deg,#141418,#4A4636 50%,#121216)",
+      cover: "Scratch to reveal your Black Friday deal", revealed: function (a) { return "Your Black Friday deal: " + a + " off"; },
+      strip: { text: "Black Friday Sales Event", bg: "#0E0E10", color: "#F2D27A", icon: "tag" },
+      foil: ["#141418", "#3A3A44", "#1C1C22", "#4A4636", "#121216"], foilTitle: "SCRATCH HERE", foilSub: "to see your deal",
+      titleColor: "#F2D27A", subColor: "#CFC4A0", pattern: "percent",
+      ticketBg: "#121214", frame: GOLD, amount: "#F2D27A", line: "#FFFFFF", effect: "confetti", fx: ["#F2D27A", "#C9A24A", "#FFFFFF", "#2A2A2E"] },
+    { id: "holiday", name: "Holiday", tag: "December",
+      sw: "linear-gradient(135deg,#A87A22,#F3D98B 45%,#9C6F1C)",
+      cover: "Scratch to unwrap your holiday offer", revealed: function (a) { return "You unwrapped " + a + " off"; },
+      strip: { text: "Holiday Sales Event", bg: "#1E6B3A", color: "#FFFFFF", icon: "flake" },
+      foil: ["#A87A22", "#F3D98B", "#C99A3A", "#F6E3A6", "#9C6F1C"], foilTitle: "SCRATCH TO UNWRAP", foilSub: "your holiday offer",
+      titleColor: "#5A3A06", subColor: "#6E4E14", pattern: "snow",
+      ticketBg: "#FFF9EE", frame: "repeating-linear-gradient(45deg,#C8102E 0 9px,#FFFFFF 9px 18px,#1E6B3A 18px 27px,#FFFFFF 27px 36px)",
+      amount: "#B3122A", line: "#1E3A2A", bow: true, effect: "snow", fx: null },
+    { id: "newyear", name: "New Year", tag: "January",
+      sw: "linear-gradient(135deg,#0D1531,#2B3B70 50%,#0B1229)",
+      cover: "Scratch to start the new year with savings", revealed: function (a) { return "Happy New Year! " + a + " off"; },
+      strip: { text: "New Year Savings", bg: "#0B1229", color: "#F2D27A", icon: "spark" },
+      foil: ["#0D1531", "#2B3B70", "#121C40", "#3A3360", "#0B1229"], foilTitle: "SCRATCH HERE", foilSub: "to ring in your offer",
+      titleColor: "#F2D27A", subColor: "#C9D2EE", pattern: "stars",
+      ticketBg: "#0E1733", frame: GOLD, amount: "#F2D27A", line: "#E8ECF8", effect: "fireworks", fx: ["#F2D27A", "#FFFFFF", "#C9D2EE", "#F5B942"] },
+    { id: "july4", name: "4th of July", tag: "Summer",
+      sw: "linear-gradient(135deg,#B22234 0 33%,#FFFFFF 33% 66%,#1D3A8A 66%)",
+      cover: "Scratch to reveal your 4th of July offer", revealed: function (a) { return "You uncovered " + a + " off"; },
+      strip: { text: "4th of July Sales Event", bg: "#1D3A8A", color: "#FFFFFF", icon: "star", border: "#B22234" },
+      foil: ["#AEBBD3", "#EEF2F9", "#B9C5DB", "#E6ECF6", "#A3B1CC"], foilTitle: "SCRATCH HERE", foilSub: "to see your offer",
+      titleColor: "#1D2B57", subColor: "#3B4A75", pattern: "flagstars",
+      ticketBg: "#FFFFFF", frame: "repeating-linear-gradient(45deg,#B22234 0 9px,#FFFFFF 9px 18px,#1D3A8A 18px 27px,#FFFFFF 27px 36px)",
+      amount: "#1D3A8A", line: "#1D2B57", effect: "stars", fx: ["#B22234", "#FFFFFF", "#1D3A8A"] }
+  ];
+  var COLORS = [{ name: "Navy", hex: "#1F2A44" }, { name: "Red", hex: "#A61E25" }, { name: "Blue", hex: "#1447FF" }];
+  var OFFER = { cents: 50000, line: "any pre-owned vehicle", dealer: "Your Dealership" };
+  var theme = THEMES[2], accent = COLORS[0].hex, revealed = false, card = null;
+
+  function amount() { return "$" + (OFFER.cents / 100).toLocaleString("en-US"); }
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+  function desktop() { return window.matchMedia && matchMedia("(hover:hover) and (pointer:fine)").matches; }
+  function $(id) { return document.getElementById(id); }
+
+  // ── Controls ──
+  var themesEl = $("sp-themes"), colorsEl = $("sp-colors");
+  themesEl.innerHTML = THEMES.map(function (t) {
+    return '<button class="sp-th" type="button" data-id="' + t.id + '" aria-pressed="false"><i style="background:' + t.sw + '"></i><span>' + esc(t.name) + '</span></button>';
+  }).join("");
+  colorsEl.innerHTML = COLORS.map(function (c) {
+    return '<button class="sp-co" type="button" data-hex="' + c.hex + '" aria-pressed="false"><i style="background:' + c.hex + '"></i>' + c.name + '</button>';
+  }).join("");
+  themesEl.addEventListener("click", function (e) {
+    var b = e.target.closest(".sp-th"); if (!b) return;
+    THEMES.forEach(function (t) { if (t.id === b.getAttribute("data-id")) theme = t; });
+    sync(); openCard(); ga("theme");
+  });
+  colorsEl.addEventListener("click", function (e) {
+    var b = e.target.closest(".sp-co"); if (!b) return;
+    accent = b.getAttribute("data-hex"); sync();
+    if (!revealed) paintFoil();
+  });
+  $("sp-restart").addEventListener("click", function () { openCard(); });
+  function sync() {
+    themesEl.querySelectorAll(".sp-th").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-id") === theme.id ? "true" : "false"); });
+    colorsEl.querySelectorAll(".sp-co").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-hex") === accent ? "true" : "false"); });
+    section.style.setProperty("--sp-accent", accent);
+  }
+
+  // ── Card ──
+  var ICONS = {
+    flake: '<svg viewBox="-10 -10 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M0-9V9M-7.8-4.5 7.8 4.5M-7.8 4.5 7.8-4.5"/></svg>',
+    star: '<svg viewBox="-10 -10 20 20" fill="currentColor"><path d="M0-9.5 2.6-3.1 9.5-3 4.1 1.3 5.9 8 0 4.2-5.9 8-4.1 1.3-9.5-3-2.6-3.1Z"/></svg>',
+    spark: '<svg viewBox="-10 -10 20 20" fill="currentColor"><path d="M0-10 2.2-2.2 10 0 2.2 2.2 0 10-2.2 2.2-10 0-2.2-2.2Z"/></svg>',
+    tag: '<svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3.5A1.5 1.5 0 0 1 3.5 2h6.1c.4 0 .8.2 1.1.4l7 7a1.5 1.5 0 0 1 0 2.1l-6.1 6.1a1.5 1.5 0 0 1-2.1 0l-7-7A1.5 1.5 0 0 1 2 9.6ZM6.5 8a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"/></svg>'
+  };
+  var BOW = '<svg class="sp-bow" viewBox="0 0 64 40" aria-hidden="true">'
+    + '<path d="M32 20 C22 2,4 4,6 14 C8 24,24 24,32 20Z" fill="#C8102E" stroke="#8E0B20" stroke-width="1.5"/>'
+    + '<path d="M32 20 C42 2,60 4,58 14 C56 24,40 24,32 20Z" fill="#C8102E" stroke="#8E0B20" stroke-width="1.5"/>'
+    + '<path d="M30 22 L22 38 L27 36 L29 40 L32 24Z" fill="#B00D27"/><path d="M34 22 L42 38 L37 36 L35 40 L32 24Z" fill="#B00D27"/>'
+    + '<path d="M13 12 C17 9,23 11,27 16" fill="none" stroke="rgba(255,255,255,.45)" stroke-width="2" stroke-linecap="round"/>'
+    + '<circle cx="32" cy="19" r="5.5" fill="#E0213F" stroke="#8E0B20" stroke-width="1.5"/></svg>';
+
+  function cardHtml() {
+    var t = theme, a = amount();
+    var tk = t.frame === "dashed"
+      ? 'class="sp-ticket dashed" style="background:' + t.ticketBg + '"'
+      : 'class="sp-ticket" style="background:linear-gradient(' + t.ticketBg + ',' + t.ticketBg + ') padding-box,' + t.frame + ' border-box"';
+    return '<div class="sp-card pop" id="sp-card" role="dialog" aria-modal="false" aria-labelledby="sp-hl" tabindex="-1">'
+      + '<div class="sp-roof" aria-hidden="true"><i></i></div>'
+      + '<button class="sp-x" id="sp-x" type="button" aria-label="Close">&times;</button>'
+      + '<div class="sp-band"><div class="sp-dealer">' + esc(OFFER.dealer) + '</div><h3 id="sp-hl">' + esc(revealed ? t.revealed(a) : t.cover) + '</h3></div>'
+      + (t.strip ? '<div class="sp-strip" style="background:' + t.strip.bg + ';color:' + t.strip.color + (t.strip.border ? ';border-bottom:4px solid ' + t.strip.border : '') + '">'
+          + ICONS[t.strip.icon] + '<span>' + esc(t.strip.text) + '</span>' + ICONS[t.strip.icon] + '</div>' : "")
+      + '<div class="sp-body">'
+      +   '<div class="sp-tkwrap">' + (t.bow ? BOW : "")
+      +     '<div ' + tk + ' id="sp-tk"><div class="sp-prize"><div class="sp-pa" style="color:' + (t.amount || "var(--sp-accent)") + '"><span class="n">' + esc(a) + '</span><span class="off">OFF</span></div>'
+      +       '<div class="sp-pl" style="color:' + t.line + '">' + esc(OFFER.line) + '</div></div>'
+      +       (revealed ? "" : '<canvas id="sp-foil" aria-hidden="true"></canvas>') + '</div></div>'
+      +   (revealed ? "" : '<div class="sp-hint" id="sp-hint"><span>' + (desktop() ? "Scratch with your mouse" : "Scratch with your finger")
+          + '</span><span class="sp-meter" aria-hidden="true"><b id="sp-meter"></b></span><button class="sp-rv" id="sp-rv" type="button">' + (desktop() ? "Click to reveal" : "Tap to reveal") + '</button></div>'
+          + '<button class="sp-no" id="sp-no0" type="button">No thanks</button>')
+      +   '<div id="sp-form"' + (revealed ? "" : " hidden") + '>'
+      +     '<p class="sp-sub">Enter your info and ' + esc(OFFER.dealer) + ' will reach out about your offer.</p>'
+      +     '<div class="sp-f"><label for="sp-n">Name</label><input id="sp-n" autocomplete="off"></div>'
+      +     '<div class="sp-f"><label for="sp-e">Email</label><input id="sp-e" type="email" inputmode="email" autocomplete="off"></div>'
+      +     '<div class="sp-f"><label for="sp-p">Phone</label><input id="sp-p" type="tel" inputmode="tel" autocomplete="off" placeholder="(555) 555-5555"></div>'
+      +     '<p class="sp-err" id="sp-err" hidden></p>'
+      +     '<button class="sp-go" id="sp-go" type="button">Claim my offer</button>'
+      +     '<button class="sp-no" id="sp-no1" type="button">No thanks</button>'
+      +     '<p class="sp-fine">Cannot be combined with some offers. See dealer for details. By submitting, you are asking ' + esc(OFFER.dealer) + ' to contact you about this offer.</p>'
+      +   '</div>'
+      +   '<div class="sp-done" id="sp-done" hidden></div>'
+      + '</div></div>';
+  }
+
+  function openCard() {
+    stopFx();
+    revealed = false;
+    scrim.classList.remove("off");
+    mount.innerHTML = cardHtml();
+    card = $("sp-card");
+    wire(); fitCard();
+    requestAnimationFrame(function () { paintFoil(); setupScratch(); });
+  }
+  function closeCard() {
+    stopFx(); card = null;
+    scrim.classList.add("off");
+    mount.innerHTML = '<button class="sp-reopen" id="sp-reopen" type="button" aria-label="Reopen the offer">' + (revealed ? amount() + " OFF" : "Scratch") + '</button>';
+    $("sp-reopen").onclick = function () {
+      scrim.classList.remove("off");
+      mount.innerHTML = cardHtml(); card = $("sp-card"); wire(); fitCard();
+      if (!revealed) requestAnimationFrame(function () { paintFoil(); setupScratch(); });
+    };
+  }
+  // Too tall to float: keep the side margins and run to the bottom (as the live popup does).
+  function fitCard() {
+    if (!card) return;
+    card.classList.remove("tall");
+    if (card.scrollHeight > card.clientHeight + 1) card.classList.add("tall");
+  }
+  window.addEventListener("resize", fitCard);
+
+  function wire() {
+    $("sp-x").onclick = closeCard;
+    ["sp-no0", "sp-no1"].forEach(function (id) { var b = $(id); if (b) b.onclick = closeCard; });
+    var rv = $("sp-rv"); if (rv) rv.onclick = function () { reveal("tap"); };
+    var ph = $("sp-p");
+    ph.addEventListener("input", function () {
+      var d = ph.value.replace(/\D/g, "").slice(0, 10), o = d;
+      if (d.length > 6) o = "(" + d.slice(0, 3) + ") " + d.slice(3, 6) + "-" + d.slice(6);
+      else if (d.length > 3) o = "(" + d.slice(0, 3) + ") " + d.slice(3);
+      ph.value = o;
+    });
+    ["sp-n", "sp-e", "sp-p"].forEach(function (id) {
+      $(id).addEventListener("keydown", function (e) { if (e.key === "Enter") { e.preventDefault(); submit(); } });
+    });
+    $("sp-go").onclick = submit;
+  }
+  function submit() {
+    var n = $("sp-n"), em = $("sp-e"), ph = $("sp-p"), err = $("sp-err"), bad = null;
+    if (!n.value.trim()) bad = [n, "Enter your name."];
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(em.value.trim())) bad = [em, "Enter a valid email address."];
+    else if (ph.value.replace(/\D/g, "").length !== 10) bad = [ph, "Enter a 10-digit phone number."];
+    if (bad) { err.textContent = bad[1]; err.hidden = false; bad[0].focus(); return; }
+    var code = "DEMO-" + Math.random().toString(36).slice(2, 6).toUpperCase();
+    $("sp-form").hidden = true;
+    var done = $("sp-done");
+    done.innerHTML = '<div class="chk">&#10003;</div><h4>Thanks, ' + esc(n.value.trim().split(" ")[0]) + '</h4>'
+      + '<p>On your site, this is the moment the lead lands in your CRM with the offer and a matching confirmation code:</p>'
+      + '<div class="sp-code">' + code + '</div>'
+      + '<a href="#demo">Get VinPop for my dealership &rarr;</a>';
+    done.hidden = false;
+    fitCard(); card.scrollTop = 0;
+    ga("claimed");
+  }
+
+  // ── Foil ──
+  var fc = null, fw = 0, fh = 0, strokes = 0;
+  function snowflake(c, x, y, r) {
+    c.save(); c.translate(x, y); c.lineCap = "round";
+    for (var i = 0; i < 6; i++) {
+      c.rotate(Math.PI / 3);
+      c.beginPath(); c.moveTo(0, 0); c.lineTo(0, -r);
+      c.moveTo(0, -r * .55); c.lineTo(-r * .28, -r * .82);
+      c.moveTo(0, -r * .55); c.lineTo(r * .28, -r * .82); c.stroke();
+    }
+    c.restore();
+  }
+  function star(c, x, y, r, inner, pts) {
+    inner = inner || .45; pts = pts || 5;
+    c.beginPath();
+    for (var i = 0; i < pts * 2; i++) {
+      var rr = i % 2 ? r * inner : r, a = -Math.PI / 2 + i * Math.PI / pts;
+      c[i ? "lineTo" : "moveTo"](x + Math.cos(a) * rr, y + Math.sin(a) * rr);
+    }
+    c.closePath();
+  }
+  function roundRect(c, x, y, w, h, r) {
+    c.beginPath(); c.moveTo(x + r, y); c.arcTo(x + w, y, x + w, y + h, r); c.arcTo(x + w, y + h, x, y + h, r);
+    c.arcTo(x, y + h, x, y, r); c.arcTo(x, y, x + w, y, r); c.closePath();
+  }
+  function paintFoil() {
+    var cv = $("sp-foil"); if (!cv) return;
+    var t = theme, c = cv.getContext("2d"), dpr = Math.min(window.devicePixelRatio || 1, 2);
+    fc = c; fw = cv.clientWidth; fh = cv.clientHeight;
+    if (!fw || !fh) return;
+    cv.width = Math.round(fw * dpr); cv.height = Math.round(fh * dpr);
+    c.setTransform(dpr, 0, 0, dpr, 0, 0);
+    c.globalCompositeOperation = "source-over";
+    var g = c.createLinearGradient(0, 0, fw, fh), stops = [0, .32, .52, .78, 1];
+    t.foil.forEach(function (col, i) { g.addColorStop(stops[i], col); });
+    c.fillStyle = g; c.fillRect(0, 0, fw, fh);
+    var dark = t.id === "blackfriday" || t.id === "newyear";
+    for (var i = 0, n = Math.round(fw * fh / 26); i < n; i++) {
+      c.fillStyle = Math.random() < .5 ? (dark ? "rgba(255,255,255,.10)" : "rgba(255,255,255,.35)") : (dark ? "rgba(0,0,0,.25)" : "rgba(70,80,100,.10)");
+      c.fillRect(Math.random() * fw, Math.random() * fh, 1, 1);
+    }
+    c.textAlign = "center"; c.textBaseline = "middle";
+    for (var y = 14, row = 0; y < fh + 10; y += 30, row++) {
+      for (var x = (row % 2 ? 19 : 2), col = 0; x < fw + 10; x += 34, col++) {
+        var alt = (row + col) % 2;
+        if (t.pattern === "dollar") { c.font = "700 17px Inter,Arial,sans-serif"; c.fillStyle = "rgba(20,33,61,.09)"; c.fillText("$", x, y); }
+        else if (t.pattern === "percent") { c.font = "800 16px Inter,Arial,sans-serif"; c.fillStyle = "rgba(242,210,122,.16)"; c.fillText("%", x, y); }
+        else if (t.pattern === "snow") { c.strokeStyle = "rgba(255,255,255,.62)"; c.lineWidth = 1.3; snowflake(c, x, y, alt ? 6 : 4.5); }
+        else if (t.pattern === "stars") {
+          if (alt) { c.fillStyle = "rgba(242,210,122,.38)"; star(c, x, y, 5.5); c.fill(); }
+          else { c.fillStyle = "rgba(255,255,255,.30)"; star(c, x, y, 5, .22, 4); c.fill(); }
+        }
+        else if (t.pattern === "flagstars") { c.fillStyle = alt ? "rgba(178,34,52,.30)" : "rgba(29,58,138,.28)"; star(c, x, y, 5.5); c.fill(); }
+      }
+    }
+    c.font = "800 21px Inter,Arial,sans-serif";
+    var tw = Math.max(c.measureText(t.foilTitle).width, 150) + 36;
+    c.fillStyle = dark ? "rgba(0,0,0,.28)" : "rgba(255,255,255,.28)";
+    roundRect(c, fw / 2 - tw / 2, fh / 2 - 31, tw, 60, 12); c.fill();
+    c.fillStyle = t.titleColor; c.fillText(t.foilTitle, fw / 2, fh / 2 - 8);
+    c.font = "500 13px Inter,Arial,sans-serif"; c.fillStyle = t.subColor;
+    c.fillText(t.foilSub, fw / 2, fh / 2 + 15);
+    c.globalCompositeOperation = "destination-out";
+    c.lineCap = "round"; c.lineJoin = "round"; c.lineWidth = BRUSH * 2;
+    strokes = 0;
+  }
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { if (!revealed && !strokes) paintFoil(); });
+
+  function setupScratch() {
+    var cv = $("sp-foil"); if (!cv) return;
+    var down = false, last = null;
+    function pt(e) { var r = cv.getBoundingClientRect(); return { x: (e.clientX - r.left) * (fw / (r.width || fw)), y: (e.clientY - r.top) * (fh / (r.height || fh)) }; }
+    function to(p) {
+      if (!fc) return;
+      fc.beginPath();
+      if (last) { fc.moveTo(last.x, last.y); fc.lineTo(p.x, p.y); fc.stroke(); }
+      else { fc.arc(p.x, p.y, BRUSH, 0, Math.PI * 2); fc.fill(); }
+      last = p;
+      if (++strokes % 6 === 0) check();
+    }
+    function check() {
+      if (revealed || !fc) return;
+      var d, clear = 0, total = 0;
+      try { d = fc.getImageData(0, 0, cv.width, cv.height).data; } catch (e) { return; }
+      for (var i = 3; i < d.length; i += 32) { total++; if (d[i] < 40) clear++; }
+      var pct = total ? clear / total : 0, m = $("sp-meter");
+      if (m) m.style.width = Math.min(100, Math.round(pct / REVEAL_AT * 100)) + "%";
+      if (pct >= REVEAL_AT) reveal("scratch");
+    }
+    cv.addEventListener("pointerdown", function (e) { if (revealed) return; down = true; last = null; try { cv.setPointerCapture(e.pointerId); } catch (_) {} to(pt(e)); e.preventDefault(); });
+    cv.addEventListener("pointermove", function (e) {
+      if (!down || revealed) return;
+      var evs = e.getCoalescedEvents ? e.getCoalescedEvents() : null; if (!evs || !evs.length) evs = [e];
+      for (var i = 0; i < evs.length; i++) to(pt(evs[i]));
+      e.preventDefault();
+    });
+    function up() { if (down) { down = false; last = null; check(); } }
+    cv.addEventListener("pointerup", up); cv.addEventListener("pointercancel", up);
+    cv.addEventListener("touchmove", function (e) { if (!revealed) e.preventDefault(); }, { passive: false });
+  }
+
+  function reveal(method) {
+    if (revealed || !card) return;
+    revealed = true;
+    var cv = $("sp-foil"), m = $("sp-meter");
+    if (m) m.style.width = "100%";
+    if (cv) cv.classList.add("gone");
+    $("sp-hl").textContent = theme.revealed(amount());
+    playEffect();
+    ga("revealed", { reveal_method: method });
+    setTimeout(function () {
+      if (!card) return;
+      var hint = $("sp-hint"), no0 = $("sp-no0"), form = $("sp-form");
+      if (hint) hint.hidden = true;
+      if (no0) no0.hidden = true;
+      if (form) { form.hidden = false; form.className = "sp-in"; }
+      fitCard();
+    }, 380);
+  }
+
+  // ── Reveal effects ──
+  var parts = [], raf = 0, timers = [];
+  function sizeFx() {
+    var r = stage.getBoundingClientRect(), d = Math.min(window.devicePixelRatio || 1, 2);
+    fx.width = Math.round(r.width * d); fx.height = Math.round(r.height * d);
+    fctx.setTransform(d, 0, 0, d, 0, 0);
+    return r;
+  }
+  function stopFx() { parts = []; timers.forEach(clearTimeout); timers = []; cancelAnimationFrame(raf); raf = 0; fctx.clearRect(0, 0, fx.width, fx.height); }
+  function playEffect() {
+    if (RM) return;
+    stopFx();
+    var sr = sizeFx(), t = theme, i, tk = $("sp-tk"), c = { x: sr.width / 2, y: sr.height / 2 };
+    if (tk) { var r = tk.getBoundingClientRect(); c = { x: r.left - sr.left + r.width / 2, y: r.top - sr.top + r.height / 2 }; }
+    if (t.effect === "confetti" || t.effect === "stars") {
+      var cols = t.fx || [accent, "#FFB020", "#0D9488", "#14213D", "#8EA6FF"];
+      for (i = 0; i < (t.effect === "stars" ? 34 : 46); i++) {
+        var a = Math.random() * Math.PI * 2, sp = 3 + Math.random() * 5;
+        parts.push({ x: c.x, y: c.y, vx: Math.cos(a) * sp, vy: Math.sin(a) * sp - 3, g: .16, life: 0, max: 70 + Math.random() * 30,
+          s: t.effect === "stars" ? 5 + Math.random() * 4 : 4 + Math.random() * 3, col: cols[i % cols.length],
+          shape: t.effect === "stars" ? "star" : "rect", rot: Math.random() * 6, vr: (Math.random() - .5) * .3 });
+      }
+    } else if (t.effect === "snow") {
+      for (i = 0; i < 90; i++) {
+        parts.push({ x: Math.random() * sr.width, y: -10 - Math.random() * sr.height * .9, vy: .9 + Math.random() * 1.6,
+          life: 0, max: 400, s: 2.5 + Math.random() * 4, shape: Math.random() < .55 ? "flake" : "dot",
+          rot: Math.random() * 6, vr: (Math.random() - .5) * .04, sway: Math.random() * 6, amp: .4 + Math.random() * .8 });
+      }
+    } else if (t.effect === "fireworks") {
+      [[.3, .2], [.72, .14], [.5, .32], [.22, .44], [.78, .4]].forEach(function (p, k) {
+        timers.push(setTimeout(function () {
+          var col = t.fx[k % t.fx.length], bx = sr.width * p[0], by = sr.height * p[1];
+          for (var j = 0; j < 46; j++) {
+            var a2 = j / 46 * Math.PI * 2 + Math.random() * .1, sp2 = 1.6 + Math.random() * 2.8;
+            parts.push({ x: bx, y: by, px: bx, py: by, vx: Math.cos(a2) * sp2, vy: Math.sin(a2) * sp2, g: .035, drag: .975,
+              life: 0, max: 60 + Math.random() * 25, s: 2.2, col: Math.random() < .25 ? "#FFFFFF" : col, shape: "spark" });
+          }
+          if (!raf) raf = requestAnimationFrame(step);
+        }, k * 320));
+      });
+    }
+    if (!raf) raf = requestAnimationFrame(step);
+  }
+  function step() {
+    var r = stage.getBoundingClientRect();
+    fctx.clearRect(0, 0, r.width, r.height);
+    parts = parts.filter(function (p) { return p.life < p.max && p.y < r.height + 20; });
+    parts.forEach(function (p) {
+      p.life++;
+      if (p.shape === "flake" || p.shape === "dot") { p.sway += .03; p.x += Math.sin(p.sway) * p.amp; p.y += p.vy; }
+      else { p.px = p.x; p.py = p.y; if (p.drag) { p.vx *= p.drag; p.vy *= p.drag; } p.vy += p.g; p.x += p.vx; p.y += p.vy; }
+      p.rot += p.vr || 0;
+      fctx.globalAlpha = p.shape === "flake" || p.shape === "dot" ? 1 : Math.max(0, 1 - p.life / p.max);
+      fctx.save();
+      if (p.shape === "spark") {
+        fctx.strokeStyle = p.col; fctx.lineWidth = p.s; fctx.lineCap = "round";
+        fctx.beginPath(); fctx.moveTo(p.px, p.py); fctx.lineTo(p.x, p.y); fctx.stroke();
+      } else {
+        fctx.translate(p.x, p.y); fctx.rotate(p.rot || 0);
+        if (p.shape === "rect") { fctx.fillStyle = p.col; fctx.fillRect(-p.s / 2, -p.s * .8, p.s, p.s * 1.6); }
+        else if (p.shape === "star") {
+          fctx.fillStyle = p.col; star(fctx, 0, 0, p.s); fctx.fill();
+          if (p.col === "#FFFFFF") { fctx.strokeStyle = "#1D3A8A"; fctx.lineWidth = 1; fctx.stroke(); }
+        } else if (p.shape === "flake") {
+          fctx.shadowColor = "rgba(40,60,90,.55)"; fctx.shadowBlur = 2;
+          fctx.strokeStyle = "#FFFFFF"; fctx.lineWidth = 1.4; snowflake(fctx, 0, 0, p.s + 1.5);
+        } else if (p.shape === "dot") {
+          fctx.shadowColor = "rgba(40,60,90,.5)"; fctx.shadowBlur = 2;
+          fctx.fillStyle = "#FFFFFF"; fctx.beginPath(); fctx.arc(0, 0, p.s * .6, 0, Math.PI * 2); fctx.fill();
+        }
+      }
+      fctx.restore();
+    });
+    fctx.globalAlpha = 1;
+    if (parts.length) raf = requestAnimationFrame(step);
+    else { raf = 0; fctx.clearRect(0, 0, r.width, r.height); }
+  }
+
+  sync();
+  // Build the card once the section is near the screen (so the drop-in plays where it's seen).
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (es) {
+      if (es.some(function (e) { return e.isIntersecting; })) { io.disconnect(); openCard(); }
+    }, { rootMargin: "200px 0px" });
+    io.observe(stage);
+  } else openCard();
 })();
 </script>
 </body>
