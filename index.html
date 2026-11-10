@@ -339,6 +339,10 @@
   #try .sp-th{display:flex;align-items:center;gap:10px;padding:9px 10px;border:1.5px solid rgba(255,255,255,.22);border-radius:10px;background:rgba(255,255,255,.07);cursor:pointer;text-align:left;font:600 14px Inter,system-ui,sans-serif;color:#fff}
   #try .sp-th:hover{border-color:rgba(255,255,255,.5)}
   #try .sp-th[aria-pressed="true"]{border-color:#fff;background:rgba(255,255,255,.16)}
+  #try .sp-th span{display:flex;flex-direction:column;line-height:1.2}
+  #try .sp-th em{font-style:normal;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-top:3px}
+  #try .sp-soon{color:#ffb199}
+  #try .sp-live{color:#7ee2b8}
   #try .sp-th i{width:34px;height:24px;border-radius:6px;flex:none;box-shadow:inset 0 0 0 1px rgba(255,255,255,.25)}
   #try .sp-colors{display:flex;gap:8px;flex-wrap:wrap}
   #try .sp-co{display:flex;align-items:center;gap:8px;padding:7px 13px 7px 8px;border:1.5px solid rgba(255,255,255,.22);border-radius:999px;background:rgba(255,255,255,.07);cursor:pointer;font:600 13px Inter,system-ui,sans-serif;color:#fff}
@@ -518,7 +522,7 @@
       <div class="sp-themes" id="sp-themes" role="group" aria-labelledby="sp-tlab"></div>
       <div class="sp-label" id="sp-clab">Your brand color</div>
       <div class="sp-colors" id="sp-colors" role="group" aria-labelledby="sp-clab"></div>
-      <p class="sp-note">The header always keeps your dealership's color. The theme changes the event banner, the scratch card, the wording and the moment it's uncovered.</p>
+      <p class="sp-note">The classic scratch card is live today. Seasonal themes are coming soon. The header always keeps your dealership's color; a theme changes the event banner, the scratch card, the wording and the moment it's uncovered.</p>
       <div class="sp-actions">
         <button class="btn sp-again" id="sp-restart" type="button">Scratch again</button>
         <a class="btn btn-primary" href="#demo">Put it on my site &rarr;</a>
@@ -949,7 +953,9 @@
   // ── Controls ──
   var themesEl = $("sp-themes"), colorsEl = $("sp-colors");
   themesEl.innerHTML = THEMES.map(function (t) {
-    return '<button class="sp-th" type="button" data-id="' + t.id + '" aria-pressed="false"><i style="background:' + t.sw + '"></i><span>' + esc(t.name) + '</span></button>';
+    // Seasonal themes aren't in the VinPop product yet: tagged "Coming soon".
+    return '<button class="sp-th" type="button" data-id="' + t.id + '" aria-pressed="false"><i style="background:' + t.sw + '"></i><span>' + esc(t.name)
+      + (t.id === "classic" ? '<em class="sp-live">Live now</em>' : '<em class="sp-soon">Coming soon</em>') + '</span></button>';
   }).join("");
   colorsEl.innerHTML = COLORS.map(function (c) {
     return '<button class="sp-co" type="button" data-hex="' + c.hex + '" aria-pressed="false"><i style="background:' + c.hex + '"></i>' + c.name + '</button>';
