@@ -15,8 +15,8 @@
 <title>VinPop &amp; VinWatch | Dealer offers and price-drop alerts on the exact car a shopper is viewing</title>
 <link rel="canonical" href="https://vinpop.io/">
 <meta name="description" content="VinPop shows a dollar offer on the exact vehicle a shopper is viewing. VinWatch lets shoppers watch a car and get a text when the price drops. Both send the lead to your CRM.">
-<link rel="icon" type="image/png" href="favicon.png?v=3">
-<link rel="apple-touch-icon" href="apple-touch-icon.png?v=3">
+<link rel="icon" type="image/png" href="favicon.png?v=4">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=4">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -65,11 +65,11 @@
   /* popup mock */
   .mock-stage{position:relative;max-width:340px;margin:0 auto;width:100%}
   .mock{color:var(--ink);filter:drop-shadow(0 26px 30px rgba(4,12,40,.45))}
-  /* hang-tag top + punched hole, same shape as the live popup */
-  .mock-roof{position:relative;height:66px;margin-bottom:-1px;background:var(--blue);
-    clip-path:polygon(0 100%,0 calc(100% - 3px),calc(50% - 14px) 7px,calc(50% - 8px) 2.5px,calc(50% - 3px) .5px,50% 0,calc(50% + 3px) .5px,calc(50% + 8px) 2.5px,calc(50% + 14px) 7px,100% calc(100% - 3px),100% 100%);
-    -webkit-mask:radial-gradient(circle at 50% 35px,transparent 8px,#000 8.5px);mask:radial-gradient(circle at 50% 35px,transparent 8px,#000 8.5px)}
-  .mock-roof i{position:absolute;left:50%;top:35px;width:26px;height:26px;margin:-13px 0 0 -13px;border-radius:50%;border:2.5px solid rgba(255,255,255,.5)}
+  /* flat-top hang tag + punched hole, same shape as the live popup */
+  .mock-roof{position:relative;height:50px;margin-bottom:-1px;background:var(--blue);
+    clip-path:polygon(0 100%,0 46.7px,1.3px 40px,41px 2.2px,45px .5px,50px 0,calc(100% - 50px) 0,calc(100% - 45px) .5px,calc(100% - 41px) 2.2px,calc(100% - 1.3px) 40px,100% 46.7px,100% 100%);
+    -webkit-mask:radial-gradient(circle at 50% 23px,transparent 8px,#000 8.5px);mask:radial-gradient(circle at 50% 23px,transparent 8px,#000 8.5px)}
+  .mock-roof i{position:absolute;left:50%;top:23px;width:24px;height:24px;margin:-12px 0 0 -12px;border-radius:50%;background:rgba(255,255,255,.32)}
   .mock-head{background:var(--blue);color:#fff;padding:6px 20px 18px;text-align:center}
   .mock-dealer{font-size:12px;font-weight:600;opacity:.9;letter-spacing:.02em}
   .mock-amt{font-size:46px;font-weight:800;letter-spacing:-.03em;line-height:1.05;margin-top:6px}
@@ -87,9 +87,9 @@
   .mock-toast span{color:var(--body);font-size:11px}
   /* compact reopen tag, same shape as the live tab; white edge so it reads on the navy hero */
   .mock-tab{position:absolute;right:-58px;top:38%;filter:drop-shadow(1.5px 0 0 #fff) drop-shadow(-1.5px 0 0 #fff) drop-shadow(0 1.5px 0 #fff) drop-shadow(0 -1.5px 0 #fff) drop-shadow(0 8px 12px rgba(4,12,40,.35))}
-  .mock-tab span{display:flex;align-items:center;height:40px;padding:0 12px 0 27px;background:var(--blue);color:#fff;font-weight:800;font-size:17px;letter-spacing:-.01em;
-    clip-path:polygon(1px calc(50% - 2px),15px 1.5px,18px 0,100% 0,100% 100%,18px 100%,15px calc(100% - 1.5px),1px calc(50% + 2px));
-    -webkit-mask:radial-gradient(circle at 13.5px 50%,transparent 3.5px,#000 4px);mask:radial-gradient(circle at 13.5px 50%,transparent 3.5px,#000 4px)}
+  .mock-tab span{display:flex;align-items:center;height:40px;padding:0 12px 0 24px;background:radial-gradient(circle at 12px 50%,rgba(255,255,255,.32) 5.6px,transparent 6.1px),var(--blue);color:#fff;font-weight:800;font-size:17px;letter-spacing:-.01em;
+    clip-path:polygon(0 9px,1px 6.5px,7px 1.2px,10.5px 0,100% 0,100% 100%,10.5px 100%,7px calc(100% - 1.2px),1px calc(100% - 6.5px),0 calc(100% - 9px));
+    -webkit-mask:radial-gradient(circle at 12px 50%,transparent 3.5px,#000 4px);mask:radial-gradient(circle at 12px 50%,transparent 3.5px,#000 4px)}
   .mock-note{text-align:center;color:#9fb1e6;font-size:12px;margin-top:16px}
 
   /* facts strip */
@@ -375,11 +375,11 @@
   #try .sp-card.pop{animation:sp-pop .4s cubic-bezier(.2,1.25,.4,1)}
   #try .sp-card.tall.pop{animation:none}
   @keyframes sp-pop{from{opacity:0;transform:translateY(calc(-50% + 18px))}}
-  #try .sp-roof{height:68px;margin-bottom:-1px;background:var(--sp-accent);position:relative;
-    clip-path:polygon(0 100%,0 calc(100% - 4px),calc(50% - 17px) 8px,calc(50% - 10px) 3px,calc(50% - 4px) .5px,50% 0,calc(50% + 4px) .5px,calc(50% + 10px) 3px,calc(50% + 17px) 8px,100% calc(100% - 4px),100% 100%);
-    -webkit-mask:radial-gradient(circle at 50% 37px,transparent 9px,#000 9.6px);mask:radial-gradient(circle at 50% 37px,transparent 9px,#000 9.6px)}
-  #try .sp-roof i{position:absolute;left:50%;top:37px;width:26px;height:26px;margin:-13px 0 0 -13px;border-radius:50%;border:3px solid rgba(255,255,255,.5)}
-  #try .sp-x{position:absolute;top:60px;right:10px;width:40px;height:40px;border-radius:50%;border:0;background:rgba(255,255,255,.18);color:#fff;font-size:24px;line-height:1;cursor:pointer;z-index:2;padding:0}
+  #try .sp-roof{height:54px;margin-bottom:-1px;background:var(--sp-accent);position:relative;
+    clip-path:polygon(0 100%,0 48px,1.5px 43px,46px 2.5px,50px .6px,55px 0,calc(100% - 55px) 0,calc(100% - 50px) .6px,calc(100% - 46px) 2.5px,calc(100% - 1.5px) 43px,100% 48px,100% 100%);
+    -webkit-mask:radial-gradient(circle at 50% 26px,transparent 9px,#000 9.6px);mask:radial-gradient(circle at 50% 26px,transparent 9px,#000 9.6px)}
+  #try .sp-roof i{position:absolute;left:50%;top:26px;width:26px;height:26px;margin:-13px 0 0 -13px;border-radius:50%;background:rgba(255,255,255,.32)}
+  #try .sp-x{position:absolute;top:46px;right:10px;width:40px;height:40px;border-radius:50%;border:0;background:rgba(255,255,255,.18);color:#fff;font-size:24px;line-height:1;cursor:pointer;z-index:2;padding:0}
   #try .sp-band{background:var(--sp-accent);color:#fff;padding:12px 18px 16px}
   #try .sp-dealer{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.85}
   #try .sp-band h3{font:800 22px/1.15 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;letter-spacing:-.01em;margin:6px 46px 0 0;text-wrap:balance;color:#fff}
@@ -436,7 +436,7 @@
 
 <header class="nav">
   <div class="wrap">
-    <a class="logo" href="#top" aria-label="VinPop home"><img src="vinpop-logo.png?v=3" alt="VinPop"></a>
+    <a class="logo" href="#top" aria-label="VinPop home"><img src="vinpop-logo.png?v=4" alt="VinPop"></a>
     <nav aria-label="Main">
       <a href="#how">VinPop</a>
       <a href="#try">Try It</a>
@@ -594,7 +594,7 @@
 <section id="vinwatch" class="vw-intro">
   <div class="wrap">
     <div>
-      <img class="vw-logo" src="vinwatch-logo-dark.png?v=2" alt="VinWatch">
+      <img class="vw-logo" src="vinwatch-logo-dark.png?v=3" alt="VinWatch">
       <h2>See which cars real buyers want.</h2>
       <p class="sub">VinWatch puts a "Watch this car" button on every vehicle. Shoppers get a text when the price drops, or when one just like it lands on your lot. You see exactly which cars real buyers want, and capture the highest-intent leads in the building.</p>
       <ul class="chips"><li>Installs in minutes</li><li>Works on your current site</li><li>Feeds your CRM</li></ul>

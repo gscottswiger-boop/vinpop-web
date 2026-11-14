@@ -1,7 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="21.47 6.52 666.23 127.01" width="666" height="127" role="img" aria-label="VinWatch logo">
 <title>VinWatch logo</title>
 <g transform="translate(0.00 0.00) scale(1.35965) translate(-8 -6)">
-<path fill-rule="evenodd" fill="#0D9488" d="M94 40L94 90A12 12 0 0 1 82 102L38 102A12 12 0 0 1 26 90L26 40L53 13A10 10 0 0 1 67 13Z M53.5 34A6.5 6.5 0 1 0 66.5 34A6.5 6.5 0 1 0 53.5 34Z"/>
+<path fill-rule="evenodd" fill="#0D9488" d="M43 13H77Q79.4 13 80.9 14.9L92.6 29.6Q94 31.4 94 33.6V90A12 12 0 0 1 82 102H38A12 12 0 0 1 26 90V33.6Q26 31.4 27.4 29.6L39.1 14.9Q40.6 13 43 13Z M53.5 33A6.5 6.5 0 1 0 66.5 33A6.5 6.5 0 1 0 53.5 33Z"/>
+<path fill-rule="evenodd" fill="#FFFFFF" fill-opacity=".34" d="M51 33A9 9 0 1 0 69 33A9 9 0 1 0 51 33Z M53.5 33A6.5 6.5 0 1 0 66.5 33A6.5 6.5 0 1 0 53.5 33Z"/>
 <path fill="#FFFFFF" d="M36 74Q60 54 84 74Q60 94 36 74Z"/>
 <circle cx="60" cy="74" r="9" fill="#0D9488"/>
 <circle cx="60" cy="74" r="4" fill="#14213D"/>
