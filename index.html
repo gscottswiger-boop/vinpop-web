@@ -485,6 +485,49 @@
     #try .sp-themes{grid-template-columns:repeat(2,minmax(0,1fr))}
   }
   @media (prefers-reduced-motion:reduce){#try *{animation:none!important;transition:none!important}}
+  /* ── 30-days-free trial popup (ported from lotpulse.io; covers VinPop and VinWatch).
+     Everything is prefixed vt- so it can't touch the rest of the page. */
+  .vt-scrim{position:fixed;inset:0;background:rgba(11,27,61,.6);backdrop-filter:blur(3px);opacity:0;pointer-events:none;transition:opacity .25s;z-index:900}
+  .vt-scrim.open{opacity:1;pointer-events:auto}
+  .vt-modal{position:fixed;z-index:901;left:50%;top:50%;transform:translate(-50%,-46%) scale(.97);opacity:0;pointer-events:none;visibility:hidden;
+    width:min(520px,calc(100vw - 32px));max-height:92vh;overflow:auto;background:#fff;border-radius:18px;box-shadow:0 24px 70px rgba(4,12,40,.38);
+    transition:opacity .25s,transform .25s cubic-bezier(.32,.72,.2,1),visibility 0s .25s}
+  .vt-modal.open{opacity:1;pointer-events:auto;visibility:visible;transform:translate(-50%,-50%) scale(1);transition:opacity .25s,transform .25s cubic-bezier(.32,.72,.2,1)}
+  .vt-head{background:linear-gradient(135deg,#16388c 0%,var(--navy) 55%,var(--navy-deep) 100%);color:#fff;padding:26px 28px 22px;border-radius:18px 18px 0 0;position:relative}
+  .vt-badge{display:inline-block;background:var(--orange);font-size:12px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;padding:5px 12px;border-radius:50px;margin-bottom:12px}
+  .vt-head h3{font-size:24px;font-weight:800;line-height:1.15;margin:0 34px 8px 0;letter-spacing:-.02em}
+  .vt-head p{font-size:14.5px;color:#d5defa;line-height:1.5;margin:0}
+  .vt-x{position:absolute;top:14px;right:14px;width:34px;height:34px;border:0;border-radius:50%;background:rgba(255,255,255,.18);color:#fff;font-size:20px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .15s}
+  .vt-x:hover{background:rgba(255,255,255,.34)}
+  .vt-body{padding:22px 28px 26px}
+  /* The page's bare `form …` rules are written for the dark demo form; undo them in here. */
+  #vtForm{display:block;max-width:none;margin:0}
+  #vtForm .vt-row label{position:static;width:auto;height:auto;overflow:visible;clip:auto}
+  #vtForm .vt-row input,#vtForm .vt-row select,#vtForm .vt-row textarea{height:auto;color:var(--ink);background:#f7f8fc;border:1.5px solid var(--line);border-radius:10px;padding:11px 13px;font-size:16px;color-scheme:light}
+  #vtForm .vt-row input:focus,#vtForm .vt-row select:focus,#vtForm .vt-row textarea:focus{border-color:var(--blue)}
+  .vt-row{margin-bottom:13px}
+  .vt-row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .vt-row label{display:block;font-size:12px;font-weight:600;color:var(--body);letter-spacing:.03em;text-transform:uppercase;margin-bottom:5px}
+  .vt-row label span{font-weight:400;text-transform:none}
+  .vt-row input,.vt-row select,.vt-row textarea{width:100%;font-family:inherit;font-size:16px;color:var(--ink);background:#f7f8fc;border:1.5px solid var(--line);border-radius:10px;padding:11px 13px;outline:none;transition:border-color .15s}
+  .vt-row input:focus,.vt-row select:focus,.vt-row textarea:focus{border-color:var(--blue)}
+  .vt-row textarea{resize:vertical;min-height:60px}
+  .vt-hp{position:absolute!important;left:-9999px!important;width:1px!important;height:1px!important;opacity:0!important;pointer-events:none!important}
+  .vt-submit{width:100%;border:0;cursor:pointer;background:var(--orange);color:#fff;font-family:inherit;font-weight:700;font-size:16px;padding:15px;border-radius:12px;box-shadow:0 6px 20px rgba(255,75,26,.3);transition:background .15s;margin-top:4px}
+  .vt-submit:hover{background:var(--orange-dark)}
+  .vt-submit:disabled{background:#f3b9a8;cursor:default;box-shadow:none}
+  .vt-fine{font-size:11.5px;color:var(--body);text-align:center;margin-top:11px;line-height:1.5}
+  .vt-err{display:none;background:#fdeae9;color:#9a2e29;font-size:13.5px;font-weight:600;border-radius:9px;padding:10px 13px;margin-bottom:13px}
+  .vt-done{display:none;text-align:center;padding:14px 4px 6px}
+  .vt-done .tick{width:56px;height:56px;border-radius:50%;background:#e6f6ec;color:#168a45;display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+  .vt-done h4{font-size:21px;font-weight:800;margin:0 0 8px}
+  .vt-done p{font-size:15px;color:var(--body);margin:0}
+  @media (max-width:520px){
+    .vt-row2{grid-template-columns:1fr;gap:0}
+    .vt-head{padding:22px 20px 18px}.vt-body{padding:18px 20px 22px}
+    .vt-head h3{font-size:21px}
+  }
+  @media (prefers-reduced-motion:reduce){.vt-scrim,.vt-modal,.vt-modal.open{transition:none}}
 </style>
 </head>
 <body>
@@ -888,7 +931,6 @@
       <details><summary>How do you handle TCPA and text-message consent?</summary><p>Consent is a separate, optional checkbox that is unchecked by default, and watching a car is never conditional on agreeing to texts. We store the exact consent wording shown, the timestamp, the phone number and the vehicle, in an append-only record. STOP, START and HELP all work. Opted-out numbers are permanently suppressed. Texts only send between 8am and 9pm in your local time zone. Our messaging is registered with the carriers under our own A2P 10DLC brand and campaigns.</p></details>
       <details><summary>Will VinWatch spam my shoppers?</summary><p>No, and the limits are built in rather than left to judgment. A shopper only hears about the specific vehicle they chose to watch. Alerts are deduplicated, so a feed hiccup can't re-send the same message. Demand nudges are capped at one per shopper per vehicle, ever. When a car sells, alerts for it stop. And every message carries a working opt-out.</p></details>
       <details><summary>What do I actually see on my end?</summary><p>A live board ranking every vehicle by how many real shoppers are watching it, a scored shopper list with tap-to-call numbers, pricing signals that cross demand against days on lot, and a report emailed to you every Monday. Run a group? One rollup covers every rooftop.</p></details>
-      <details><summary>Am I locked into a contract?</summary><p>No. VinWatch starts with 30 days free on your real inventory, with no setup fee. After that it's month-to-month: cancel with 30 days' notice. There's no annual term, no early-termination fee, and no auto-renewing multi-year deal. You will sign a straightforward service agreement before going live, which is what lets us text on your dealership's behalf. Ask us about VinPop pricing on your demo.</p></details>
 
       <h3>Both</h3>
       <details><summary>What is LotPulse?</summary><p>LotPulse is the platform VinPop and VinWatch run on, built by AI Business Solutions LLC. Your dashboard lives at login.lotpulse.io, and VinWatch texts are sent as "LotPulse for" your dealership, because that's the name our text messaging is registered under with the carriers.</p></details>
@@ -897,6 +939,7 @@
       <details><summary>What does installation actually involve?</summary><p>One tag in Google Tag Manager and a link to your inventory feed. No site redesign, no code changes for your web vendor, no IT ticket. Most rooftops are live the same day the feed is connected. VinPop is a second tag of its own and uses the same feed.</p></details>
       <details><summary>How do the leads reach my CRM?</summary><p>As ADF/XML, the automotive lead standard, delivered to whatever email address your CRM ingests leads from. That works with essentially every CRM in the industry. VinPop leads arrive as "VinPop Lead" and VinWatch leads as "VinWatch Lead", so your CRM can route them separately. What it isn't: a named native connector to VinSolutions, Elead or DealerSocket with two-way sync and automated task creation. If you need that depth, tell us and we'll be straight about where we are.</p></details>
       <details><summary>What happens to a shopper's information?</summary><p>VinWatch collects a phone number, used to send the alerts the shopper asked for and to deliver the lead to you. VinPop collects a name, email and phone number, used to deliver that lead to you; nothing is texted from it. That's it. We don't sell any of it, we don't share it with other dealers, and we don't enrich it against third-party data brokers. If you upload lists for matchback reporting, they're matched in memory and discarded, never stored.</p></details>
+      <details><summary>Am I locked into a contract?</summary><p>No. VinPop and VinWatch both start with 30 days free on your real inventory, with no setup fee. After that it's month-to-month: cancel with 30 days' notice. There's no annual term, no early-termination fee, and no auto-renewing multi-year deal. You will sign a straightforward service agreement before going live; for VinWatch, that's also what lets us text on your dealership's behalf. Ask us about VinPop pricing on your demo.</p></details>
       <details><summary>Does this replace my existing lead forms or chat?</summary><p>No. Both run alongside whatever you already have. VinWatch captures the shoppers who won't ask about a price and leave without telling you they were interested. VinPop gives the ready ones a specific offer to act on.</p></details>
       <details><summary>Will I see this in my own Google Analytics?</summary><p>Yes, once it's set up. Both tools push events to your website's own data layer: widget views, watch started, abandoned and completed for VinWatch, and view, submit, dismiss and reopen for VinPop. Getting them into your GA4 reports takes a few triggers in Google Tag Manager for each rooftop, so they don't appear on their own the day the tag goes in.</p></details>
     </div>
@@ -918,7 +961,7 @@
       <button class="btn btn-primary" type="submit">Request My Demo</button>
       <p id="form-msg" role="status" aria-live="polite"></p>
     </form>
-    <p class="demo-fine">VinWatch starts with 30 days free on your real inventory. No setup fee.</p>
+    <p class="demo-fine">VinPop and VinWatch both start with 30 days free on your real inventory. No setup fee.</p>
   </div>
 </section>
 
@@ -981,7 +1024,7 @@
       body: JSON.stringify(payload)
     }).then(function (r) { return r.json(); }).then(function (res) {
       btn.disabled = false; btn.textContent = "Request My Demo";
-      if (res && res.ok) { form.reset(); if (window.gtag) gtag("event", "generate_lead", { form: "demo_request" }); msg.textContent = "Got it. We'll be in touch shortly."; }
+      if (res && res.ok) { form.reset(); if (window.gtag) gtag("event", "generate_lead", { form: "demo_request" }); try { window.dispatchEvent(new Event("vp:demo-sent")); } catch (e2) {} msg.textContent = "Got it. We'll be in touch shortly."; }
       else { msg.textContent = (res && res.error) || "Something went wrong. Please try again."; }
     }).catch(function () {
       btn.disabled = false; btn.textContent = "Request My Demo";
@@ -1397,6 +1440,157 @@
     }, { rootMargin: "200px 0px" });
     io.observe(stage);
   } else openCard();
+})();
+</script>
+<!-- 30-days-free trial popup (VinPop and VinWatch). Exit intent on desktop, timer on touch. -->
+<div class="vt-scrim" id="vtScrim"></div>
+<div class="vt-modal" id="vtModal" role="dialog" aria-modal="true" aria-labelledby="vtTitle">
+  <div class="vt-head">
+    <button class="vt-x" id="vtClose" type="button" aria-label="Close">&times;</button>
+    <div class="vt-badge">30 days free</div>
+    <h3 id="vtTitle">Try VinPop and VinWatch on your own inventory.</h3>
+    <p>Run either one, or both, free for 30 days on your real lot. No setup fee. After that it's month-to-month: cancel with 30 days' notice.</p>
+  </div>
+  <div class="vt-body">
+    <form id="vtForm" novalidate>
+      <div class="vt-err" id="vtErr" role="alert"></div>
+      <div class="vt-hp" aria-hidden="true">
+        <label>Company website</label>
+        <input type="text" name="company_website" id="vt-hp" tabindex="-1" autocomplete="off">
+      </div>
+      <div class="vt-row2">
+        <div class="vt-row"><label for="vt-name">Your name</label><input type="text" id="vt-name" autocomplete="name" required></div>
+        <div class="vt-row"><label for="vt-dealer">Dealership</label><input type="text" id="vt-dealer" autocomplete="organization" required></div>
+      </div>
+      <div class="vt-row2">
+        <div class="vt-row"><label for="vt-email">Email</label><input type="email" id="vt-email" autocomplete="email" required></div>
+        <div class="vt-row"><label for="vt-phone">Phone <span>(optional)</span></label><input type="tel" id="vt-phone" autocomplete="tel"></div>
+      </div>
+      <div class="vt-row2">
+        <div class="vt-row"><label for="vt-interest">Interested in</label>
+          <select id="vt-interest"><option value="Both">Both</option><option value="VinPop">VinPop</option><option value="VinWatch">VinWatch</option></select></div>
+        <div class="vt-row"><label for="vt-rooftops">How many rooftops?</label>
+          <select id="vt-rooftops"><option value="1">1 rooftop</option><option value="2-5">2&ndash;5 rooftops</option><option value="6-20">6&ndash;20 rooftops</option><option value="20+">20+ rooftops</option><option value="agency">I'm an agency</option></select></div>
+      </div>
+      <div class="vt-row"><label for="vt-notes">Anything we should know? <span>(optional)</span></label><textarea id="vt-notes" rows="2"></textarea></div>
+      <button type="submit" class="vt-submit" id="vtSubmit">Start my 30 days free</button>
+      <div class="vt-fine">We'll reply from a real person, usually same day. No spam, and we never share your details.</div>
+    </form>
+    <div class="vt-done" id="vtDone" role="status">
+      <div class="tick"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+      <h4>Got it. Talk soon.</h4>
+      <p>We'll be in touch shortly to get your 30 days started on your own inventory.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+// 30-days-free trial popup. Same behavior as the lotpulse.io one: exit intent on
+// desktop (60s backstop), 25s timer on touch, a dismissal sticks for 30 days and
+// a submit (here or on the demo form) silences it for good. Posts to the same
+// /v1/contact as the demo form; the notes line marks it as a popup lead.
+// Test: add ?vp_trial_test=1 to the URL to open it immediately, ignoring the memory.
+(function () {
+  var API = "https://lotpulse-q249.onrender.com";
+  var FALLBACK_EMAIL = "scott@lotpulse.io";
+  var KEY = "vp_trial_modal", SUPPRESS_DAYS = 30, DELAY_MS = 25000;
+  var TEST = /[?&]vp_trial_test=1\b/.test(location.search);
+  var $ = function (id) { return document.getElementById(id); };
+  var scrim = $("vtScrim"), modal = $("vtModal"), form = $("vtForm"), done = $("vtDone"), err = $("vtErr"), btn = $("vtSubmit");
+  var shown = false, isOpen = false, lastFocus = null;
+
+  function ga(name, extra) { try { if (window.gtag) gtag("event", name, extra || {}); } catch (e) {} }
+  function stored() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
+  function remember(v) { try { localStorage.setItem(KEY, v); } catch (e) {} }
+  function suppressed() {
+    if (TEST) return false;
+    var v = stored();
+    if (!v) return false;
+    if (v === "submitted") return true;
+    return (Date.now() - parseInt(v, 10)) < SUPPRESS_DAYS * 86400000;
+  }
+  // Don't interrupt someone who is already filling in the demo form.
+  function busy() {
+    var a = document.activeElement, f = $("demo-form");
+    return !!(a && f && f.contains(a) && /^(INPUT|SELECT|TEXTAREA)$/.test(a.tagName));
+  }
+  function open(trigger) {
+    if (shown || suppressed() || busy()) return;
+    shown = true; isOpen = true; lastFocus = document.activeElement;
+    scrim.classList.add("open"); modal.classList.add("open");
+    ga("trial_popup_view", { trigger: trigger });
+    setTimeout(function () { var n = $("vt-name"); if (n && isOpen) n.focus(); }, 280);
+  }
+  function close() {
+    if (!isOpen) return;
+    isOpen = false;
+    scrim.classList.remove("open"); modal.classList.remove("open");
+    if (stored() !== "submitted") remember(String(Date.now()));
+    try { if (lastFocus && lastFocus.focus) lastFocus.focus(); } catch (e) {}
+  }
+
+  $("vtClose").addEventListener("click", close);
+  scrim.addEventListener("click", close);
+  document.addEventListener("keydown", function (e) {
+    if (!isOpen) return;
+    if (e.key === "Escape") { close(); return; }
+    if (e.key !== "Tab") return;                       // keep Tab inside the dialog
+    var els = modal.querySelectorAll("button:not([disabled]),input:not([tabindex='-1']),select,textarea");
+    els = Array.prototype.filter.call(els, function (el) { return el.offsetParent !== null; });
+    if (!els.length) return;
+    var first = els[0], last = els[els.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  });
+
+  // A demo request through the page form counts as converted: never show the popup after it.
+  window.addEventListener("vp:demo-sent", function () { remember("submitted"); });
+
+  if (TEST) { setTimeout(function () { open("test"); }, 300); }
+  else {
+    var isTouch = ("ontouchstart" in window) || navigator.maxTouchPoints > 0;
+    if (isTouch) { setTimeout(function () { open("timer"); }, DELAY_MS); }
+    else {
+      document.addEventListener("mouseout", function (e) { if (!e.relatedTarget && e.clientY <= 0) open("exit_intent"); });
+      setTimeout(function () { open("timer"); }, 60000);
+    }
+  }
+
+  function fail(text) { err.textContent = text; err.style.display = "block"; }
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    err.style.display = "none";
+    var interest = $("vt-interest").value, extra = $("vt-notes").value.trim();
+    var payload = {
+      company_website: $("vt-hp").value,               // honeypot
+      name: $("vt-name").value.trim(),
+      dealership: $("vt-dealer").value.trim(),
+      email: $("vt-email").value.trim(),
+      phone: $("vt-phone").value.trim(),
+      rooftops: $("vt-rooftops").value,
+      notes: "30-days-free popup on vinpop.io. Interested in: " + interest + (extra ? ". Note: " + extra : "")
+    };
+    if (!payload.name || !payload.dealership || !payload.email) { fail("Name, dealership and email are required."); return; }
+    if (!/^[^@\s]+@[^@\s.]+\.[^@\s]+$/.test(payload.email)) { fail("That email address doesn't look right."); return; }
+    btn.disabled = true; btn.textContent = "Sending\u2026";
+    fetch(API + "/v1/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    }).then(function (r) { return r.json(); }).then(function (res) {
+      if (res && res.ok) {
+        remember("submitted");
+        ga("generate_lead", { form: "trial_popup", interest: interest });
+        form.style.display = "none"; done.style.display = "block";
+      } else {
+        fail((res && res.error) || "Something went wrong. Please try again.");
+        btn.disabled = false; btn.textContent = "Start my 30 days free";
+      }
+    }).catch(function () {
+      fail("Couldn't reach us just now. Please email " + FALLBACK_EMAIL + ".");
+      btn.disabled = false; btn.textContent = "Start my 30 days free";
+    });
+  });
 })();
 </script>
 </body>
