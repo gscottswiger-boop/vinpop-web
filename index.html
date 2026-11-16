@@ -271,6 +271,61 @@
     .db-bar{display:none}
     .db-tiles.four{grid-template-columns:repeat(2,minmax(0,1fr))}
   }
+  /* dashboard examples: overview (Nov 2026 dashboard) */
+  .c-vp{color:var(--blue)}.c-vw{color:var(--teal-dark)}
+  .db-body.solo{border-radius:14px}
+  .db-wide .db-body.solo{border-top:1px solid var(--line);border-radius:14px}
+  .db-nav{display:flex;gap:4px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:4px;margin-bottom:14px}
+  .db-nav span{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:8px 14px;border-radius:8px;color:var(--body)}
+  .db-nav span.on{background:#14181d;color:#fff}.db-nav span.vp{color:var(--blue)}.db-nav span.vw{color:var(--teal-dark)}
+  .db-top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:14px;margin-bottom:14px}
+  .db-hero{background:#14181d;color:#fff;border-radius:12px;padding:16px 18px}
+  .db-hero .hl{font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#c6cbd0}
+  .db-hero b{font-size:46px;font-weight:800;letter-spacing:-.02em;line-height:1.1;color:#6ee7a8}
+  .db-hero .of{font-size:13px;color:#c6cbd0;margin-left:9px}
+  .db-hero .hb{display:flex;flex-wrap:wrap;gap:3px 14px;font-size:12.5px;font-weight:600;margin-top:4px}
+  .db-hero .b-vp{color:#a9bcff}.db-hero .b-vw{color:#6fd9cc}
+  .db-att{background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px 14px}
+  .db-att .db-h{margin-bottom:8px}
+  .att{display:flex;justify-content:space-between;align-items:center;gap:10px;border-radius:8px;padding:7px 11px;font-size:12.5px;margin-top:5px;background:#f6f7f9}
+  .att b{font-weight:700}.att em{font-style:normal;font-weight:700;font-size:11.5px;white-space:nowrap}
+  .att.red{background:#fdecea}.att.red b,.att.red em{color:#b42318}
+  .att.blue{background:#e8eefe}.att.blue b,.att.blue em{color:var(--blue)}
+  .att.sky{background:#e8f1fb}.att.sky b,.att.sky em{color:#1d4ed8}
+  .att.quiet{color:var(--body)}.att.quiet em{color:#15803d}
+  .db-band{background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  .db-band+.db-band{margin-top:14px}
+  .db-band .bh{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:8px 14px;font-size:12.5px;color:#3f474f}
+  .db-band .bh b{font-size:14px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;margin-right:6px}
+  .db-band .bh em{font-style:normal;font-weight:700;font-size:12px;white-space:nowrap}
+  .db-band.vp .bh{background:#e8eefe}.db-band.vp .bh b,.db-band.vp .bh em{color:var(--blue)}
+  .db-band.vw .bh{background:var(--teal-mist)}.db-band.vw .bh b,.db-band.vw .bh em{color:var(--teal-dark)}
+  .db-band .bt{display:grid;gap:8px;padding:12px}
+  .db-band .bt.four{grid-template-columns:repeat(4,minmax(0,1fr))}.db-band .bt.five{grid-template-columns:repeat(5,minmax(0,1fr))}
+  .db-band .bt>div{border:1px solid #eceef2;border-radius:10px;padding:10px 11px;display:flex;flex-direction:column;gap:1px;min-width:0}
+  .db-band .bt span{font-size:9.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--body);line-height:1.3}
+  .db-band .bt b{font-size:28px;font-weight:800;letter-spacing:-.02em;line-height:1.2}
+  .db-band .bt b i{font-style:normal;font-size:13px;color:var(--body);font-weight:700}
+  .db-band .bt small{font-size:11px;color:var(--body);margin-top:auto;line-height:1.3}
+  .db-band .bt small.good{color:#15803d;font-weight:700}.db-band .bt small.blue{color:#1d4ed8;font-weight:700}
+  .db-meta{margin-left:auto;font-size:11px;font-weight:600;letter-spacing:0;text-transform:none;color:var(--body);text-align:right}
+  .db-more{border:1px dashed #cfd6e2;border-radius:10px;text-align:center;font-size:12.5px;font-weight:700;color:var(--teal-dark);padding:9px;margin-top:9px}
+  .db-panel:not(.db-wide) .db-row{grid-template-columns:40px minmax(0,1fr) auto 64px 20px;gap:9px;font-size:12.5px;padding:10px 11px}
+  .gr{display:inline-grid;place-items:center;width:19px;height:19px;border-radius:5px;font-size:11px;font-weight:800;margin-right:7px;vertical-align:1px}
+  .gr.a{background:#dcfce7;color:#15803d}.gr.c{background:#fef3c7;color:#92400e}
+  .pl.b{background:#e8eefe;color:var(--blue)}
+  .db-rep.b{background:#e8eefe;color:var(--blue)}
+  .db-mail{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:14px;align-items:start}
+  .db-mail .db-tiles{margin-bottom:10px}.db-mail .db-tiles:last-child{margin-bottom:0}
+  .db-mail .db-rep{margin-top:0}
+  @media (max-width:860px){.db-top,.db-mail{grid-template-columns:1fr}}
+  @media (max-width:640px){
+    .db-band .bt.four,.db-band .bt.five{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .db-band .bh span{font-size:0}.db-band .bh span b{font-size:14px}
+    .db-nav span{padding:8px 10px;font-size:11px}
+    .db-meta{display:none}
+    .db-panel:not(.db-wide) .db-row{grid-template-columns:40px minmax(0,1fr) auto 20px}
+  }
 
   /* faq groups */
   .faq h3{font-size:13px;letter-spacing:.09em;text-transform:uppercase;margin:34px 0 4px;color:var(--blue)}
@@ -643,7 +698,7 @@
       <div class="card"><div class="num">01</div><h3>Demand board, per VIN</h3><p>See exactly which vehicles real buyers are watching, ranked live. Know your hot units and your problem units at a glance.</p></div>
       <div class="card"><div class="num">02</div><h3>The highest-intent leads</h3><p>A watcher is a buyer who raised their hand on a specific car. They flow to your CRM scored hot, warm or cool, so your BDC calls the right ten, not all two hundred.</p></div>
       <div class="card"><div class="num">03</div><h3>Pricing signals, not guesswork</h3><p>We cross real watcher demand with days on lot and your price history. Eight people watching and no price move in three weeks? Hold firm. Forty-five days and nobody watching? That's your reprice. Drop it and every watcher hears the same minute.</p></div>
-      <div class="card"><div class="num">04</div><h3>A Monday morning report</h3><p>New watchers, hot shoppers, texts sent, and which sold cars had someone watching, emailed to you every week. Manage a group? One rollup covers every rooftop.</p></div>
+      <div class="card"><div class="num">04</div><h3>A Monday morning report</h3><p>New shopper leads for the week and the month to date, hot shoppers, texts sent, and which sold cars had someone watching, emailed to you every week. Manage a group? One rollup covers every rooftop.</p></div>
       <div class="card"><div class="num">05</div><h3>Prove it against your sold list</h3><p>Upload your sold and prospect lists and we match them to watchers by phone, so you can see which buyers had been following the car before they bought. Your lists are matched and discarded, never stored.</p></div>
       <div class="card"><div class="num">06</div><h3>First-party intent you own</h3><p>A watch is a named, consented, VIN-level intent signal, captured on your site, in your data, at exactly the moment third-party cookies stopped being able to see it.</p></div>
     </div>
@@ -674,48 +729,90 @@
   <div class="wrap">
     <span class="vw-eyebrow" style="color:var(--navy)">One dashboard for both</span>
     <h2>Everything lands in your LotPulse dashboard.</h2>
-    <p class="lead">VinPop and VinWatch run on LotPulse, our dealer platform. One login shows your demand, your offer leads and who's on your site right now, and a report arrives every Monday.</p>
+    <p class="lead">VinPop and VinWatch run on LotPulse, our dealer platform. One login opens on an overview of both: leads for the last 7 days and month to date, what sold with a LotPulse touch, and what needs your attention. The same numbers arrive by email every Monday.</p>
 
     <div class="db-grid">
       <figure class="db-panel db-wide">
         <div class="db-chrome" aria-hidden="true"><span class="db-lp"><i></i>LotPulse<sup>TM</sup></span><span class="db-store">YOUR DEALERSHIP</span></div>
-        <div class="db-body" role="img" aria-label="Sample demand board: 38 active watchers, 27 unique shoppers with 9 hot, 41 texts sent in 7 days, 64 sold in 30 days with 17 that had watchers, and three vehicles ranked by watchers">
-          <div class="db-stats" aria-hidden="true">
-            <div><b>38</b><span>Active watchers</span><em class="c-blue">6 new this week</em></div>
-            <div><b class="c-red">27</b><span>Unique shoppers</span><em class="c-red">9 hot</em></div>
-            <div><b>41</b><span>Texts sent · 7 days</span></div>
-            <div><b class="c-green">64</b><span>Sold · 30 days</span><em class="c-green">17 w/ watchers</em></div>
-          </div>
-          <div class="db-board" aria-hidden="true">
-            <div class="db-bh"><span>Demand board</span><span class="db-tag t-teal">VinWatch</span></div>
-            <div class="db-row"><span class="db-thumb"></span><span class="db-veh">2025 Toyota Tacoma SR5<small>USED</small></span><span class="db-price">$36,480</span><span class="db-bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="db-n">5</span></div>
-            <div class="db-row"><span class="db-thumb"></span><span class="db-veh">2026 RAM 1500 Laramie<small>NEW</small></span><span class="db-price">$58,915</span><span class="db-bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="db-n">3</span></div>
-            <div class="db-row"><span class="db-thumb"></span><span class="db-veh">2024 Honda CR-V EX-L<small>USED</small> <small class="warn">PROBLEM</small></span><span class="db-price">$31,250</span><span class="db-bar"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="db-n z">0</span></div>
+        <div class="db-body" role="img" aria-label="Sample dashboard overview. Sold with a LotPulse touch in the last 30 days: 21 of 64 sold. Needs attention: 2 hot shoppers, 1 A-grade VinPop lead, 3 pricing signals. VinPop: 3 leads in the last 7 days, 11 month to date, 12.5 percent claim rate, 11 of 11 sent to CRM. VinWatch: 6 leads in the last 7 days, 14 month to date, 38 active watchers, 41 texts sent, 64 sold in the last 30 days.">
+          <div aria-hidden="true">
+            <div class="db-nav"><span class="on">Overview</span><span class="vp">VinPop</span><span class="vw">VinWatch</span></div>
+            <div class="db-top">
+              <div class="db-hero">
+                <div class="hl">Sold with a LotPulse touch · last 30 days</div>
+                <div><b>21</b><span class="of">of 64 sold</span></div>
+                <div class="hb"><span class="b-vp">6 with a VinPop lead</span><span class="b-vw">17 with watchers</span></div>
+              </div>
+              <div class="db-att">
+                <div class="db-h">Needs attention</div>
+                <div class="att red"><span><b>2 hot shoppers</b> watching 3+ cars or clicking alerts</span><em>Review ›</em></div>
+                <div class="att blue"><span><b>1 A-grade VinPop lead</b> in the last 7 days</span><em>Open ›</em></div>
+                <div class="att sky"><span><b>3 pricing signals</b> on your inventory</span><em>See signals ›</em></div>
+                <div class="att quiet"><span>CRM delivery: all 11 VinPop leads this month delivered</span><em>All clear</em></div>
+              </div>
+            </div>
+            <div class="db-band vp">
+              <div class="bh"><span><b>VinPop</b> Website offer leads</span><em>Open VinPop ›</em></div>
+              <div class="bt four">
+                <div><span>Leads · last 7 days</span><b class="c-vp">3</b><small>View leads ›</small></div>
+                <div><span>Leads · month to date</span><b class="c-vp">11</b><small>View leads ›</small></div>
+                <div><span>Claim rate · last 7 days</span><b>12.5%</b><small>24 popup views · By offer ›</small></div>
+                <div><span>Sent to CRM · month to date</span><b>11 <i>of 11</i></b><small class="good">0 undelivered</small></div>
+              </div>
+            </div>
+            <div class="db-band vw">
+              <div class="bh"><span><b>VinWatch</b> Shoppers watching vehicles by text</span><em>Open VinWatch ›</em></div>
+              <div class="bt five">
+                <div><span>Leads · last 7 days</span><b class="c-vw">6</b><small>New unique shoppers ›</small></div>
+                <div><span>Leads · month to date</span><b class="c-vw">14</b><small>New unique shoppers ›</small></div>
+                <div><span>Active watchers</span><b>38</b><small class="blue">9 new in last 7 days</small></div>
+                <div><span>Texts sent · last 7 days</span><b>41</b><small>See texts ›</small></div>
+                <div><span>Sold · last 30 days</span><b>64</b><small class="good">17 with watchers</small></div>
+              </div>
+            </div>
           </div>
         </div>
-        <figcaption><b>Demand board.</b> Every car ranked by how many real shoppers are watching it, with hot shoppers, texts sent and which sold cars had watchers.</figcaption>
+        <figcaption><b>Overview.</b> Both products on one screen. Every number opens the list behind it: the leads, the shoppers, the texts, the sold cars. "Sold with a LotPulse touch" counts sold vehicles that had a watcher or a VinPop lead on them.</figcaption>
       </figure>
 
       <figure class="db-panel">
-        <div class="db-body" role="img" aria-label="Sample VinPop lead: Jordan Miller claimed a 500 dollar Fall Event offer on a 2026 RAM 1500, sent to CRM, voucher code LP-8K2Q7M">
+        <div class="db-body" role="img" aria-label="Sample VinPop leads for the month to date: 11 leads, 8 from the timed popup and 3 from exit intent. Jordan Miller, graded A, claimed a 500 dollar Fall Event offer on a 2026 RAM 1500, sent to CRM, voucher code LP-8K2Q7M">
           <div aria-hidden="true">
-            <div class="db-h">VinPop leads · last 90 days</div>
-            <div class="db-tiles"><div><b>3</b><span>This week</span></div><div><b>11</b><span>Timed popup</span></div><div><b>4</b><span>Exit intent</span></div></div>
+            <div class="db-h">VinPop leads</div>
+            <div class="db-seg"><span>Last 7 days</span><span class="on">Month to date</span><span>Last 90 days</span></div>
+            <div class="db-tiles"><div><b class="c-vp">11</b><span>Leads this month</span></div><div><b>8</b><span>Timed popup</span></div><div><b>3</b><span>Exit intent</span></div></div>
             <div class="db-lead">
-              <div class="db-lt"><b>Jordan Miller</b><span>Tue at 6:42 PM</span></div>
-              <div class="db-pills"><span class="pl g">$500 · FALL EVENT</span><span class="pl">TIMED</span><span class="pl g">SENT TO CRM</span></div>
+              <div class="db-lt"><b><span class="gr a">A</span>Jordan Miller</b><span>Tue at 6:42 PM</span></div>
+              <div class="db-pills"><span class="pl b">$500 · FALL EVENT</span><span class="pl">TIMED</span><span class="pl g">SENT TO CRM</span></div>
               <div class="db-small">2026 RAM 1500 Laramie · Voucher code <code>LP-8K2Q7M</code></div>
               <div class="db-links">(555) 010-4821 &nbsp; jordan@example.com</div>
             </div>
             <div class="db-lead" style="margin-top:8px">
-              <div class="db-lt"><b>Casey Brooks</b><span>Mon at 11:05 AM</span></div>
-              <div class="db-pills"><span class="pl g">$1,000 · TACOMA EVENT</span><span class="pl">EXIT INTENT</span><span class="pl g">SENT TO CRM</span></div>
+              <div class="db-lt"><b><span class="gr c">C</span>Casey Brooks</b><span>Mon at 11:05 AM</span></div>
+              <div class="db-pills"><span class="pl b">$1,000 · TACOMA EVENT</span><span class="pl">EXIT INTENT</span><span class="pl g">SENT TO CRM</span></div>
               <div class="db-small">2025 Toyota Tacoma SR5 · Voucher code <code>LP-8J4T2C</code></div>
               <div class="db-links">(555) 010-7390 &nbsp; casey@example.com</div>
             </div>
           </div>
         </div>
-        <figcaption><b>VinPop leads.</b> Each claim with the offer, the car, the voucher code and whether it reached your CRM.</figcaption>
+        <figcaption><b>VinPop leads.</b> Each claim with the offer, the car, the voucher code and whether it reached your CRM, graded A to D by how engaged the shopper was on your site.</figcaption>
+      </figure>
+
+      <figure class="db-panel">
+        <div class="db-body" role="img" aria-label="Sample VinWatch demand board showing the vehicles shoppers are watching: a 2025 Toyota Tacoma SR5 with 5 watchers, a 2026 RAM 1500 Laramie with 3, a 2024 Honda Accord Sport with 2, and two more with 1 each">
+          <div aria-hidden="true">
+            <div class="db-h">Demand board <span class="db-tag t-teal">VinWatch</span><span class="db-meta">5 of 142 vehicles · with watchers</span></div>
+            <div class="db-board">
+              <div class="db-row"><span class="db-thumb"></span><span class="db-veh">2025 Toyota Tacoma SR5<small>USED</small></span><span class="db-price">$36,480</span><span class="db-bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span><span class="db-n">5</span></div>
+              <div class="db-row"><span class="db-thumb"></span><span class="db-veh">2026 RAM 1500 Laramie<small>NEW</small></span><span class="db-price">$58,915</span><span class="db-bar"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i></span><span class="db-n">3</span></div>
+              <div class="db-row"><span class="db-thumb"></span><span class="db-veh">2024 Honda Accord Sport<small>USED</small></span><span class="db-price">$27,940</span><span class="db-bar"><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="db-n">2</span></div>
+              <div class="db-row"><span class="db-thumb"></span><span class="db-veh">2023 Ford F-150 XLT<small>USED</small></span><span class="db-price">$41,275</span><span class="db-bar"><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="db-n">1</span></div>
+              <div class="db-row"><span class="db-thumb"></span><span class="db-veh">2026 Kia Sportage EX<small>NEW</small></span><span class="db-price">$33,610</span><span class="db-bar"><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="db-n">1</span></div>
+            </div>
+            <div class="db-more">Show all 142 vehicles</div>
+          </div>
+        </div>
+        <figcaption><b>Demand board.</b> The cars real shoppers are watching, ranked by watchers. One tap shows the whole lot, including aging units nobody is watching.</figcaption>
       </figure>
 
       <figure class="db-panel">
@@ -746,17 +843,26 @@
         <figcaption><b>Who sees VinPop.</b> Show offers to everyone, or only to shoppers who've shown real interest. Your agency sets it per rooftop.</figcaption>
       </figure>
 
-      <figure class="db-panel">
-        <div class="db-body" role="img" aria-label="Sample Monday report: VinWatch this week with 6 new watchers, and VinPop offers this week with 24 popup views, 3 offer leads and 12.5 percent conversion">
+      <figure class="db-panel db-wide">
+        <div class="db-body solo" role="img" aria-label="Sample Monday report email. Sold with a LotPulse touch: 21 of 64 sold. VinPop: 3 leads in the last 7 days, 11 month to date, 12.5 percent claim rate, 11 of 11 sent to CRM. VinWatch: 6 leads in the last 7 days, 14 month to date, 38 active watchers, 41 texts sent.">
           <div aria-hidden="true">
-            <div class="db-h">Your Monday report</div>
-            <div class="db-rep t">VinWatch this week</div>
-            <div class="db-tiles"><div><b>6</b><span>New watchers</span></div><div><b>9</b><span>Hot shoppers</span></div><div><b>3</b><span>Sold w/ watchers</span></div></div>
-            <div class="db-rep g">VinPop offers this week</div>
-            <div class="db-tiles"><div><b>24</b><span>Popup views</span></div><div><b>3</b><span>Offer leads</span></div><div><b>12.5%</b><span>Conversion</span></div></div>
+            <div class="db-h">Your Monday report <span class="db-meta">Your Dealership — your LotPulse week (6 VinWatch leads · 3 VinPop leads)</span></div>
+            <div class="db-mail">
+              <div class="db-hero slim">
+                <div class="hl">Sold with a LotPulse touch · last 30 days</div>
+                <div><b>21</b><span class="of">of 64 sold</span></div>
+                <div class="hb"><span class="b-vp">6 with a VinPop lead</span><span class="b-vw">17 with watchers</span></div>
+              </div>
+              <div class="db-mcol">
+                <div class="db-rep b">VinPop</div>
+                <div class="db-tiles four"><div><b class="c-vp">3</b><span>Leads · 7 days</span></div><div><b class="c-vp">11</b><span>Leads · month to date</span></div><div><b>12.5%</b><span>Claim rate</span></div><div><b>11 of 11</b><span>Sent to CRM</span></div></div>
+                <div class="db-rep t">VinWatch</div>
+                <div class="db-tiles four"><div><b class="c-vw">6</b><span>Leads · 7 days</span></div><div><b class="c-vw">14</b><span>Leads · month to date</span></div><div><b>38</b><span>Active watchers</span></div><div><b>41</b><span>Texts sent</span></div></div>
+              </div>
+            </div>
           </div>
         </div>
-        <figcaption><b>Monday report.</b> Emailed every week, with separate VinWatch and VinPop sections. Manage a group? One rollup covers every rooftop.</figcaption>
+        <figcaption><b>Monday report.</b> The same numbers as your dashboard, emailed every week, with the week's offer leads and most watched vehicles underneath. Manage a group? One rollup covers every rooftop.</figcaption>
       </figure>
     </div>
     <p class="db-note">Illustrations with sample data. Names, numbers and vehicles are made up.</p>
