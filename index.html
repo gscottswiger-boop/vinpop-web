@@ -398,6 +398,7 @@
   #try .sp-th em{font-style:normal;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-top:3px}
   #try .sp-soon{color:#ffb199}
   #try .sp-live{color:rgba(255,255,255,.72)}
+  #try .sp-new{display:inline-block;align-self:flex-start;width:auto;vertical-align:1px;margin:2px 0 1px;padding:1px 6px;border-radius:999px;background:#FFB020;color:#1A1205;font:800 9.5px/1.5 Inter,system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase}
   #try .sp-th i{width:34px;height:24px;border-radius:6px;flex:none;box-shadow:inset 0 0 0 1px rgba(255,255,255,.25)}
   #try .sp-colors{display:flex;gap:8px;flex-wrap:wrap}
   #try .sp-co{display:flex;align-items:center;gap:8px;padding:7px 13px 7px 8px;border:1.5px solid rgba(255,255,255,.22);border-radius:999px;background:rgba(255,255,255,.07);cursor:pointer;font:600 13px Inter,system-ui,sans-serif;color:#fff}
@@ -1052,47 +1053,146 @@
 
   var GOLD = "linear-gradient(135deg,#B38A2E,#F5DE8C 35%,#C9A24A 60%,#F2D27A 85%,#A67C24)";
   var THEMES = [
-    { id: "classic", name: "Classic", tag: "Any time",
+    { id: "classic", name: "Classic", tag: "Any time", isNew: false,
       sw: "linear-gradient(135deg,#B8BFCA,#EEF1F5 45%,#ADB4C0)",
       cover: "Scratch to reveal your offer", revealed: function (a) { return "You uncovered " + a + " off"; },
       strip: null,
-      foil: ["#B8BFCA", "#EEF1F5", "#C2C8D2", "#E5E8EE", "#ADB4C0"], foilTitle: "SCRATCH HERE", foilSub: "to see your offer",
-      titleColor: "#4A5266", subColor: "#5E6678", pattern: "dollar",
-      ticketBg: "#F7F8FB", frame: "dashed", amount: null, line: "#2A303C", effect: "confetti", fx: null },
-    { id: "blackfriday", name: "Black Friday", tag: "Late November",
-      sw: "linear-gradient(135deg,#141418,#4A4636 50%,#121216)",
-      cover: "Scratch to reveal your Black Friday deal", revealed: function (a) { return "Your Black Friday deal: " + a + " off"; },
-      strip: { text: "Black Friday Sales Event", bg: "#0E0E10", color: "#F2D27A", icon: "tag" },
-      foil: ["#141418", "#3A3A44", "#1C1C22", "#4A4636", "#121216"], foilTitle: "SCRATCH HERE", foilSub: "to see your deal",
-      titleColor: "#F2D27A", subColor: "#CFC4A0", pattern: "percent",
-      ticketBg: "#121214", frame: GOLD, amount: "#F2D27A", line: "#FFFFFF", effect: "confetti", fx: ["#F2D27A", "#C9A24A", "#FFFFFF", "#2A2A2E"] },
-    { id: "holiday", name: "Holiday", tag: "December",
-      sw: "linear-gradient(135deg,#A87A22,#F3D98B 45%,#9C6F1C)",
-      cover: "Scratch to unwrap your holiday offer", revealed: function (a) { return "You unwrapped " + a + " off"; },
-      strip: { text: "Holiday Sales Event", bg: "#1E6B3A", color: "#FFFFFF", icon: "flake" },
-      foil: ["#A87A22", "#F3D98B", "#C99A3A", "#F6E3A6", "#9C6F1C"], foilTitle: "SCRATCH TO UNWRAP", foilSub: "your holiday offer",
-      titleColor: "#5A3A06", subColor: "#6E4E14", pattern: "snow",
-      ticketBg: "#FFF9EE", frame: "repeating-linear-gradient(45deg,#C8102E 0 9px,#FFFFFF 9px 18px,#1E6B3A 18px 27px,#FFFFFF 27px 36px)",
-      amount: "#B3122A", line: "#1E3A2A", bow: true, effect: "snow", fx: null },
-    { id: "newyear", name: "New Year", tag: "January",
-      sw: "linear-gradient(135deg,#0D1531,#2B3B70 50%,#0B1229)",
+      foil: ["#B8BFCA","#EEF1F5","#C2C8D2","#E5E8EE","#ADB4C0"], foilTitle: "SCRATCH HERE", foilSub: "to see your offer", dark: false,
+      titleColor: "#4A5266", subColor: "#5E6678", pat: {"k":"dollar","a":"rgba(20,33,61,.09)"},
+      ticketBg: "#F7F8FB", frame: "dashed", amount: null, line: "#2A303C",
+      fx: { t: "burst", s: "rect", c: null } },
+    { id: "newyear", name: "New Year", tag: "January", isNew: false,
+      sw: "linear-gradient(135deg,#0D1531,#3A3360 50%,#0B1229)",
       cover: "Scratch to start the new year with savings", revealed: function (a) { return "Happy New Year! " + a + " off"; },
-      strip: { text: "New Year Savings", bg: "#0B1229", color: "#F2D27A", icon: "spark" },
-      foil: ["#0D1531", "#2B3B70", "#121C40", "#3A3360", "#0B1229"], foilTitle: "SCRATCH HERE", foilSub: "to ring in your offer",
-      titleColor: "#F2D27A", subColor: "#C9D2EE", pattern: "stars",
-      ticketBg: "#0E1733", frame: GOLD, amount: "#F2D27A", line: "#E8ECF8", effect: "fireworks", fx: ["#F2D27A", "#FFFFFF", "#C9D2EE", "#F5B942"] },
-    { id: "july4", name: "4th of July", tag: "Summer",
+      strip: {"text":"New Year Savings","bg":"#0B1229","color":"#F2D27A","icon":"spark"},
+      foil: ["#0D1531","#2B3B70","#121C40","#3A3360","#0B1229"], foilTitle: "SCRATCH HERE", foilSub: "to ring in your offer", dark: true,
+      titleColor: "#F2D27A", subColor: "#C9D2EE", pat: {"k":"starspark","a":"rgba(242,210,122,.38)","b":"rgba(255,255,255,.30)"},
+      ticketBg: "#0E1733", frame: "linear-gradient(135deg,#B38A2E,#F5DE8C 35%,#C9A24A 60%,#F2D27A 85%,#A67C24)", amount: "#F2D27A", line: "#E8ECF8",
+      fx: {"t":"fireworks","c":["#F2D27A","#FFFFFF","#C9D2EE","#F5B942"]} },
+    { id: "valentine", name: "Valentine's Day", tag: "Feb 1 – 14", isNew: true,
+      sw: "linear-gradient(135deg,#E8789A,#FBD5DF 50%,#D9607F)",
+      cover: "Scratch to fall in love with your next car", revealed: function (a) { return "Love at first sight: " + a + " off"; },
+      strip: {"text":"Valentine's Day Sales Event","bg":"#B0183D","color":"#FFFFFF","icon":"heart"},
+      foil: ["#E8789A","#F9C6D4","#EC8DAA","#FBD5DF","#D9607F"], foilTitle: "SCRATCH HERE", foilSub: "to find your match", dark: false,
+      titleColor: "#7A0F2C", subColor: "#8E2A47", pat: {"k":"heart","a":"rgba(255,255,255,.55)","b":"rgba(176,24,61,.22)"},
+      ticketBg: "#FFF5F8", frame: "repeating-linear-gradient(45deg,#D61F4D 0 9px,#FFFFFF 9px 18px,#F48FB1 18px 27px,#FFFFFF 27px 36px)", amount: "#C2123F", line: "#5A1428",
+      fx: {"t":"burst","s":"heart","c":["#D61F4D","#F48FB1","#FFFFFF","#B0183D"]} },
+    { id: "presidents", name: "Presidents Day", tag: "Mid-February", isNew: true,
+      sw: "linear-gradient(135deg,#1A2D5A,#4A5F9A 50%,#16264D)",
+      cover: "Scratch to reveal your Presidents Day deal", revealed: function (a) { return "Your Presidents Day deal: " + a + " off"; },
+      strip: {"text":"Presidents Day Sales Event","bg":"#0E2A5C","color":"#FFFFFF","icon":"star","border":"#B22234"},
+      foil: ["#1A2D5A","#3B5491","#22386B","#4A5F9A","#16264D"], foilTitle: "SCRATCH HERE", foilSub: "to see your deal", dark: true,
+      titleColor: "#FFFFFF", subColor: "#C9D2EE", pat: {"k":"star","a":"rgba(255,255,255,.30)","b":"rgba(255,255,255,.16)"},
+      ticketBg: "#FFFFFF", frame: "repeating-linear-gradient(45deg,#B22234 0 9px,#FFFFFF 9px 18px,#0E2A5C 18px 27px,#FFFFFF 27px 36px)", amount: "#0E2A5C", line: "#1D2B57",
+      fx: {"t":"burst","s":"star","c":["#B22234","#FFFFFF","#0E2A5C"]} },
+    { id: "tax", name: "Tax Season", tag: "Feb – April", isNew: true,
+      sw: "linear-gradient(135deg,#2F6B3F,#9CC7A5 50%,#285C36)",
+      cover: "Scratch to stretch your tax refund", revealed: function (a) { return "Your tax refund bonus: " + a + " off"; },
+      strip: {"text":"Tax Refund Savings","bg":"#14532D","color":"#FFFFFF","icon":"dollar"},
+      foil: ["#2F6B3F","#7FB58A","#3E7D4E","#9CC7A5","#285C36"], foilTitle: "SCRATCH HERE", foilSub: "to see your refund bonus", dark: false,
+      titleColor: "#0F3D20", subColor: "#163F25", pat: {"k":"dollar","a":"rgba(255,255,255,.28)"},
+      ticketBg: "#F3FAF4", frame: "linear-gradient(135deg,#14532D,#4C9A5F 50%,#14532D)", amount: "#14532D", line: "#1E3A2A",
+      fx: {"t":"fall","s":"bill","c":["#3E7D4E","#7FB58A","#14532D","#B9DCC0"]} },
+    { id: "stpatrick", name: "St. Patrick's Day", tag: "Mar 10 – 17", isNew: true,
+      sw: "linear-gradient(135deg,#1E7A44,#9BD6B1 50%,#17683A)",
+      cover: "Scratch to see how lucky you are", revealed: function (a) { return "Lucky you: " + a + " off"; },
+      strip: {"text":"St. Patrick's Day Sales Event","bg":"#0B6E3B","color":"#FFFFFF","icon":"clover"},
+      foil: ["#1E7A44","#7CC79A","#2B8C53","#9BD6B1","#17683A"], foilTitle: "SCRATCH FOR LUCK", foilSub: "to see your offer", dark: false,
+      titleColor: "#0B3D20", subColor: "#14532D", pat: {"k":"clover","a":"rgba(255,255,255,.45)","b":"rgba(11,61,32,.20)"},
+      ticketBg: "#F4FBF6", frame: "linear-gradient(135deg,#B38A2E,#F5DE8C 35%,#C9A24A 60%,#F2D27A 85%,#A67C24)", amount: "#0B6E3B", line: "#1E3A2A",
+      fx: {"t":"burst","s":"clovercoin","c":["#1E7A44","#2B8C53","#F2D27A","#C9A24A"]} },
+    { id: "spring", name: "Easter / Spring", tag: "March – April", isNew: true,
+      sw: "linear-gradient(135deg,#B9A6E3,#F1EBFC 50%,#A995DA)",
+      cover: "Scratch to find your springtime offer", revealed: function (a) { return "You found " + a + " off"; },
+      strip: {"text":"Spring Sales Event","bg":"#6A3FB5","color":"#FFFFFF","icon":"flower"},
+      foil: ["#B9A6E3","#E9E1FA","#C7B8EC","#F1EBFC","#A995DA"], foilTitle: "SCRATCH TO FIND", foilSub: "your springtime offer", dark: false,
+      titleColor: "#4B2E83", subColor: "#5E4596", pat: {"k":"egg","a":"#FDE7EE","b":"#FFF6C7","c":"#D7F0E2","d":"#DCE6FA"},
+      ticketBg: "#FFFDF5", frame: "repeating-linear-gradient(45deg,#F4A9C0 0 9px,#FFE57A 9px 18px,#8FD3B0 18px 27px,#9DB8F0 27px 36px)", amount: "#6A3FB5", line: "#3A2A55",
+      fx: {"t":"burst","s":"egg","c":["#F4A9C0","#FFE57A","#8FD3B0","#9DB8F0","#C9B2F2"]} },
+    { id: "mothers", name: "Mother's Day", tag: "Early May", isNew: true,
+      sw: "linear-gradient(135deg,#E9A7B8,#FDEDF1 50%,#DC90A4)",
+      cover: "Scratch to reveal your Mother's Day offer", revealed: function (a) { return "You uncovered " + a + " off"; },
+      strip: {"text":"Mother's Day Sales Event","bg":"#A33C6B","color":"#FFFFFF","icon":"flower"},
+      foil: ["#E9A7B8","#FBE3E8","#EFB7C5","#FDEDF1","#DC90A4"], foilTitle: "SCRATCH HERE", foilSub: "to see your offer", dark: false,
+      titleColor: "#7A2346", subColor: "#8E3A5C", pat: {"k":"flower","a":"rgba(255,255,255,.65)","b":"rgba(163,60,107,.25)"},
+      ticketBg: "#FFF7F9", frame: "linear-gradient(135deg,#E8A0B4,#FBE3E8 40%,#D987A0 70%,#F4C6D2)", amount: "#A33C6B", line: "#4A2034",
+      fx: {"t":"fall","s":"petal","c":["#F4A7BB","#FBD5DF","#E8789A","#FFFFFF"]} },
+    { id: "memorial", name: "Memorial Day", tag: "Late May", isNew: true,
+      sw: "linear-gradient(135deg,#2B2F3A,#6B7182 50%,#262A34)",
+      cover: "Scratch to reveal your Memorial Day offer", revealed: function (a) { return "You uncovered " + a + " off"; },
+      strip: {"text":"Memorial Day Sales Event","bg":"#1B2A55","color":"#FFFFFF","icon":"star","border":"#7A1424"},
+      foil: ["#2B2F3A","#5A6072","#353A47","#6B7182","#262A34"], foilTitle: "SCRATCH HERE", foilSub: "to see your offer", dark: true,
+      titleColor: "#F1F3F7", subColor: "#C5CAD6", pat: {"k":"star","a":"rgba(255,255,255,.22)","b":"rgba(255,255,255,.12)"},
+      ticketBg: "#F7F7F4", frame: "linear-gradient(90deg,#7A1424,#1B2A55)", amount: "#7A1424", line: "#1B2A55",
+      fx: {"t":"burst","s":"star","c":["#7A1424","#FFFFFF","#1B2A55"],"n":24} },
+    { id: "fathers", name: "Father's Day", tag: "Mid-June", isNew: true,
+      sw: "linear-gradient(135deg,#3E5A7E,#A3B8D2 50%,#34506F)",
+      cover: "Scratch to reveal your Father's Day offer", revealed: function (a) { return "You uncovered " + a + " off"; },
+      strip: {"text":"Father's Day Sales Event","bg":"#1F3A5F","color":"#FFFFFF","icon":"tie"},
+      foil: ["#3E5A7E","#8BA4C4","#4A6A92","#A3B8D2","#34506F"], foilTitle: "SCRATCH HERE", foilSub: "to see your offer", dark: false,
+      titleColor: "#0E1E33", subColor: "#13263F", pat: {"k":"plaid","a":"rgba(255,255,255,.16)","b":"rgba(15,30,51,.14)"},
+      ticketBg: "#F5F8FB", frame: "linear-gradient(135deg,#1F3A5F,#8BA4C4 50%,#1F3A5F)", amount: "#1F3A5F", line: "#2A2F38",
+      fx: {"t":"burst","s":"rect","c":["#1F3A5F","#8BA4C4","#C9A24A","#FFFFFF"]} },
+    { id: "july4", name: "4th of July", tag: "Summer", isNew: false,
       sw: "linear-gradient(135deg,#B22234 0 33%,#FFFFFF 33% 66%,#1D3A8A 66%)",
       cover: "Scratch to reveal your 4th of July offer", revealed: function (a) { return "You uncovered " + a + " off"; },
-      strip: { text: "4th of July Sales Event", bg: "#1D3A8A", color: "#FFFFFF", icon: "star", border: "#B22234" },
-      foil: ["#AEBBD3", "#EEF2F9", "#B9C5DB", "#E6ECF6", "#A3B1CC"], foilTitle: "SCRATCH HERE", foilSub: "to see your offer",
-      titleColor: "#1D2B57", subColor: "#3B4A75", pattern: "flagstars",
-      ticketBg: "#FFFFFF", frame: "repeating-linear-gradient(45deg,#B22234 0 9px,#FFFFFF 9px 18px,#1D3A8A 18px 27px,#FFFFFF 27px 36px)",
-      amount: "#1D3A8A", line: "#1D2B57", effect: "stars", fx: ["#B22234", "#FFFFFF", "#1D3A8A"] }
+      strip: {"text":"4th of July Sales Event","bg":"#1D3A8A","color":"#FFFFFF","icon":"star","border":"#B22234"},
+      foil: ["#AEBBD3","#EEF2F9","#B9C5DB","#E6ECF6","#A3B1CC"], foilTitle: "SCRATCH HERE", foilSub: "to see your offer", dark: false,
+      titleColor: "#1D2B57", subColor: "#3B4A75", pat: {"k":"star","a":"rgba(178,34,52,.30)","b":"rgba(29,58,138,.28)"},
+      ticketBg: "#FFFFFF", frame: "repeating-linear-gradient(45deg,#B22234 0 9px,#FFFFFF 9px 18px,#1D3A8A 18px 27px,#FFFFFF 27px 36px)", amount: "#1D3A8A", line: "#1D2B57",
+      fx: {"t":"burst","s":"star","c":["#B22234","#FFFFFF","#1D3A8A"]} },
+    { id: "labor", name: "Labor Day", tag: "Early September", isNew: true,
+      sw: "linear-gradient(135deg,#E07A1F,#F8C886 50%,#D06A12)",
+      cover: "Scratch to reveal your Labor Day deal", revealed: function (a) { return "Your Labor Day deal: " + a + " off"; },
+      strip: {"text":"Labor Day Sales Event","bg":"#1F4E8C","color":"#FFFFFF","icon":"sun"},
+      foil: ["#E07A1F","#F6B66A","#E58A2E","#F8C886","#D06A12"], foilTitle: "SCRATCH HERE", foilSub: "to see your deal", dark: false,
+      titleColor: "#4A2203", subColor: "#5A2A08", pat: {"k":"sun","a":"rgba(255,255,255,.45)","b":"rgba(120,50,0,.18)"},
+      ticketBg: "#FFF8F0", frame: "linear-gradient(135deg,#1F4E8C,#3A78C2 50%,#1F4E8C)", amount: "#1F4E8C", line: "#2A2A2A",
+      fx: {"t":"burst","s":"rect","c":["#E07A1F","#1F4E8C","#F6B66A","#FFFFFF"]} },
+    { id: "halloween", name: "Halloween", tag: "Oct 15 – 31", isNew: true,
+      sw: "linear-gradient(135deg,#1E1230,#5A3A20 50%,#1A0F28)",
+      cover: "Scratch for a treat", revealed: function (a) { return "Treat unlocked: " + a + " off"; },
+      strip: {"text":"Halloween Sales Event","bg":"#1A1024","color":"#FF8A1F","icon":"moon"},
+      foil: ["#1E1230","#4A2A6B","#2A1A40","#5A3A20","#1A0F28"], foilTitle: "SCRATCH FOR A TREAT", foilSub: "no tricks, just savings", dark: true,
+      titleColor: "#FF8A1F", subColor: "#D9C6F0", pat: {"k":"pumpkin","a":"rgba(255,138,31,.42)","b":"rgba(255,255,255,.16)"},
+      ticketBg: "#1B1226", frame: "repeating-linear-gradient(45deg,#FF7A00 0 9px,#1B1226 9px 18px)", amount: "#FF8A1F", line: "#F1E6FF",
+      fx: {"t":"burst","s":"bat","c":["#FF7A00","#7B3FB8","#1A1024","#9BE15D"]} },
+    { id: "veterans", name: "Veterans Day", tag: "Nov 1 – 11", isNew: true,
+      sw: "linear-gradient(135deg,#5B6146,#A9AE8E 50%,#4F553C)",
+      cover: "Scratch to reveal your Veterans Day offer", revealed: function (a) { return "You uncovered " + a + " off"; },
+      strip: {"text":"Honoring Our Veterans","bg":"#1B2A55","color":"#FFFFFF","icon":"star","border":"#7A1424"},
+      foil: ["#5B6146","#9AA07E","#6B7253","#A9AE8E","#4F553C"], foilTitle: "SCRATCH HERE", foilSub: "to see your offer", dark: false,
+      titleColor: "#1A1F10", subColor: "#262C18", pat: {"k":"star","a":"rgba(255,255,255,.32)","b":"rgba(27,42,85,.20)"},
+      ticketBg: "#FBFAF5", frame: "linear-gradient(90deg,#7A1424 0 33%,#FFFFFF 33% 66%,#1B2A55 66%)", amount: "#1B2A55", line: "#2A2F20",
+      fx: {"t":"burst","s":"star","c":["#7A1424","#FFFFFF","#1B2A55"],"n":24} },
+    { id: "thanksgiving", name: "Thanksgiving", tag: "Mid – late November", isNew: true,
+      sw: "linear-gradient(135deg,#A85A1E,#EDB777 50%,#8F4A16)",
+      cover: "Scratch to reveal your Thanksgiving offer", revealed: function (a) { return "Something to be thankful for: " + a + " off"; },
+      strip: {"text":"Thanksgiving Sales Event","bg":"#7A3A12","color":"#FFFFFF","icon":"leaf"},
+      foil: ["#A85A1E","#E7A35C","#B86A2A","#EDB777","#8F4A16"], foilTitle: "SCRATCH HERE", foilSub: "to see your offer", dark: false,
+      titleColor: "#3A1803", subColor: "#4A2208", pat: {"k":"leaf","a":"rgba(255,255,255,.42)","b":"rgba(90,30,0,.20)"},
+      ticketBg: "#FFF8EE", frame: "linear-gradient(135deg,#7A3A12,#D98A3A 35%,#A85A1E 60%,#E7A35C 85%,#7A3A12)", amount: "#8F3A0F", line: "#3E2412",
+      fx: {"t":"fall","s":"leaf","c":["#C0571A","#E39B3B","#8F3A0F","#D6A13A"]} },
+    { id: "blackfriday", name: "Black Friday", tag: "Late November", isNew: false,
+      sw: "linear-gradient(135deg,#141418,#4A4636 50%,#121216)",
+      cover: "Scratch to reveal your Black Friday deal", revealed: function (a) { return "Your Black Friday deal: " + a + " off"; },
+      strip: {"text":"Black Friday Sales Event","bg":"#0E0E10","color":"#F2D27A","icon":"tag"},
+      foil: ["#141418","#3A3A44","#1C1C22","#4A4636","#121216"], foilTitle: "SCRATCH HERE", foilSub: "to see your deal", dark: true,
+      titleColor: "#F2D27A", subColor: "#CFC4A0", pat: {"k":"percent","a":"rgba(242,210,122,.16)"},
+      ticketBg: "#121214", frame: "linear-gradient(135deg,#B38A2E,#F5DE8C 35%,#C9A24A 60%,#F2D27A 85%,#A67C24)", amount: "#F2D27A", line: "#FFFFFF",
+      fx: {"t":"burst","s":"rect","c":["#F2D27A","#C9A24A","#FFFFFF","#2A2A2E"]} },
+    { id: "holiday", name: "Holiday", tag: "December", isNew: false,
+      sw: "linear-gradient(135deg,#A87A22,#F6E3A6 50%,#9C6F1C)",
+      cover: "Scratch to unwrap your holiday offer", revealed: function (a) { return "You unwrapped " + a + " off"; },
+      strip: {"text":"Holiday Sales Event","bg":"#1E6B3A","color":"#FFFFFF","icon":"flake"},
+      foil: ["#A87A22","#F3D98B","#C99A3A","#F6E3A6","#9C6F1C"], foilTitle: "SCRATCH TO UNWRAP", foilSub: "your holiday offer", dark: false,
+      titleColor: "#5A3A06", subColor: "#6E4E14", pat: {"k":"snow","a":"rgba(255,255,255,.62)"},
+      ticketBg: "#FFF9EE", frame: "repeating-linear-gradient(45deg,#C8102E 0 9px,#FFFFFF 9px 18px,#1E6B3A 18px 27px,#FFFFFF 27px 36px)", amount: "#B3122A", line: "#1E3A2A", bow: true,
+      fx: {"t":"fall","s":"flake","c":["#FFFFFF"]} }
   ];
   var COLORS = [{ name: "Navy", hex: "#1F2A44" }, { name: "Red", hex: "#A61E25" }, { name: "Blue", hex: "#1447FF" }];
   var OFFER = { cents: 50000, line: "any pre-owned vehicle", dealer: "Your Dealership" };
-  var theme = THEMES[2], accent = COLORS[1].hex, revealed = false, card = null;   // starts on Red
+  var theme = THEMES.filter(function (t) { return t.id === "holiday"; })[0], accent = COLORS[1].hex, revealed = false, card = null;   // starts on Red
 
   function amount() { return "$" + (OFFER.cents / 100).toLocaleString("en-US"); }
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
@@ -1103,7 +1203,7 @@
   var themesEl = $("sp-themes"), colorsEl = $("sp-colors");
   themesEl.innerHTML = THEMES.map(function (t) {
     // Every theme is live in VinPop (Nov 11, 2026); the small line is the season it suits.
-    return '<button class="sp-th" type="button" data-id="' + t.id + '" aria-pressed="false"><i style="background:' + t.sw + '"></i><span>' + esc(t.name)
+    return '<button class="sp-th" type="button" data-id="' + t.id + '" aria-pressed="false"><i style="background:' + t.sw + '"></i><span>' + esc(t.name) + (t.isNew ? ' <b class="sp-new">New</b>' : '')
       + '<em class="sp-live">' + esc(t.tag) + '</em></span></button>';
   }).join("");
   colorsEl.innerHTML = COLORS.map(function (c) {
@@ -1131,7 +1231,15 @@
     flake: '<svg viewBox="-10 -10 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M0-9V9M-7.8-4.5 7.8 4.5M-7.8 4.5 7.8-4.5"/></svg>',
     star: '<svg viewBox="-10 -10 20 20" fill="currentColor"><path d="M0-9.5 2.6-3.1 9.5-3 4.1 1.3 5.9 8 0 4.2-5.9 8-4.1 1.3-9.5-3-2.6-3.1Z"/></svg>',
     spark: '<svg viewBox="-10 -10 20 20" fill="currentColor"><path d="M0-10 2.2-2.2 10 0 2.2 2.2 0 10-2.2 2.2-10 0-2.2-2.2Z"/></svg>',
-    tag: '<svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3.5A1.5 1.5 0 0 1 3.5 2h6.1c.4 0 .8.2 1.1.4l7 7a1.5 1.5 0 0 1 0 2.1l-6.1 6.1a1.5 1.5 0 0 1-2.1 0l-7-7A1.5 1.5 0 0 1 2 9.6ZM6.5 8a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"/></svg>'
+    tag: '<svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3.5A1.5 1.5 0 0 1 3.5 2h6.1c.4 0 .8.2 1.1.4l7 7a1.5 1.5 0 0 1 0 2.1l-6.1 6.1a1.5 1.5 0 0 1-2.1 0l-7-7A1.5 1.5 0 0 1 2 9.6ZM6.5 8a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"/></svg>',
+    heart: '<svg viewBox="-10 -10 20 20" fill="currentColor"><path d="M0 8C-11 1-8-9 0-4C8-9 11 1 0 8Z"/></svg>',
+    clover: '<svg viewBox="-10 -10 20 20" fill="currentColor"><circle cx="0" cy="-4.5" r="4.2"/><circle cx="-4.2" cy="1.5" r="4.2"/><circle cx="4.2" cy="1.5" r="4.2"/><path d="M-.8 2h1.6L2 10H.4Z"/></svg>',
+    flower: '<svg viewBox="-10 -10 20 20" fill="currentColor"><circle cx="0" cy="-5" r="3.6"/><circle cx="4.8" cy="-1.5" r="3.6"/><circle cx="3" cy="4.2" r="3.6"/><circle cx="-3" cy="4.2" r="3.6"/><circle cx="-4.8" cy="-1.5" r="3.6"/></svg>',
+    sun: '<svg viewBox="-10 -10 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="0" cy="0" r="4" fill="currentColor"/><path d="M0-9.5V-7M0 7V9.5M-9.5 0H-7M7 0H9.5M-6.7-6.7-5-5M5 5 6.7 6.7M-6.7 6.7-5 5M5-5 6.7-6.7"/></svg>',
+    leaf: '<svg viewBox="-10 -10 20 20" fill="currentColor"><path d="M-7 7C-8-4 0-9 8-8C9 0 4 8-7 7Z"/></svg>',
+    moon: '<svg viewBox="-10 -10 20 20" fill="currentColor"><path d="M3-9A9 9 0 1 0 9 3 7 7 0 0 1 3-9Z"/></svg>',
+    tie: '<svg viewBox="-10 -10 20 20" fill="currentColor"><path d="M-3-9H3L1.6-5.5 4 6 0 9.5-4 6-1.6-5.5Z"/></svg>',
+    dollar: '<svg viewBox="-10 -10 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M0-9.5V9.5M5-5C4-7 2-7.5 0-7.5S-5-6.5-5-4 0-1.5 0-.5 5 1.5 5 4.5 2 7.5 0 7.5-4 7-5 5"/></svg>'
   };
   var BOW = '<svg class="sp-bow" viewBox="0 0 64 40" aria-hidden="true">'
     + '<path d="M32 20 C22 2,4 4,6 14 C8 24,24 24,32 20Z" fill="#C8102E" stroke="#8E0B20" stroke-width="1.5"/>'
@@ -1259,6 +1367,101 @@
     c.beginPath(); c.moveTo(x + r, y); c.arcTo(x + w, y, x + w, y + h, r); c.arcTo(x + w, y + h, x, y + h, r);
     c.arcTo(x, y + h, x, y, r); c.arcTo(x, y, x + w, y, r); c.closePath();
   }
+  var FONT = "Inter,Arial,sans-serif";
+  function heartPath(c, x, y, r) {
+    c.beginPath(); c.moveTo(x, y + r * 0.9);
+    c.bezierCurveTo(x - r * 1.7, y - r * 0.1, x - r * 0.7, y - r * 1.35, x, y - r * 0.45);
+    c.bezierCurveTo(x + r * 0.7, y - r * 1.35, x + r * 1.7, y - r * 0.1, x, y + r * 0.9);
+    c.closePath();
+  }
+  function cloverShape(c, x, y, r) {
+    c.beginPath();
+    [[0, -0.48], [-0.46, 0.2], [0.46, 0.2]].forEach(function (p) { c.moveTo(x + p[0] * r + r * 0.42, y + p[1] * r); c.arc(x + p[0] * r, y + p[1] * r, r * 0.42, 0, Math.PI * 2); });
+    c.fill();
+    c.beginPath(); c.moveTo(x, y + r * 0.2); c.quadraticCurveTo(x + r * 0.2, y + r * 0.7, x + r * 0.35, y + r); c.lineWidth = Math.max(1, r * 0.16); c.stroke();
+  }
+  function eggPath(c, x, y, r) { c.beginPath(); c.ellipse(x, y, r * 0.7, r, 0, 0, Math.PI * 2); }
+  function flowerShape(c, x, y, r) {
+    c.beginPath();
+    for (var i = 0; i < 5; i++) { var a = -Math.PI / 2 + i * Math.PI * 2 / 5; c.moveTo(x + Math.cos(a) * r * 0.5 + r * 0.4, y + Math.sin(a) * r * 0.5); c.arc(x + Math.cos(a) * r * 0.5, y + Math.sin(a) * r * 0.5, r * 0.4, 0, Math.PI * 2); }
+    c.fill();
+  }
+  function leafShape(c, x, y, r, rot) {
+    c.save(); c.translate(x, y); c.rotate(rot || 0);
+    c.beginPath(); c.moveTo(0, -r); c.quadraticCurveTo(r * 0.8, -r * 0.1, 0, r); c.quadraticCurveTo(-r * 0.8, -r * 0.1, 0, -r); c.fill();
+    c.restore();
+  }
+  function sunShape(c, x, y, r) {
+    c.beginPath(); c.arc(x, y, r * 0.42, 0, Math.PI * 2); c.fill();
+    c.lineWidth = Math.max(1, r * 0.14); c.lineCap = "round"; c.beginPath();
+    for (var i = 0; i < 8; i++) { var a = i * Math.PI / 4; c.moveTo(x + Math.cos(a) * r * 0.62, y + Math.sin(a) * r * 0.62); c.lineTo(x + Math.cos(a) * r, y + Math.sin(a) * r); }
+    c.stroke();
+  }
+  function pumpkinShape(c, x, y, r) {
+    c.beginPath(); c.ellipse(x - r * 0.38, y, r * 0.45, r * 0.7, 0, 0, Math.PI * 2); c.ellipse(x + r * 0.38, y, r * 0.45, r * 0.7, 0, 0, Math.PI * 2); c.ellipse(x, y, r * 0.5, r * 0.75, 0, 0, Math.PI * 2); c.fill();
+    c.fillRect(x - r * 0.08, y - r * 1.05, r * 0.18, r * 0.35);
+  }
+  function batShape(c, x, y, r) {
+    c.beginPath(); c.moveTo(x, y - r * 0.2);
+    c.quadraticCurveTo(x - r * 0.5, y - r * 0.8, x - r * 1.3, y - r * 0.4);
+    c.quadraticCurveTo(x - r * 0.9, y - r * 0.1, x - r, y + r * 0.3);
+    c.quadraticCurveTo(x - r * 0.6, y + r * 0.05, x - r * 0.45, y + r * 0.35);
+    c.quadraticCurveTo(x - r * 0.2, y + r * 0.1, x, y + r * 0.45);
+    c.quadraticCurveTo(x + r * 0.2, y + r * 0.1, x + r * 0.45, y + r * 0.35);
+    c.quadraticCurveTo(x + r * 0.6, y + r * 0.05, x + r, y + r * 0.3);
+    c.quadraticCurveTo(x + r * 0.9, y - r * 0.1, x + r * 1.3, y - r * 0.4);
+    c.quadraticCurveTo(x + r * 0.5, y - r * 0.8, x, y - r * 0.2);
+    c.fill();
+  }
+  function drawPattern(ctx, t, w, h) {
+    var p = t.pat || { k: "dollar", a: "rgba(20,33,61,.09)" };
+    ctx.textAlign = "center"; ctx.textBaseline = "middle";
+    if (p.k === "plaid") {
+      for (var px = 0; px < w; px += 26) { ctx.fillStyle = p.a; ctx.fillRect(px, 0, 8, h); ctx.fillStyle = p.b; ctx.fillRect(px + 14, 0, 3, h); }
+      for (var py = 0; py < h; py += 26) { ctx.fillStyle = p.a; ctx.fillRect(0, py, w, 8); ctx.fillStyle = p.b; ctx.fillRect(0, py + 14, w, 3); }
+      return;
+    }
+    for (var y = 14, row = 0; y < h + 10; y += 30, row++) {
+      for (var x = (row % 2 ? 19 : 2), col = 0; x < w + 10; x += 34, col++) {
+        var alt = (row + col) % 2, colr = alt && p.b ? p.b : p.a;
+        ctx.fillStyle = colr; ctx.strokeStyle = colr;
+        if (p.k === "dollar") { ctx.font = "700 17px " + FONT; ctx.fillText("$", x, y); }
+        else if (p.k === "percent") { ctx.font = "800 16px " + FONT; ctx.fillText("%", x, y); }
+        else if (p.k === "snow") { ctx.lineWidth = 1.3; snowflake(ctx, x, y, alt ? 6 : 4.5); }
+        else if (p.k === "starspark") { if (alt) { ctx.fillStyle = p.a; star(ctx, x, y, 5.5); } else { ctx.fillStyle = p.b; star(ctx, x, y, 5, 0.22, 4); } ctx.fill(); }
+        else if (p.k === "star") { star(ctx, x, y, 5.5); ctx.fill(); }
+        else if (p.k === "heart") { heartPath(ctx, x, y, alt ? 5 : 6.5); ctx.fill(); }
+        else if (p.k === "clover") { cloverShape(ctx, x, y, alt ? 6 : 7.5); }
+        else if (p.k === "egg") {
+          ctx.fillStyle = [p.a, p.b, p.c, p.d][(row * 3 + col) % 4]; eggPath(ctx, x, y, 6.5); ctx.fill();
+          ctx.strokeStyle = "rgba(255,255,255,.7)"; ctx.lineWidth = 1.2; ctx.beginPath(); ctx.moveTo(x - 4.2, y); ctx.lineTo(x + 4.2, y); ctx.stroke();
+        }
+        else if (p.k === "flower") { flowerShape(ctx, x, y, alt ? 6 : 7.5); }
+        else if (p.k === "sun") { sunShape(ctx, x, y, alt ? 6 : 7.5); }
+        else if (p.k === "leaf") { leafShape(ctx, x, y, alt ? 6 : 7.5, (row * 7 + col * 3) % 6 - 3); }
+        else if (p.k === "pumpkin") { if (alt) { ctx.fillStyle = p.a; pumpkinShape(ctx, x, y, 6.5); } else { ctx.fillStyle = p.b; star(ctx, x, y, 3.5, 0.3, 4); ctx.fill(); } }
+      }
+    }
+  }
+
+  function drawParticle(c, p) {
+    var s = p.s;
+    c.fillStyle = p.col; c.strokeStyle = p.col;
+    switch (p.shape) {
+      case "rect": c.fillRect(-s / 2, -s * 0.8, s, s * 1.6); break;
+      case "star": star(c, 0, 0, s); c.fill(); if (p.col === "#FFFFFF") { c.strokeStyle = "#1D3A8A"; c.lineWidth = 1; c.stroke(); } break;
+      case "heart": heartPath(c, 0, 0, s); c.fill(); if (p.col === "#FFFFFF") { c.strokeStyle = "#D61F4D"; c.lineWidth = 1; c.stroke(); } break;
+      case "clover": c.lineWidth = 1.5; cloverShape(c, 0, 0, s * 1.2); break;
+      case "coin": c.beginPath(); c.arc(0, 0, s * 0.8, 0, Math.PI * 2); c.fill(); c.strokeStyle = "#A67C24"; c.lineWidth = 1.4; c.stroke(); break;
+      case "egg": eggPath(c, 0, 0, s); c.fill(); c.strokeStyle = "rgba(255,255,255,.85)"; c.lineWidth = 1.2; c.beginPath(); c.moveTo(-s * 0.62, 0); c.lineTo(s * 0.62, 0); c.stroke(); break;
+      case "petal": c.beginPath(); c.ellipse(0, 0, s * 0.45, s * 0.9, 0, 0, Math.PI * 2); c.fill(); break;
+      case "leaf": leafShape(c, 0, 0, s * 1.1, 0); break;
+      case "bill": c.fillRect(-s * 1.1, -s * 0.55, s * 2.2, s * 1.1); c.strokeStyle = "rgba(255,255,255,.7)"; c.lineWidth = 1; c.strokeRect(-s * 0.8, -s * 0.32, s * 1.6, s * 0.64); break;
+      case "bat": batShape(c, 0, 0, s); break;
+      case "flake": c.shadowColor = "rgba(40,60,90,.55)"; c.shadowBlur = 2; c.strokeStyle = "#FFFFFF"; c.lineWidth = 1.4; snowflake(c, 0, 0, s + 1.5); break;
+      case "dot": c.shadowColor = "rgba(40,60,90,.5)"; c.shadowBlur = 2; c.fillStyle = "#FFFFFF"; c.beginPath(); c.arc(0, 0, s * 0.6, 0, Math.PI * 2); c.fill(); break;
+    }
+  }
   function paintFoil() {
     var cv = $("sp-foil"); if (!cv) return;
     var t = theme, c = cv.getContext("2d"), dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -1270,25 +1473,14 @@
     var g = c.createLinearGradient(0, 0, fw, fh), stops = [0, .32, .52, .78, 1];
     t.foil.forEach(function (col, i) { g.addColorStop(stops[i], col); });
     c.fillStyle = g; c.fillRect(0, 0, fw, fh);
-    var dark = t.id === "blackfriday" || t.id === "newyear";
+    var dark = t.dark;
     for (var i = 0, n = Math.round(fw * fh / 26); i < n; i++) {
       c.fillStyle = Math.random() < .5 ? (dark ? "rgba(255,255,255,.10)" : "rgba(255,255,255,.35)") : (dark ? "rgba(0,0,0,.25)" : "rgba(70,80,100,.10)");
       c.fillRect(Math.random() * fw, Math.random() * fh, 1, 1);
     }
     c.textAlign = "center"; c.textBaseline = "middle";
-    for (var y = 14, row = 0; y < fh + 10; y += 30, row++) {
-      for (var x = (row % 2 ? 19 : 2), col = 0; x < fw + 10; x += 34, col++) {
-        var alt = (row + col) % 2;
-        if (t.pattern === "dollar") { c.font = "700 17px Inter,Arial,sans-serif"; c.fillStyle = "rgba(20,33,61,.09)"; c.fillText("$", x, y); }
-        else if (t.pattern === "percent") { c.font = "800 16px Inter,Arial,sans-serif"; c.fillStyle = "rgba(242,210,122,.16)"; c.fillText("%", x, y); }
-        else if (t.pattern === "snow") { c.strokeStyle = "rgba(255,255,255,.62)"; c.lineWidth = 1.3; snowflake(c, x, y, alt ? 6 : 4.5); }
-        else if (t.pattern === "stars") {
-          if (alt) { c.fillStyle = "rgba(242,210,122,.38)"; star(c, x, y, 5.5); c.fill(); }
-          else { c.fillStyle = "rgba(255,255,255,.30)"; star(c, x, y, 5, .22, 4); c.fill(); }
-        }
-        else if (t.pattern === "flagstars") { c.fillStyle = alt ? "rgba(178,34,52,.30)" : "rgba(29,58,138,.28)"; star(c, x, y, 5.5); c.fill(); }
-      }
-    }
+    drawPattern(c, t, fw, fh);
+    c.textAlign = "center"; c.textBaseline = "middle";
     c.font = "800 21px Inter,Arial,sans-serif";
     var tw = Math.max(c.measureText(t.foilTitle).width, 150) + 36;
     c.fillStyle = dark ? "rgba(0,0,0,.28)" : "rgba(255,255,255,.28)";
@@ -1297,6 +1489,7 @@
     c.font = "500 13px Inter,Arial,sans-serif"; c.fillStyle = t.subColor;
     c.fillText(t.foilSub, fw / 2, fh / 2 + 15);
     c.globalCompositeOperation = "destination-out";
+    c.strokeStyle = "#000"; c.fillStyle = "#000";   // the brush erases by its alpha
     c.lineCap = "round"; c.lineJoin = "round"; c.lineWidth = BRUSH * 2;
     strokes = 0;
   }
@@ -1368,24 +1561,29 @@
     stopFx();
     var sr = sizeFx(), t = theme, i, tk = $("sp-tk"), c = { x: sr.width / 2, y: sr.height / 2 };
     if (tk) { var r = tk.getBoundingClientRect(); c = { x: r.left - sr.left + r.width / 2, y: r.top - sr.top + r.height / 2 }; }
-    if (t.effect === "confetti" || t.effect === "stars") {
-      var cols = t.fx || [accent, "#FFB020", "#0D9488", "#14213D", "#8EA6FF"];
-      for (i = 0; i < (t.effect === "stars" ? 34 : 46); i++) {
-        var a = Math.random() * Math.PI * 2, sp = 3 + Math.random() * 5;
-        parts.push({ x: c.x, y: c.y, vx: Math.cos(a) * sp, vy: Math.sin(a) * sp - 3, g: .16, life: 0, max: 70 + Math.random() * 30,
-          s: t.effect === "stars" ? 5 + Math.random() * 4 : 4 + Math.random() * 3, col: cols[i % cols.length],
-          shape: t.effect === "stars" ? "star" : "rect", rot: Math.random() * 6, vr: (Math.random() - .5) * .3 });
+    var e = t.fx || {}, W = sr.width, H = sr.height, ctr = c;
+    var cols = e.c || [accent, "#FFB020", "#0D9488", "#14213D", "#8EA6FF"];
+    if (e.t === "burst") {
+      var n = e.n || (e.s === "rect" ? 46 : 34);
+      for (i = 0; i < n; i++) {
+        var a = Math.random() * Math.PI * 2, sp = 3 + Math.random() * 5, shape = e.s;
+        if (shape === "clovercoin") shape = i % 3 === 0 ? "coin" : "clover";
+        parts.push({ x: ctr.x, y: ctr.y, vx: Math.cos(a) * sp, vy: Math.sin(a) * sp - 3, g: .16, life: 0, max: 70 + Math.random() * 30,
+          s: shape === "rect" ? 4 + Math.random() * 3 : 5 + Math.random() * 4, col: shape === "coin" ? "#E7C25A" : cols[i % cols.length],
+          shape: shape, rot: Math.random() * 6, vr: (Math.random() - .5) * .3 });
       }
-    } else if (t.effect === "snow") {
-      for (i = 0; i < 90; i++) {
-        parts.push({ x: Math.random() * sr.width, y: -10 - Math.random() * sr.height * .9, vy: .9 + Math.random() * 1.6,
-          life: 0, max: 400, s: 2.5 + Math.random() * 4, shape: Math.random() < .55 ? "flake" : "dot",
-          rot: Math.random() * 6, vr: (Math.random() - .5) * .04, sway: Math.random() * 6, amp: .4 + Math.random() * .8 });
+    } else if (e.t === "fall") {
+      var snow = e.s === "flake", count = snow ? 90 : 46;
+      for (i = 0; i < count; i++) {
+        parts.push({ x: Math.random() * W, y: -10 - Math.random() * H * .9, vy: .9 + Math.random() * 1.6, life: 0, max: 600, fall: true,
+          s: snow ? 2.5 + Math.random() * 4 : 5 + Math.random() * 4, col: cols[i % cols.length],
+          shape: snow ? (Math.random() < .55 ? "flake" : "dot") : e.s, rot: Math.random() * 6,
+          vr: (Math.random() - .5) * (snow ? .04 : .08), sway: Math.random() * 6, amp: .4 + Math.random() * .9 });
       }
-    } else if (t.effect === "fireworks") {
+    } else if (e.t === "fireworks") {
       [[.3, .2], [.72, .14], [.5, .32], [.22, .44], [.78, .4]].forEach(function (p, k) {
         timers.push(setTimeout(function () {
-          var col = t.fx[k % t.fx.length], bx = sr.width * p[0], by = sr.height * p[1];
+          var col = cols[k % cols.length], bx = W * p[0], by = H * p[1];
           for (var j = 0; j < 46; j++) {
             var a2 = j / 46 * Math.PI * 2 + Math.random() * .1, sp2 = 1.6 + Math.random() * 2.8;
             parts.push({ x: bx, y: by, px: bx, py: by, vx: Math.cos(a2) * sp2, vy: Math.sin(a2) * sp2, g: .035, drag: .975,
@@ -1403,28 +1601,15 @@
     parts = parts.filter(function (p) { return p.life < p.max && p.y < r.height + 20; });
     parts.forEach(function (p) {
       p.life++;
-      if (p.shape === "flake" || p.shape === "dot") { p.sway += .03; p.x += Math.sin(p.sway) * p.amp; p.y += p.vy; }
+      if (p.fall) { p.sway += .03; p.x += Math.sin(p.sway) * p.amp; p.y += p.vy; }
       else { p.px = p.x; p.py = p.y; if (p.drag) { p.vx *= p.drag; p.vy *= p.drag; } p.vy += p.g; p.x += p.vx; p.y += p.vy; }
       p.rot += p.vr || 0;
-      fctx.globalAlpha = p.shape === "flake" || p.shape === "dot" ? 1 : Math.max(0, 1 - p.life / p.max);
+      fctx.globalAlpha = p.fall ? 1 : Math.max(0, 1 - p.life / p.max);
       fctx.save();
       if (p.shape === "spark") {
         fctx.strokeStyle = p.col; fctx.lineWidth = p.s; fctx.lineCap = "round";
         fctx.beginPath(); fctx.moveTo(p.px, p.py); fctx.lineTo(p.x, p.y); fctx.stroke();
-      } else {
-        fctx.translate(p.x, p.y); fctx.rotate(p.rot || 0);
-        if (p.shape === "rect") { fctx.fillStyle = p.col; fctx.fillRect(-p.s / 2, -p.s * .8, p.s, p.s * 1.6); }
-        else if (p.shape === "star") {
-          fctx.fillStyle = p.col; star(fctx, 0, 0, p.s); fctx.fill();
-          if (p.col === "#FFFFFF") { fctx.strokeStyle = "#1D3A8A"; fctx.lineWidth = 1; fctx.stroke(); }
-        } else if (p.shape === "flake") {
-          fctx.shadowColor = "rgba(40,60,90,.55)"; fctx.shadowBlur = 2;
-          fctx.strokeStyle = "#FFFFFF"; fctx.lineWidth = 1.4; snowflake(fctx, 0, 0, p.s + 1.5);
-        } else if (p.shape === "dot") {
-          fctx.shadowColor = "rgba(40,60,90,.5)"; fctx.shadowBlur = 2;
-          fctx.fillStyle = "#FFFFFF"; fctx.beginPath(); fctx.arc(0, 0, p.s * .6, 0, Math.PI * 2); fctx.fill();
-        }
-      }
+      } else { fctx.translate(p.x, p.y); fctx.rotate(p.rot || 0); drawParticle(fctx, p); }
       fctx.restore();
     });
     fctx.globalAlpha = 1;
